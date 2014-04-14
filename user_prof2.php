@@ -7,8 +7,11 @@
     <link type="text/css" href="user_prof.css" rel="stylesheet" />
 	</head>
 
+	
+
   <body>
-  	<?php include 'untitled.php' ?>
+    <?php include('untitled.php') ?>
+  	<div id="wrapper">
   	<div>
   		<h2 id="userheading">Hi User!</h2>
   	</div>
