@@ -24,11 +24,12 @@ function set_new_index(direction){
 	}
 };
 
+
 function add_to_fav(){
 	img_urls.append("program_logos/amphibious.png");
 }
 function update_div(){
-	$("#favorites_wrapper").html("<div class='row'><div class='col-md-1'></div><div class='col-md-3'><img src='program_logos/amphibious.png'></div></div>");
+	$("#favorites_wrapper").html("<div class='row'><div class='col-md-1'></div><div class='col-md-3'><img id='fav_img' src='program_logos/amphibious.png'></div></div>");
 }
 $("#add_favorite").click(function(e) {
 	/*$("#favorites_wrapper").html("<div class='row'><div class='col-md-1'></div><div class='col-md-3'><img src='program_logos/amphibious.png'></div></div>");*/

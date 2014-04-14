@@ -16,6 +16,40 @@ img {
 	margin-bottom: 40px;
 }
 
-#profile_review_separator {
-	margin-botton: 40px;
+.sticky {
+	width:160px;
+	max-width: 100%;
+	height:160px;
+	max-height: 100%
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+	border: 5px transparent #1900FF;
+	background-color: #4972E3;
+	margin-bottom: 20px;
+	color: #FFFFFF;
+	font-size: 20px;
+}
+
+#new_search_button{
+	position: relative;
+	top: 75px;
+	left: 55px;
+	background-color: #4972E3;
+	border: 0px transparent;
+	color: #FFFFFF;
+	width: 200px;
+	height: 200px;
+}
+
+#fav_img {
+	border: 1px solid #000000;
+}
+#search_this {
+	position: relative;
+	top: 20px;
+	left: 20px;	
+}
+.sticky .row {
+	text-align: center;
 }

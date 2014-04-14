@@ -26,15 +26,57 @@
 					<h2>Search</h2>
 				</div>
 			</div>
+			<div class="row">&nbsp</div>
 			<div class="search_wrapper">
 				<div class="row">
+					
+					<div class="col-md-2">
+						<button type="button" class="sticky">New or update Search</button>
+					</div>
 					<div class="col-md-1"></div>
 					<div class="col-md-3">
-						<a href="#" class="thumbnail">
-							<img data-src="holder.js/100%x180" alt="...">
-						</a>
+						<div class="sticky">
+							<div class="row">
+								<div class="col-md-3"></div>
+								<div class="col-md-6">
+									<h3>Cost</h3>
+								</div>
+								<div class="row">
+									<div class="col-md-3"></div>
+									<div class="col-md-6">Free</div>
+								</div>
+							</div>
+						</div>
 					</div>
-				</div>
+					<div class="col-md-3">
+						<div class="sticky">
+							<div class="row">
+								<div class="col-md-3"></div>
+								<div class="col-md-6">
+									<h3>Location</h3>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3"></div>
+								<div class="col-md-6">02215</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="sticky">
+							<div class="row">
+								<div class="col-md-3"></div>
+								<div class="col-md-6">
+									<h3>Cost</h3>
+								</div>
+								<div class="row">
+									<div class="col-md-3"></div>
+									<div class="col-md-6">Free</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				
 				<div class="row">
 					<div class="col-md-2">
 						<button type="button" class="btn btn-primary" id="submit_search">Submit Search
@@ -54,6 +96,7 @@
 				<div class="row">
 					<div class="col-md-1"></div>
 					<div class="col-md-3">No results yet</div>
+
 				</div>
 			</div>
 				<div class="row" id="search_header">
