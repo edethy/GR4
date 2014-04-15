@@ -2,61 +2,102 @@
 
 <html>
   <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Teacher Name</title>
+
+    <title>Teacher Profile</title>
     <link type="text/css" href="user_prof.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link type="text/css" href="nav_bar.css" rel="stylesheet" />
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link type='text/css' rel='stylesheet' href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <link type='text/css' rel='stylesheet' href="default.css" />
 	</head>
 
 	
 
   <body>
-    <?php include('untitled.php') ?>
-  	<div id="wrapper">
-  	<div>
-  		<h2 id="userheading">Hi User!</h2>
-  	</div>
+    <?php include("main_search.php") ?>
+  	<div id="container">
+  	<div class="row">
+      <div class="col-md-8">
+  		  <h2 id="userheading">Welcome Back Fernanda!</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <h3>Your Profile </h3>
+      </div>
+    </div>
 
-    <div id="userinfo">
-    	<h3> Your Profile </h3>
-    	<div class="pic_col">
-    		<img src='teacher2.jpeg' id='teacher_info'></img>
- 			</div>
- 			<div class="prof_info">
- 				<ul>
- 					<li><b>School District</b></li>
- 					<li><b>School</b></li>
- 					<li><b>Grades Teaching</b></li>
- 				</ul>
- 			</div>
- 			<div class='prof_data'>
- 				<ul>
- 					<li>Boston Public School</li>
- 					<li>Boston Latin Academy</li>
- 					<li>First, Second
- 				</ul>
- 			</div>
- 		</div>
+    <div class="row">&nbsp</div>
 
- 		<div class='reviewed_programs'>
- 			<h3 id="review_header"> Recently Reviewed Programs </h3>
- 			<div class='l_arrow'>
- 				<p><span id='left_arrow'></span></p>
- 			</div>
- 			<div id='prog1'>
- 				<img src='amph.jpeg' class='review_img'></img>
- 			</div>
- 			<div id='prog2'>
- 				<img src='lti.jpeg' class='review_img'></img>
- 			</div>
- 			<div id='prog3'>
- 				<img src='cri.jpg' class='review_img'></img>
- 			</div>
- 			<div id='prog4'>
- 				<img src='ymca.jpeg' class='review_img'></img>
- 			</div>
- 			<div class='right_arrow'></div>
- 		</div>
- 	</div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-2">
+        <img src='teacher_pics/teacher.jpeg' id='teacher_pic'></img>
+      </div>
+      <div class="col-md-3">
+        <div class="list-group">
+          <a href="#" class="list-group-item">
+            <h4 class="list-group-item-heading">School District</h4>
+            <p class="list-group-item-text">Boston Public Schools </p>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="list-group">
+          <a href="#" class="list-group-item">
+            <h4 class="list-group-item-heading">School</h4>
+            <p class="list-group-item-text">Boston Latin</p>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="list-group">
+          <a href="#" class="list-group-item">
+            <h4 class="list-group-item-heading">Grades Teaching</h4>
+            <p class = "list-group-item-text">First and Second Grades </p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">&nbsp</div>
+    <div class="row">&nbsp</div>
+    <div class="row">&nbsp</div>
+    <div class="row">
+      <div class="col-md-8">
+        <h3>Recently Reviewed Programs </h3>
+      </div>
+    </div>
+    <div class="row">&nbsp</div>
+    <div class="row">&nbsp</div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-2">
+            <a href="#" class="thumbnail">
+              <img src="program_logos/amphibious.png" alt="...">
+            </a>
+      </div>
+      <div class="col-md-3">
+            <a href="#" class="thumbnail">
+              <img src="program_logos/lti.png" alt="...">
+            </a>
+      </div>
+      <div class="col-md-3">
+            <a href="#" class="thumbnail">
+              <img src="program_logos/ymca.jpeg" alt="...">
+            </a>
+      </div>
+      <div class="col-md-3">
+            <a href="#" class="thumbnail">
+              <img src="program_logos/cri.jpg" alt="...">
+            </a>
+      </div>
+    </div>
  	</body>
-
+</html>
 
