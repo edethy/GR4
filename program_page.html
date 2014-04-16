@@ -10,7 +10,7 @@
 
 		$(document).ready(function() {
 			$('.rating span').click(function() {
-				$('.selected').removeClass('selected');
+				$('.selected ,rating .comment_rating').removeClass('selected');
 				$(this).addClass('selected');
 			})
 
@@ -54,13 +54,28 @@
 	</head>
 	<body>
 		<?php include("main_search.php") ?>
-		<div id="title_logo_stars">
-			<div id="program_title"> Amphibious Achievement </div>
-			<div id="program_logo_box"><img id="program_logo" src="program_logos/amphibious.png"></div>
-			<div style="font-size:25pt; color:yellow; margin-left:8px;">
-				<span height="250">&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-			</div>
-		</div>
+		<div id="program_title"> Amphibious Achievement </div>
+		<table>
+			<tr>
+				<td>
+					<div id="title_logo_stars">
+						<div id="program_logo_box"><img id="program_logo" src="program_logos/amphibious.png"></div>
+						<div style="font-size:25pt; color:yellow; margin-left:8px;">
+							<span height="250">&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+						</div>
+					</div>
+				</td>
+				<td>
+					<div style="position:relative; margin-left:5%; margin-right:5%;">
+						<p> <b> Location: </b> Cambridge, MA </p>
+						<p> <b> Cost: </b> Free </p>
+						<p> <b> Age: </b> 9-12 Graders </p>
+						<p> <b> Activity: </b> Academics, Athletics, College-Prep </p>
+						<p> <b> Description: </b> Amphibious Achievement is a dual athletic and academic mentorship program for inner-city high school students from the Boston Public School system. It was founded in 2010 by MIT student-athletes who saw the benefits that athletics can have on academic and personal success. Through the synergy of coaching in swimming and rowing and tutoring in college preparatory academics, the program fosters success in and out of the water for low-income urban high school students. </p>
+					</div>
+				</td>
+			</tr>
+		</table>
 		<div id="comment_table">
 			<div class="thumbnail comment">
 				<div class="row">
