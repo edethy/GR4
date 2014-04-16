@@ -20,12 +20,14 @@ div.program img.result_stars {
   margin-top:6px; 
   float:right; 
   margin-bottom:1%; 
-  font-size:24pt;"
+  font-size:24pt;
+  outline:none;
 }
 
 .btnAddToFavorites.clicked {
   background-color: red;
   color:white;
+  outline:none;
 }
 
 .rating > span {
