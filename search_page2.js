@@ -37,12 +37,12 @@ function build_favorites(){
 		var img_url = favorites[i].img;
 		var name = favorites[i].name;
 		var link = favorites[i].url;
-		console.log(i, "iterating");
 		if ($("#fav_img"+counter).length !=0){
 			$("#fav_img"+counter).attr({src:img_url, "data-link": link, "data-name": name});
-			$("#p_name")[0].innerHTML = name;
+			$("#p_name"+counter)[0].innerHTML = name;
 		} else {
-			$(".fav"+counter).append("<div class='caption'><h4 id='p_name'>"+name+"</h4>"+
+			console.log(name, counter, "something was NOT previously here");
+			$(".fav"+counter).append("<div class='caption'><h4 id='p_name"+counter+"'>"+name+"</h4>"+
 				"<p id='prog_city'>Cambridge, MA </p>"+
 				"<p><a href='"+link+"' class='label label-default fav_cap"+counter+"' rel='tooltip' title='Learn More'>Learn More</a></p></div>"+
 				"<img class='fav_img' id='fav_img"+counter+"' src='"+img_url+"' +data-name='"+name+"'+ data-link='"+link+"'>");
@@ -53,40 +53,43 @@ function build_favorites(){
 				$(".caption", this).hide();
 			})
 		}
-		/*if ($("#fav_img"+counter).length==0){
-			$(".fav"+counter).append("<div class='caption'><h4>"+name+"</h4>"+
-				"<p id='prog_city'>Cambridge, MA </p>"+
-				"<p><a href='"+link+"' class='label label-default fav_cap"+counter+"' rel='tooltip' title='Learn More'>Learn More</a></p></div>"+
-				"<img class='fav_img' id='fav_img"+counter+"' src='"+img_url+"' +data-name='"+name+"'+ data-link='"+link+"'>");
-			$(".fav"+counter).mouseenter(function() {
-				$(".caption", this).show();
-			});
-			$(".fav"+counter).mouseleave(function() {
-				$(".caption", this).hide();
-			})
-		} else {
-			console.log(counter, "already exists");
-			$("#fav_img"+counter).attr({src:img_url, "data-link": link, "data-name": name});
-			$(".p_name")[0].innerHTML = "SUP";
-		}*/
 		counter +=1;
 	}
-
+	set_hovers();
 	if (favorites.length > 3){
 		$(".left_arrow_slot").html("<span class='glyphicon glyphicon-chevron-left' id='left_arrow'></span>");
 		$(".right_arrow_slot").html("<span class='glyphicon glyphicon-chevron-right' id='right_arrow'></span>");
-	
+
+		if (left_hover){
+			$("#left_arrow").css("color","black");
+		} else {
+			$("#left_arrow").css("color","grey");
+		}
+		if (right_hover) {
+			$("#right_arrow").css("color","black");
+		} else {
+			$("#right_arrow").css("color","grey");
+		}
+
 		$("#left_arrow").on("mouseenter", function(e){
 			left_hover_func();
 		})
 		$("#left_arrow").on("mouseleave", function(e){
-			$("#left_arrow").css("color", "black");
+			if(left_hover){
+				$("#left_arrow").css("color", "black");
+			} else {
+				$("#left_arrow").css("color", "grey");
+			}
 		})
 		$("#right_arrow").on("mouseenter", function(e){
 			right_hover_func();
 		})
 		$("#right_arrow").on("mouseleave", function(e){
-			$("#right_arrow").css("color", "black");
+			if(right_hover){
+				$("#right_arrow").css("color", "black");
+			} else {
+				$("#right_arrow").css("color", "grey");
+			}
 		})
 
 		$("#left_arrow").on("click", function(e) {
@@ -102,7 +105,6 @@ function build_favorites(){
 			}	
 		})
 	}
-	set_hovers();
 }
 
 function add_to_fav(favorite) {
@@ -125,17 +127,8 @@ $(".container").on("click", ".btnAddToFavorites", function(e){
 	var new_fav = new Favorite(url, name, "program_page.html");
 	add_to_fav(new_fav);
 	build_favorites();
+	e.stopImmediatePropagation();
 })
-
-/*$(".fav_img").mouseenter(function(){
-	console.log('entering');
-	$(".caption").toggle();
-});
-
-$("#favorites_wrapper").mouseleave(function(){
-	$(".caption").hide();
-});*/
-
 
 function right_hover_func(){
 	if(right_hover){
