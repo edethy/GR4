@@ -8,6 +8,7 @@
 		<link type='text/css' rel='stylesheet' href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
 		<link type='text/css' rel='stylesheet' href="default.css" />
 		<script src="search_list_results.js"></script>
+		<script src="search_page2.js"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -29,7 +30,7 @@
 											<h1> {{program.title}} </h1>
 											<div> {{program.location}} </div>
 											<div> {{program.description}} <a href={{program.website}}> Learn More </a> </div>
-											<button id="btnAddToFavorites" type="button" class="btn btn-default" style="height:100%; margin-top:6px; float:right; margin-bottom:1%;">Add To Favorites!</button>
+											<button type="button" class="btn btn-default btnAddToFavorites" style="height:100%; margin-top:6px; float:right; margin-bottom:1%;" data-url={{program.logo}} data-name={{program.title}}>Add To Favorites!</button>
 										</div>										
 									</div>
 								</div>

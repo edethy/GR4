@@ -88,9 +88,6 @@
 				<div class="col-md-3">
 					<h2 id='favorites' style="color:blue">Favorites</h2>
 				</div>
-				<div class="col-md-3">
-					<button type="button" class="btn btn-primary" id="add_favorite">Add to Favorites</button>
-				</div>
 			</div>
 			<div id="favorites_wrapper">
 				<div class="row" id="no_favorites">
@@ -115,8 +112,9 @@
 				</div>
 				
 				<div id="results_wrapper">
-					<div class="row">
-						<div class="col-md-10">No results</div>
+					<div class="row search_res">
+						<div class='col-md-1'></div>
+						<div class="col-md-10">You have no search results.</div>
 					</div>
 				</div>
 	</body>
