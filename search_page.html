@@ -20,14 +20,17 @@
 								<div class="row">
 									<div class="col-md-3">
 										<div> <img src= {{program.logo}} class="result_img"/> </div>
-										<div class="rating">
-											<span height="250">&#9734;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span>
+										<div style="font-size:25pt; margin-left:15%; color:yellow">
+											<span height="250">&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
 										</div>
 									</div>
 									<div class="col-md-8">
-										<h1> {{program.title}} </h1>
-										<div> {{program.location}} </div>
-										<div> {{program.description}} <a href={{program.website}}> Learn More </a> </div>
+										<div class="row" style="height:100%;">
+											<h1> {{program.title}} </h1>
+											<div> {{program.location}} </div>
+											<div> {{program.description}} <a href={{program.website}}> Learn More </a> </div>
+											<button id="btnAddToFavorites" type="button" class="btn btn-default" style="height:100%; margin-top:6px; float:right; margin-bottom:1%;">Add To Favorites!</button>
+										</div>										
 									</div>
 								</div>
 							</div>
