@@ -9,6 +9,13 @@
 		<link type='text/css' rel='stylesheet' href="default.css" />
 		<script src="search_list_results.js"></script>
 		<script src="search_page2.js"></script>
+		<script>
+			$(document).ready(function() {
+				$(".btnAddToFavorites").click(function(evt) {
+					$(this).toggleClass("clicked");
+				});
+			});
+		</script>
 	</head>
 	<body>
 		<div class="container">
@@ -30,8 +37,10 @@
 											<h1> {{program.title}} </h1>
 											<div> {{program.location}} </div>
 											<div> {{program.description}} <a href={{program.website}}> Learn More </a> </div>
-											<button type="button" class="btn btn-default btnAddToFavorites" style="height:100%; margin-top:6px; float:right; margin-bottom:1%;" data-url={{program.logo}} data-name={{program.title}}>Add To Favorites!</button>
 										</div>										
+									</div>
+									<div class="col-md-1">
+										<button type="button" class="btn btn-default btnAddToFavorites glyphicon glyphicon-heart" data-url={{program.logo}} data-name={{program.title}}></button>
 									</div>
 								</div>
 							</div>
