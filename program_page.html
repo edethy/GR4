@@ -10,7 +10,7 @@
 
 		$(document).ready(function() {
 			$('.rating span').click(function() {
-				$('.selected ,rating .comment_rating').removeClass('selected');
+				$('.rating .selected').removeClass('selected');
 				$(this).addClass('selected');
 			})
 
@@ -29,7 +29,7 @@
 			        var teacher_name = $('<div>').addClass('row').text('Ms. Shilpa Agrawal');
 			        var school = $('<div>').addClass('row').text('Boston English High School');
 			        var new_rating = $('.rating').clone();
-			        new_rating.addClass('comment_rating');
+			        new_rating.addClass('comment_rating row');
 			        new_rating.removeClass('rating');
 			        teacher_description.append(teacher_name);
 			        teacher_description.append(school);
