@@ -92,7 +92,7 @@
 			<div id="favorites_wrapper">
 				<div class="row" id="no_favorites">
 					<div class="col-md-1"></div>
-					You have no favorites yet.  Start searching to find some!
+					<div class="well well-lg fav-well">You have no favorites yet!</div>
 				</div>
 				<div class="row">
 					<div class="col-md-1"></div>
@@ -114,7 +114,7 @@
 				<div id="results_wrapper">
 					<div class="row search_res">
 						<div class='col-md-1'></div>
-						<div class="col-md-10">You have no search results.</div>
+						<div class="well well-lg search-well">You have no search results </div>
 					</div>
 				</div>
 	</body>

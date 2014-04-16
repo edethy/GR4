@@ -78,12 +78,6 @@ span.glyphicon-chevron-right {
 	top: 50px;
 	left: 75px;
 }
-#left_arrow {
-	color: black;
-}
-#right_arrow {
-	color: black;
-}
 
 .caption {
 	position: absolute;
@@ -101,4 +95,12 @@ span.glyphicon-chevron-right {
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 	display: none;
+}
+.fav-well {
+	text-align: center;
+	font-size: 20px;
+}
+.search-well {
+	text-align: center;
+	font-size: 20px;
 }
