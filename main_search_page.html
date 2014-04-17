@@ -97,11 +97,17 @@
 				<div class="row">
 					<div class="col-md-1"></div>
 					<div class="col-md-1 left_arrow_slot"></div>
-					<div class="col-md-2 fav1"></div>
+					<div class="wrapper_fav1">
+						<div class="col-md-2 fav1"></div>
+					</div>
 					<div class="col-md-1"></div>
-					<div class="col-md-2 fav2"></div>
+					<div class="wrapper_fav2">
+						<div class="col-md-2 fav2"></div>
+					</div>
 					<div class="col-md-1"></div>
-					<div class="col-md-2 fav3"></div>
+					<div class="wrapper_fav3">
+						<div class="col-md-2 fav3"></div>
+					</div>
 					<div class="col-md-1 right_arrow_slot"></div>
 				</div>
 			</div>
