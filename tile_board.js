@@ -27,7 +27,7 @@ Should be placed in the div that we want the tile to occupy.
 **/
 this.show= function(div) {
 	var show_div = document.getElementById(div); 
-	show_div.innerHTML= this.html; 
+	show_div.innerHTML=this.html; 
 }
 
 

@@ -10,6 +10,10 @@
 		<link type="text/css" href="search_page2.css" rel="stylesheet" />
 		<script src="search_list_results.js"></script>
 		<script src="search_page2.js"></script>
+		<script src= "tile.js"></script>
+		<script src= "tile_board.js"></script>
+		<script src= "widget_menu.js"></script>
+		<script src= "search_text.js"></script>
 		 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Main Search Page</title>
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
