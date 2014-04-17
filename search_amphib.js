@@ -91,31 +91,6 @@ function build_favorites(){
 	var max_index = Math.min(favorites.length-1, current_index + 2);
 	var counter = 1;
 
-	if (favorites.length == 0){
-		//We have no favorites and should say that
-		$("#favorites_wrapper").html('<div class="row" id="no_favorites">'+
-			'<div class="col-md-1"></div>'+
-			'<div class="well well-lg fav-well">You have no favorites!</div>'+
-			'</div>'+
-			'<div class="row">'+
-			'<div class="col-md-1"></div>'+
-			'<div class="col-md-1 left_arrow_slot"></div>'+
-			'<div class="wrapper_fav1">'+
-			'<div class="col-md-2 fav1"></div>'+
-			'</div>'+
-					'<div class="col-md-1"></div>'+
-					'<div class="wrapper_fav2">' +
-						'<div class="col-md-2 fav2"></div>' +
-					'</div>' +
-					'<div class="col-md-1"></div>' +
-					'<div class="wrapper_fav3">' +
-						'<div class="col-md-2 fav3"></div>' +
-					'</div>' +
-					'<div class="col-md-1 right_arrow_slot"></div>' +
-				'</div>'
-			)
-	} else{
-
 	for (var j=1;j<=3;j++){
 		var node_remove=$(".wrapper_fav"+j);
 		$(".fav"+j).remove();
@@ -123,9 +98,6 @@ function build_favorites(){
 	}
 
 	for (var i = current_index; i <= max_index; i++) {
-		if (favorites.length == 0){
-			
-		}
 		var img_url = favorites[i].img;
 		var name = favorites[i].name;
 		var link = favorites[i].url;
@@ -149,7 +121,6 @@ function build_favorites(){
 	set_hovers();
 	make_hovers();
 }
-}
 
 function add_to_fav(favorite) {
 	if (jQuery.inArray(favorite.name, favorite_names)==-1){
@@ -166,6 +137,8 @@ function add_to_fav(favorite) {
 $("#submit_search").click(function(e){
 	$("#results_wrapper").load("search_page.html");
 })
+
+$("#results_wrapper").load("search_page_amphib.html");
 
 $(".container").on("click", ".btnAddToFavorites", function(e){
 	if ($("#no_favorites").length != 0){
@@ -189,5 +162,11 @@ function left_hover_func() {
 		$("#left_arrow").css("color","blue");
 	}
 }
+$("#search_by_program").on("keypress", function(e) {
+	if(e.which == 13){
+		window.location.href = "dummy_page.php";
+		return false;
+	}
+})
 
 })
