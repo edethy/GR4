@@ -91,6 +91,31 @@ function build_favorites(){
 	var max_index = Math.min(favorites.length-1, current_index + 2);
 	var counter = 1;
 
+	if (favorites.length == 0){
+		//We have no favorites and should say that
+		$("#favorites_wrapper").html('<div class="row" id="no_favorites">'+
+			'<div class="col-md-1"></div>'+
+			'<div class="well well-lg fav-well">You have no favorites!</div>'+
+			'</div>'+
+			'<div class="row">'+
+			'<div class="col-md-1"></div>'+
+			'<div class="col-md-1 left_arrow_slot"></div>'+
+			'<div class="wrapper_fav1">'+
+			'<div class="col-md-2 fav1"></div>'+
+			'</div>'+
+					'<div class="col-md-1"></div>'+
+					'<div class="wrapper_fav2">' +
+						'<div class="col-md-2 fav2"></div>' +
+					'</div>' +
+					'<div class="col-md-1"></div>' +
+					'<div class="wrapper_fav3">' +
+						'<div class="col-md-2 fav3"></div>' +
+					'</div>' +
+					'<div class="col-md-1 right_arrow_slot"></div>' +
+				'</div>'
+			)
+	} else{
+
 	for (var j=1;j<=3;j++){
 		var node_remove=$(".wrapper_fav"+j);
 		$(".fav"+j).remove();
@@ -123,6 +148,7 @@ function build_favorites(){
 	}
 	set_hovers();
 	make_hovers();
+}
 }
 
 function add_to_fav(favorite) {
