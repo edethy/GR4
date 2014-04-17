@@ -1,7 +1,13 @@
-#tile_bar {
-	overflow-x: scroll; 
-	position: relative; 
-	float: left; 
+.popover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1010;
+  display: none;
+  max-width: 600px;
+  padding: 1px;
+  text-align: left;
+  white-space: normal;
 }
 
 img {
@@ -37,6 +43,7 @@ img {
 	color: #0C2C52;
 	font-size: 20px;
 	padding: 0px;
+	margin-right: 50px; 
 }
 
 #new_search_button{

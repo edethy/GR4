@@ -17,6 +17,8 @@ this.addTile = function(tile) {
 	var index = this.tiles.length; 
 	this.tiles[index] = tile; 
 	this.html= this.html+ tile.insides(); 
+	
+	console.log(this.html); 
 
 
 }

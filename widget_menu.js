@@ -11,12 +11,12 @@ this.html= '<div id="widget_menu"><div class= "btn-group btn-group-justified">';
 
 this.makeButton = function(source, name) {
 	var outer_div= $("<div>", { class: "btn-group parameter"});
-	var button=  $("<button>", { type: "btn-group parameter", class: "btn btn-default", id: name});
+	var button=  $("<button>", { type: "btn-group parameter", class: "btn btn-default"});
 	var image= "<img src="+source+">"; 
 	
 	button.html(image); 
 	outer_div.append(button); 
-	//button.attr("id", name); 
+	button.attr("id", name); 
 	
 	return outer_div; 
 
