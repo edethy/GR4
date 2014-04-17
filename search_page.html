@@ -8,6 +8,15 @@
 		<link type='text/css' rel='stylesheet' href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
 		<link type='text/css' rel='stylesheet' href="default.css" />
 		<script src="search_list_results.js"></script>
+		<script src="search_page2.js"></script>
+		<script>
+		/*	$(document).ready(function() {
+				$(".btnAddToFavorites").click(function(evt) {
+					console.log("button script search page");
+					$(this).toggleClass("clicked");
+				});
+			});*/
+		</script>
 	</head>
 	<body>
 		<div class="container">
@@ -20,14 +29,19 @@
 								<div class="row">
 									<div class="col-md-3">
 										<div> <img src= {{program.logo}} class="result_img"/> </div>
-										<div class="rating">
-											<span height="250">&#9734;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span>
+										<div style="font-size:25pt; margin-left:15%; color:yellow">
+											<span height="250">&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
 										</div>
 									</div>
 									<div class="col-md-8">
-										<h1> {{program.title}} </h1>
-										<div> {{program.location}} </div>
-										<div> {{program.description}} <a href={{program.website}}> Learn More </a> </div>
+										<div class="row" style="height:100%;">
+											<h1> {{program.title}} </h1>
+											<div> {{program.location}} </div>
+											<div> {{program.description}} <a href={{program.website}}> Learn More </a> </div>
+										</div>										
+									</div>
+									<div class="col-md-1">
+										<button type="button" class="btn btn-default btnAddToFavorites glyphicon glyphicon-heart" data-url={{program.logo}} data-name={{program.title}}></button>
 									</div>
 								</div>
 							</div>

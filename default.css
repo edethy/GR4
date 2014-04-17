@@ -14,6 +14,22 @@ div.program img.result_stars {
   float:left;
   font-size:25pt;
 }
+
+.btnAddToFavorites {
+  height:100%; 
+  margin-top:6px; 
+  float:right; 
+  margin-bottom:1%; 
+  font-size:24pt;
+  outline:none;
+}
+
+.btnAddToFavorites.clicked {
+  background-color: red;
+  color:white;
+  outline:none;
+}
+
 .rating > span {
   display: inline-block;
   position: relative;

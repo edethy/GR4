@@ -10,10 +10,6 @@
 		<link type="text/css" href="search_page2.css" rel="stylesheet" />
 		<script src="search_list_results.js"></script>
 		<script src="search_page2.js"></script>
-		<script src= "tile.js"></script>
-		<script src= "tile_board.js"></script>
-		<script src= "widget_menu.js"></script>
-		<script src= "search_text.js"></script>
 		 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Main Search Page</title>
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
@@ -21,7 +17,7 @@
 	</head> 
 
 	<body>
-<!-- COMPARE -->
+
 		<?php include("main_search.php") ?>
 		<div class="container">
 			<div id="search">
@@ -32,29 +28,54 @@
 			</div>
 			<div class="row">&nbsp</div>
 			<div class="search_wrapper">
-			
-			<div class="row">	
-			<script>
-				var widgets= new widget_menu();
-				var inside = widgets.insides(); 
-				console.log(inside); 
-			</script>	
 				<div class="row">
 					
 					<div class="col-md-3">
-						<button id="search_button" type="button" class="sticky btn btn-default" data-container="body" data-toggle="popover" data-placement="right" data-content= '<div id="widget_menu"><div class= "btn-group btn-group-justified"><div class="btn-group parameter"><button type="btn-group parameter" class="btn btn-default"><img src="menu_pictures/cost.png"></button></div><div class="btn-group parameter"><button type="btn-group parameter" class="btn btn-default"><img src="menu_pictures/location.png"></button></div><div class="btn-group parameter"><button type="btn-group parameter" class="btn btn-default"><img src="menu_pictures/age.png"></button></div></div><div class= "btn-group btn-group-justified"><div class="btn-group parameter"><button type="btn-group parameter" class="btn btn-default"><img src="menu_pictures/activity.png"></button></div><div class="btn-group parameter"><button type="btn-group parameter" class="btn btn-default"><img src="menu_pictures/gender.png"></button></div><div class="btn-group parameter"><button type="btn-group parameter" class="btn btn-default"><img src="menu_pictures/time.png"></button></div></div></div>' trigger= "click" html=true><span id="search_txt">Update Search </span></button>
+						<button type="button" class="sticky">New or update Search</button>
 					</div>
 					
-					
-					
-				<div id="tile_board" class="col-md-9"</div>
-				<script>
-					var board = new tileBoard(); 
-					var cost_tile= new tile("Cost", "Free"); 
-					board.addTile(cost_tile); 
-					board.show("tile_board"); 			
-				</script>
-				
+					<div class="col-md-3">
+						<div class="sticky">
+							<div class="row">
+								<div class="col-md-3"></div>
+								<div class="col-md-6">
+									<h3>Cost</h3>
+								</div>
+								<div class="row">
+									<div class="col-md-3"></div>
+									<div class="col-md-6">Free</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="sticky">
+							<div class="row">
+								<div class="col-md-3"></div>
+								<div class="col-md-6">
+									<h3>Location</h3>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3"></div>
+								<div class="col-md-6">02215</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="sticky">
+							<div class="row">
+								<div class="col-md-3"></div>
+								<div class="col-md-6">
+									<h3>Cost</h3>
+								</div>
+								<div class="row">
+									<div class="col-md-3"></div>
+									<div class="col-md-6">Free</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				
 				<div class="row">
 					<div class="col-md-2">
@@ -63,20 +84,15 @@
 					</div>
 				</div>
 			</div>
-			
 			<div class="row row-xs-height">
 				<div class="col-md-3">
 					<h2 id='favorites' style="color:blue">Favorites</h2>
 				</div>
-				<div class="col-md-3">
-					<button type="button" class="btn btn-primary" id="add_favorite">Add to Favorites</button>
-				</div>
 			</div>
-			
 			<div id="favorites_wrapper">
 				<div class="row" id="no_favorites">
 					<div class="col-md-1"></div>
-					You have no favorites yet.  Start searching to find some!
+					<div class="well well-lg fav-well">You have no favorites yet!</div>
 				</div>
 				<div class="row">
 					<div class="col-md-1"></div>
@@ -89,7 +105,6 @@
 					<div class="col-md-1 right_arrow_slot"></div>
 				</div>
 			</div>
-				
 				<div class="row" id="search_header">
 					<div class="col-md-6">
 						<h2 style="color:blue">Search Results </h2>
@@ -97,8 +112,9 @@
 				</div>
 				
 				<div id="results_wrapper">
-					<div class="row">
-						<div class="col-md-10">No results</div>
+					<div class="row search_res">
+						<div class='col-md-1'></div>
+						<div class="well well-lg search-well">You have no search results </div>
 					</div>
 				</div>
 	</body>

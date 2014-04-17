@@ -14,6 +14,8 @@
 	font-family:Garamond;
 	font-weight:bold;
 	color:#FFFFF;
+	margin-left: 2%;
+	margin-top: 2%;
 }
 
 #title_logo_stars {
@@ -36,12 +38,16 @@
   direction: rtl;
   float:left;
   font-size:25pt;
+  float:right; 
+  margin-right:30px;
+  height:100%;
 }
 .rating > span {
   display: inline-block;
   position: relative;
   width: 1.1em;
 }
+.rating > span.selected:before, .rating > span.selected ~ span:before,
 .rating > span:hover:before, .rating > span:hover ~ span:before {
    content: "\2605";
    color:yellow;
@@ -62,50 +68,19 @@
 	margin-left: 20em;
 }
 
-############################# Horizontal Navigation Bar #################################
-
-#nav_bar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 15%; 
-    border: 1px solid black; 
-    background-color: black; 
-    overflow: auto;
+.comment_rating > span.selected:before, .comment_rating > span.selected ~ span:before {
+	content: "\2605";
+	color:yellow;
+	position: absolute;
 }
-
-#logo {
-	font-family: 'Lobster', cursive;
-	text-align: center; 
-	font-size: 60pt; 
-}
-
-ul {
-	list-style-type:none;
-	margin:0;
-	padding:0;
-}
-
-li {
-	display:inline;
-}
-
-#left_bar {
+.comment_rating {
+	font-size:12pt;
 	float:left;
-	width: 44%;
-	text-align: left; 
-	padding-left: 3%; 
-	margin-left: 3%; 
-	padding-top: 25px; 
- 
+	direction: rtl;
+  	height:100%;
 }
 
-#right_bar {
+.teacher_description {
+	margin-top: 1%;
 	float:left;
-	width:40%;
-	text-align: right; 
-	padding-right: 5%; 
-	margin-right:5%; 
-	padding-top: 25px; 
-} 
+}
