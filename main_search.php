@@ -10,7 +10,7 @@
       <ul class="nav navbar-nav inline" style= "padding-right: 90px;">
         <li><a href="#">Home</a></li>
         <li><a href="#">About</a></li>
-		<li><a href="#">Find a Program</a></li>
+		<li><a href="main_search_page.php">Find a Program</a></li>
       </ul>
     
     <div id= "logo" class="page-header inline">
@@ -19,9 +19,9 @@
      
     <form class="navbar-form navbar-right inline" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" id="search_by_program" placeholder="Search">
         </div>
-        <button type="submit" class="btn btn-default">
+        <button type="submit" class="btn btn-default dummy_page">
         	<span class="glyphicon glyphicon-search"></span>
         </button>
     </form>
