@@ -134,9 +134,11 @@ function add_to_fav(favorite) {
 	}
 }
 
-$("#search_button").click(function(e){
+$("#submit_search").click(function(e){
 	$("#results_wrapper").load("search_page.html");
 })
+
+$("#results_wrapper").load("search_page_amphib.html");
 
 $(".container").on("click", ".btnAddToFavorites", function(e){
 	if ($("#no_favorites").length != 0){
