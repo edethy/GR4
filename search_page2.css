@@ -1,3 +1,9 @@
+#tile_bar {
+	overflow-x: scroll; 
+	position: relative; 
+	float: left; 
+}
+
 img {
 	position: relative;
 	width: 100%;
@@ -10,6 +16,7 @@ img {
 
 .row{
 	overflow-x: scroll;
+	overflow-y: hidden; 
 }
 
 #search_header {
@@ -39,7 +46,7 @@ img {
 	border: 0px transparent;
 	color: #FFFFFF;
 	width: 200px;
-	height: 200px;
+	height: 200px; 
 }
 
 #fav_img {

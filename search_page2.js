@@ -36,7 +36,7 @@ $("#add_favorite").click(function(e) {
 	update_div();
 })
 
-$("#submit_search").click(function(e){
+$("#search_button").click(function(e){
 	$("#results_wrapper").load("search_page.html");
 })
 

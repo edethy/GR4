@@ -27,4 +27,5 @@ div.program img.result_stars {
 
 .col-md-3 {
 	vertical-align:middle;
+	overflow: visible;
 }
