@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 
 <html>
+
+<script>
+/*$(document).ready(function(){
+  $(".thumbnail").click(function(){
+    window.location.href = "program_page.php";
+    return false;
+  })
+})*/
+</script>
   <head>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.js"></script>
@@ -16,9 +25,9 @@
     <link type='text/css' rel='stylesheet' href="default.css" />
   </head>
 
-  <body style="margin-left:5%; margin-right:5%; margin-top:2%; margin-bottom:2%;">
+  <body>
     <?php include("main_search.php") ?>
-    <div id="container">
+    <div id="container" style="margin-left:5%; margin-right:5%; margin-top:2%; margin-bottom:2%;">
     <div class="row">
       <div class="col-md-8">
         <h2 id="userheading">Welcome Back Shilpa!</h2>
@@ -76,22 +85,22 @@
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-2">
-            <a href="#" class="thumbnail">
+            <a href="program_page.php" class="thumbnail">
               <img src="program_logos/amphibious.png" alt="...">
             </a>
       </div>
       <div class="col-md-3">
-            <a href="#" class="thumbnail">
+            <a href="program_page.php" class="thumbnail">
               <img src="program_logos/lti.png" alt="...">
             </a>
       </div>
       <div class="col-md-3">
-            <a href="#" class="thumbnail">
+            <a href="program_page.php" class="thumbnail">
               <img src="program_logos/ymca.jpeg" alt="...">
             </a>
       </div>
       <div class="col-md-3">
-            <a href="#" class="thumbnail">
+            <a href="program_page.php" class="thumbnail">
               <img src="program_logos/cri.jpg" alt="...">
             </a>
       </div>

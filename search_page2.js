@@ -98,6 +98,9 @@ function build_favorites(){
 	}
 
 	for (var i = current_index; i <= max_index; i++) {
+		if (favorites.length == 0){
+			
+		}
 		var img_url = favorites[i].img;
 		var name = favorites[i].name;
 		var link = favorites[i].url;
@@ -134,7 +137,7 @@ function add_to_fav(favorite) {
 	}
 }
 
-$("#search_button").click(function(e){
+$("#submit_search").click(function(e){
 	$("#results_wrapper").load("search_page.html");
 })
 
@@ -160,11 +163,5 @@ function left_hover_func() {
 		$("#left_arrow").css("color","blue");
 	}
 }
-$("#search_by_program").on("keypress", function(e) {
-	if(e.which == 13){
-		window.location.href = "dummy_page.php";
-		return false;
-	}
-})
 
 })
