@@ -1,0 +1,18 @@
+.select_param_header {
+	width: 100%;
+	text-align: left;
+}
+.block {
+	width: 100px;
+	margin-right: 40px;
+	display: inline-block;	
+}
+.change_param {
+	margin-top: 0%;
+}
+.parameter_header {
+	margin-top: 2%;
+}
+.search_container {
+	margin-left: 5%;
+}

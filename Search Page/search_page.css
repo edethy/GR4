@@ -1,0 +1,63 @@
+html {
+    
+}
+
+.result_box {
+  width:1000px;
+  height:200px;
+  border:1px solid #000;
+  border-top-left-radius: 4px 4px;
+  border-bottom-left-radius: 4px 4px;
+  border-top-right-radius: 4px 4px;
+  border-bottom-right-radius: 4px 4px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+}
+
+.result_img {
+  width:15%;
+  height:75%;
+}
+
+.result_stars {
+  width:15%;
+  height:12%;
+  position: relative;
+  float:left;
+}
+
+.program_title {
+  left:180px;
+  top:15px;
+  position: absolute;
+  font-size:20pt;
+  font-family:Garamond;
+  font-weight:bold;
+  color:#FFFFF;
+}
+
+.program_location {
+  left:180px;
+  top:45px;
+  position: absolute;
+  font-size:16pt;
+  font-family:Garamond;
+  font-weight:bold;
+  color:#FFFFF;
+}
+
+.program_description {
+  left:180px;
+  top:100px;
+  width:800px;
+  position: absolute;
+  font-size:12pt;
+  font-family:Garamond;
+  color:#FFFFF;
+}
+
+.read_more {
+  
+}
