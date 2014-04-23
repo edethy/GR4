@@ -1,8 +1,30 @@
 .tile {
 	width:200px;
-	height:100px;
+	height:120px;
+}
+
+.search_param {
+	font-size:22px;
 }
 
 .response {
-	text-decoration:underline
+	text-decoration:underline;
+	font-family:"Arial";
 }
+
+.hover_button
+  {
+  float:left;
+  margin:5px;
+  display:none;
+  }
+
+.hover_button:hover input
+  {
+  display: block;
+  }
+
+.hover_button input
+  {
+  display:block;
+  }
