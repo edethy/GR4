@@ -1,0 +1,86 @@
+#program_logo {
+	width:100%;
+	height:100%;
+}
+
+#program_logo_box {
+	width:200px;
+	height:200px;
+	border:1px solid #000;
+}
+
+#program_title {
+	font-size:40pt;
+	font-family:Garamond;
+	font-weight:bold;
+	color:#FFFFF;
+	margin-left: 2%;
+	margin-top: 2%;
+}
+
+#title_logo_stars {
+	padding-left: 30px;
+ 	padding-top: 30px;
+}
+
+#result_stars {
+	width:200px;
+}
+
+#descriptions {
+	float:right;
+	float:top;
+	position: absolute;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  float:left;
+  font-size:25pt;
+  float:right; 
+  margin-right:30px;
+  height:100%;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span.selected:before, .rating > span.selected ~ span:before,
+.rating > span:hover:before, .rating > span:hover ~ span:before {
+   content: "\2605";
+   color:yellow;
+   position: absolute;
+}
+
+.col-md-3 {
+	vertical-align:middle;
+}
+
+.comment {
+	width: 800px;
+}
+
+#comment_table {
+	vertical-align: middle;
+	clear:left;
+	margin-left: 20em;
+}
+
+.comment_rating > span.selected:before, .comment_rating > span.selected ~ span:before {
+	content: "\2605";
+	color:yellow;
+	position: absolute;
+}
+.comment_rating {
+	font-size:12pt;
+	float:left;
+	direction: rtl;
+  	height:100%;
+}
+
+.teacher_description {
+	margin-top: 1%;
+	float:left;
+}
