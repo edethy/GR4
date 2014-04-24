@@ -20,11 +20,6 @@ img {
 	margin-bottom: 40px;
 }
 
-.row{
-	overflow-x: scroll;
-	overflow-y: hidden; 
-}
-
 #search_header {
 	margin-bottom: 40px;
 }
