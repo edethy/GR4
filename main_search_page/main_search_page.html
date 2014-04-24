@@ -24,7 +24,9 @@
 	    <script type="text/javascript">
 
     		$(document).ready(function() {
-    			
+    			$.get("test.html", function(data) {
+    				$(".modal-body").append(data);
+    			})
     		});
 
     	</script>
