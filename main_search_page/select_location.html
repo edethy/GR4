@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+   <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link type='text/css' rel='stylesheet' href='select_cost.css'/>
+    <link type='text/css' rel='stylesheet' href='search_params_modal.css'/>
+    <link type='text/css' rel='stylesheet' href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" /> -->
+    <link type='text/css' rel='stylesheet' href='param_pages.css'/> 
+    <link type='text/css' rel='stylesheet' href='search_params_modal.css' />
+</head>
+  <body>
+    <script>
+    $(document).ready(function() {
+        $(".dropdown-toggle").dropdown();
+    })
+    </script>
+    <div class='ind_param' id='location_parameter'>
+        <div class='select_param_header'>
+            <div class='block parameter_header'>
+                <h2>Location</h2>
+            </div>
+            <div class='dropdown block change_param'>
+                <a data-toggle='dropdown' data-target='#' class='btn btn-default dropdown-toggle change_parameter'>Change Search Parameter<b class='caret'></b></a>
+                <ul class='dropdown-menu'>
+                    <li><a href="#" class="change_parameter" id="location_cost">Cost</a></li>
+                    <li><a href="#" class="change_parameter" id="location_age">Age</a></li>
+                    <li><a href="#" class="change_parameter" id="location_activity">Activity</a></li>
+                </ul>
+            </div>
+        </div> 
+    <h4 id="location_header">Set Location</h4>
+            
+            <div class='form-group'>
+                <label for='location'>Location</label>
+                <input type='text' class='form-control' id='get_location' placeholder='zip code or city, state'></input>
+                <label for='radius_options'>Radius</label>
+                <div class="radius_options">
+                    <div class='checkbox'>
+                        <label><input type='checkbox'id="5"> < 5 miles </input></label>
+                    </div>
+                    <div class='checkbox'>
+                        <label><input type='checkbox' id="5_10"> 5-10 miles </input></label>
+                    </div>
+                    <div class='checkbox'>
+                        <label><input type='checkbox' id='over_10'> > 10 miles </input></label>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </body>
+</html>

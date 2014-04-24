@@ -8,25 +8,27 @@
 		<link type='text/css' rel='stylesheet' href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
 		<link type='text/css' rel='stylesheet' href="default.css" />
 		<link type="text/css" href="search_page2.css" rel="stylesheet" />
-		<link type="text/css" href="widget_menu.css" rel="stylesheet" />
+		<!--<link type="text/css" href="widget_menu.css" rel="stylesheet" /> -->
 		<script src="search_list_results.js"></script>
 		<script src="search_page2.js"></script>
 		<script src="search_list_results.js"></script>
 		<script src="search_page2.js"></script>
-		<script src= "tile.js"></script>
+		<script src="search_params_modal.js"></script>
+		<script src="submit_search_func.js"></script>
+	<!--	<script src= "tile.js"></script>
 		<script src= "tile_board.js"></script>
 		<script src= "widget_menu.js"></script>
-		<script src= "search_text.js"></script>
+		<script src= "search_text.js"></script> -->
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	    <title>Main Search Page</title>
 	    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 	    <link type="text/css" href="nav_bar.css" rel="stylesheet" />
+	    <link type='text.css' rel='stylesheet' href='search_params_modal.css' />
+
 	    <script type="text/javascript">
 
     		$(document).ready(function() {
-    			$.get("test.html", function(data) {
-    				$(".modal-body").append(data);
-    			})
+    			
     		});
 
     	</script>
@@ -61,11 +63,11 @@
 					        <h4 class="modal-title">Add Search Parameters to Update Your Search!</h4>
 					      </div>
 					      <div class="modal-body">
-					        <p> [TK: INSERT THE EDITING PARAMETER STUFF] </p>
+					        
 					      </div>
 					      <div class="modal-footer">
 					        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-					        <button type="button" class="btn btn-primary">Update Search</button>
+					        <button type="button" class="btn btn-primary" data-dismiss="modal" id="submit_search_button2">Update Search</button>
 					      </div>
 					    </div><!-- /.modal-content -->
 					  </div><!-- /.modal-dialog -->
@@ -73,7 +75,7 @@
 					<!-- MODAL FOR UPDATE THE SEARCH END -->
 
 					<div class"col-md-3" style="margin-left:5%;">
-						<button id="update_search" type="button" class="btn btn-default" data-toggle="modal" data-target="#udpate_search_modal" style="width:200px; height:120px; background-color:grey;">
+						<button id="update_search" type="button" class="btn btn-default enter_modal" data-toggle="modal" data-target="#udpate_search_modal" style="width:200px; height:120px; background-color:grey;">
 							Update Search
 						</button>
 					</div>

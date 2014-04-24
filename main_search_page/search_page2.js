@@ -4,6 +4,8 @@ var Favorite = function(img, name, url) {
 	this.url = url;
 }
 
+var searched_params = ['location'];
+
 $(document).ready(function() {
 var img_urls = [];
 var favorites = [];
@@ -11,6 +13,43 @@ var favorite_names = [];
 current_index = 0;
 var left_hover;
 var right_hover;
+
+	$(".modal-body").append(create_all_parameters());
+ 	$pop_mod = create_individual_parameters("location");
+    $("#all_parameters").append($pop_mod);
+    if(!$(".button_wrapper").length > 0) {
+    	$(".modal-body").append(create_add_another_button());
+    	remove_params(searched_params);
+    }
+
+    $(".add_parameter").click(function(e){
+        searched_params.push(e.target.id);
+        var added_p = create_individual_parameters(e.target.id);
+        $("#all_parameters").append(added_p);
+        $(".dropdown-toggle").dropdown();
+        remove_params(searched_params);
+        e.stopImmediatePropagation();
+    });
+
+    $("#submit_search_button2").on('click', function(e){
+        for(var i=0;i<searched_params.length;i++){
+        	$param = searched_params[i] 
+                switch($param){
+                    case 'cost':
+                        $cost_tile = get_checked_cost();
+                        break;
+                    case 'location':
+                        $location_tile = get_location_tile();
+                        break;
+                   	case 'age':
+                        break;
+                    case 'activity':
+                        break;
+                }
+        }
+        $("#results_wrapper").load("search_results.html");
+    });
+
 
 if (favorites.length != 0){
 	build_favorites();
@@ -163,9 +202,6 @@ function add_to_fav(favorite) {
 	}
 }
 
-$("#submit_search").click(function(e){
-	$("#results_wrapper").load("search_page.html");
-})
 
 $(".container").on("click", ".btnAddToFavorites", function(e){
 	if ($("#no_favorites").length != 0){
