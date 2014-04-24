@@ -1,0 +1,47 @@
+div.program img.result_img {
+	width: 100%;
+	height: 200px;
+	background-size: contain;
+}
+div.program img.result_stars {
+	width: 125px;
+	height: 25px;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  float:left;
+  font-size:25pt;
+}
+
+.btnAddToFavorites {
+  height:100%; 
+  margin-top:6px; 
+  float:right; 
+  margin-bottom:1%; 
+  font-size:24pt;
+  outline:none;
+}
+
+.btnAddToFavorites.clicked {
+  background-color: red;
+  color:white;
+  outline:none;
+}
+
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before, .rating > span:hover ~ span:before {
+   content: "\2605";
+   color:yellow;
+   position: absolute;
+}
+
+.col-md-3 {
+	vertical-align:middle;
+	overflow: visible;
+}

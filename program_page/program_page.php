@@ -100,7 +100,7 @@
 						<div class="col-md-2">
 							<img src="teacher_pics/liz.jpg" style="width:75%; margin-left:15%;">
 						</div>
-						<div class="col-md-10 teacher_description">
+						<div class="col-md-10 teacher_description" >
 							<div class="row">
 								Ms. Elizabeth Dethy
 							</div>

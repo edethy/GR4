@@ -3,6 +3,15 @@
 	height:120px;
 }
 
+.tile:hover .btnEdit {
+	display: block;
+}
+
+.tile:hover .btnTrash {
+	display: block;
+	position: absolute;
+}
+
 .search_param {
 	font-size:22px;
 }
@@ -12,19 +21,10 @@
 	font-family:"Arial";
 }
 
-.hover_button
-  {
-  float:left;
-  margin:5px;
+.btnEdit {
   display:none;
-  }
+ }
 
-.hover_button:hover input
-  {
-  display: block;
-  }
-
-.hover_button input
-  {
-  display:block;
-  }
+ .btnTrash {
+ 	display:none;
+ }

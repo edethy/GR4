@@ -6,28 +6,71 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="search_params_modal.js"></script>
+    <script src="submit_search_func.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Location Selector</title>
-    <link type="text/css" href="user_prof.css" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-    <link type="text/css" href="nav_bar.css" rel="stylesheet" />
     <link type='text/css' rel='stylesheet' href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
-    <link type='text/css' rel='stylesheet' href="default.css" />
     <link type='text.css' rel='stylesheet' href='search_params_modal.css' />
 
   </head>
   <body>
     <script>
+    var searched_params = ['location'];
     $(document).ready(function() {
         $('.search_container').append(create_all_parameters());
-        $ind_param = create_individual_parameter('location');
+    
+        $ind_param = create_individual_parameters('location'); 
+
         $("#all_parameters").append($ind_param);
+
         $(".search_container").append(create_add_another_button());
-        $(".dropdown-toggle").dropdown();
+        remove_params(searched_params);
+
         $(".add_parameter").click(function(e){
-            $("#all_parameters").append(create_individual_parameter(e.target.id));
+            searched_params.push(e.target.id);
+            var added_p = create_individual_parameters(e.target.id);
+            $("#all_parameters").append(added_p);
+            $(".dropdown-toggle").dropdown();
+            remove_params(searched_params);
         });
+
+        $(".change_parameter").on("click", function(e) {
+            console.log("BALH"); 
+        })
+
+        /*$(".change_parameter").click(function(e) {
+            console.log("HIIII");
+            var new_param = e.target.id.split("_")[0];
+            var num_param = e.target.id.split("_")[1];
+            $change_param = create_individual_parameters(new_param, num_param);
+            $("#parameter_num"+num_param).replaceWith($change_param);
+            $(".dropdown-toggle").dropdown();
+            e.stopImmediatePropagation();
+        });*/
+
+        $("#submit_search_button").on('click', function(e){
+            for(var i=0;i<searched_params.length;i++){
+                //Create different functions for different parameters
+                $param = searched_params[i] 
+                switch($param){
+                    case 'cost':
+                        $cost_tile = get_checked_cost();
+                        break;
+                    case 'location':
+                        $location_tile = get_location_tile();
+                        break;
+                    case 'age':
+                        //Call different function
+                        break;
+                    case 'activity':
+                        break;
+                }
+
+            }
+
+        })
     })
     </script>
     <div class='search_container'> 
