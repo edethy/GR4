@@ -94,7 +94,7 @@ function get_activity_tile() {
 	if ($("#stem").is(":checked")){
 		$radius_params.push("STEM");
 	}
-	if ($("#athletic).is(":checked")){
+	if ($("#athletic").is(":checked")){
 		$radius_params.push("athletic");
 	}
 	if ($("#service").is(":checked")){

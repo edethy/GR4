@@ -37,13 +37,19 @@ var right_hover;
                 switch($param){
                     case 'cost':
                         $cost_tile = get_checked_cost();
+                        create_search_tile('cost',cost_tile.response[0]);
                         break;
                     case 'location':
                         $location_tile = get_location_tile();
+                        create_search_tile('location',cost_tile.response[0]);
                         break;
                    	case 'age':
+                   		$age_tile = get_age_tile();
+                   		create_search_tile('age',cost_tile.response[0]);
                         break;
                     case 'activity':
+                    	$activity_tile = get_activity_tile();
+                    	create_search_tile('activity',cost_tile.response[0]);
                         break;
                 }
         }
@@ -224,6 +230,49 @@ function left_hover_func() {
 	if(left_hover){
 		$("#left_arrow").css("color","blue");
 	}
+}
+
+function create_search_tile(tile_type, response) {
+
+	if (tile_type == "cost") {
+		var search_param = $('<p>').addClass('search_param').text("Cost");
+		var img = $('<img>').attr('src', '../menu_pictures/cost.png').width('100%').height('80%');
+	}
+	else if (tile_type=="location") {
+		var search_param = $('<p>').addClass('search_param').text("Location");
+		var img = $('<img>').attr('src', '../menu_pictures/location.png').width('100%').height('80%');
+	}
+	else if (tile_type=="activity") {
+		var search_param = $('<p>').addClass('search_param').text("Activity");
+		var img = $('<img>').attr('src', '../menu_pictures/activity.png').width('100%').height('80%');	
+	}
+	else if (tile_type=="age") {
+		var search_param = $('<p>').addClass('search_param').text("Age");
+		var img = $('<img>').attr('src', '../menu_pictures/gender.png').width('100%').height('80%');
+	}
+
+	var list_wrapper = $('<li>');
+	var new_tile = $('<div>').addClass('thumbnail tile');
+	var new_row = $('<div>').addClass('row cost_tile').height('100%');
+	var pic_col = $('<div>').addClass('col-md-5').height('95%');
+	img.css({width:'100%', height:'80%', 'margin-top':'7.5%', 'margin-left':'15%'});
+	var second_col = $('<div>').addClass('col-md-7');
+	search_param.css({'margin-left':'2%'});
+	var response = $('<p>').addClass('response').text(response);
+	search_param.css({'margin-left':'2%'});
+	var buttons_row = $('<div>').addClass('row');
+	buttons_row.append('<button type="button" class="glyphicon glyphicon-edit btn btn-default btnEdit" data-toggle="modal" data-target="#sample_modal"></button> <button type="button" class="btn btn-default glyphicon glyphicon-trash btnTrash"></button>');
+
+	pic_col.append(img);
+	second_col.append(search_param);
+	second_col.append(response);
+	second_col.append(buttons_row);
+	new_row.append(pic_col);
+	new_row.append(second_col);
+	new_tile.append(new_row);
+	list_wrapper.append(new_tile);
+	$('#search_param_tiles').append(list_wrapper);
+
 }
 
 })
