@@ -37,19 +37,19 @@ var right_hover;
                 switch($param){
                     case 'cost':
                         $cost_tile = get_checked_cost();
-                        create_search_tile('cost',cost_tile.response[0]);
+                        create_search_tile('cost',$cost_tile.values[0]);
                         break;
                     case 'location':
                         $location_tile = get_location_tile();
-                        create_search_tile('location',cost_tile.response[0]);
+                        create_search_tile('location',$location_tile.location);
                         break;
                    	case 'age':
                    		$age_tile = get_age_tile();
-                   		create_search_tile('age',cost_tile.response[0]);
+                   		create_search_tile('age',$age_tile.age);
                         break;
                     case 'activity':
                     	$activity_tile = get_activity_tile();
-                    	create_search_tile('activity',cost_tile.response[0]);
+                    	create_search_tile('activity',$activity_tile.activity_values[0]);
                         break;
                 }
         }
