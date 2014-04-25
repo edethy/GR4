@@ -19,3 +19,16 @@ div.inline {
 	clear:both; 
 }
 
+#link_list {
+	padding-top: 80px; 
+
+}
+
+#search_bar {
+	padding-top: 80px; 
+
+}
+
+#search_by_program {
+	width: 240px; 
+}

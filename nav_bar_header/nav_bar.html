@@ -3,6 +3,7 @@
 <html>
 <head>
   <link type="text/css" href="nav_bar.css" rel="stylesheet" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <link type='text/css' rel='stylesheet' href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
 </head>
@@ -24,21 +25,24 @@ $(document).ready(function() {
   })
   
   $("#home_link").on("click", function(e) { 	
-  	$("#home_link").attr("color", "black"); 
-  	$("#home_link").attr("color", "black");
-  	$("#home_link").attr("color", "black");  	
+  	console.log("HOME"); 
+  	$("#home_link").css({ color: "blue" }); 
+  	$("#about_link").css({ color: "#777" });
+  	$("#home_link").css({ color: "#777" }); 	
   }); 
   
-  $("#about_link").on("click", function(e) { 	
-  	$("#about_link").attr("color", "black");   
-  	$("#home_link").attr("color", "black");
-  	$("#home_link").attr("color", "black");	
+  $("#about_link").on("click", function(e) { 
+  	console.log("ABOUT"); 	
+  	$("#about_link").css({ color: "blue" });   
+  	$("#home_link").css({ color: "#777" });
+  	$("#program_link").css({ color: "#777" });	
   });
   
-  $("#program_link").on("click", function(e) { 	
-  	$("#program_link").attr("color", "black"); 
-  	$("#home_link").attr("color", "gray");
-  	$("#home_link").attr("color", "black");  	
+  $("#program_link").on("click", function(e) { 
+  	console.log("PROGRAM"); 	
+  	$("#program_link").css({ color: "blue" });
+  	$("#about_link").css({ color: "#777" });
+  	$("#home_link").css({ color: "#777" }); 	
   });
 })
 </script>
@@ -48,7 +52,7 @@ $(document).ready(function() {
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav inline" style= "padding-right: 90px;">
+        <ul id="link_list" class="nav navbar-nav inline" style= "padding-right: 90px;">
           <li><a id= "home_link" href="../user_profile/user_prof2.php">Home</a></li>
           <li><a id= "about_link" href="#">About</a></li>
   		    <li><a id="program_link" href="../main_search_page/main_search_page.php">Find a Program</a></li>
@@ -58,9 +62,9 @@ $(document).ready(function() {
     		<h1 style="font-family: 'Lobster', cursive; font-size: 60pt;">connect<span style= "color: blue;">ED</span></h1>
   	</div>    
        
-      <form class="navbar-form navbar-right inline" role="search">
+      <form id="search_bar" class="navbar-form navbar-right inline" role="search">
           <div class="form-group">
-            <input type="text" class="form-control" id="search_by_program" placeholder="Know it by name?">
+            <input type="text" class="form-control" id="search_by_program" placeholder="Know of a program by name?">
           </div>
           <button type="submit" class="btn btn-default dummy_page">
           	<span class="glyphicon glyphicon-search"></span>
