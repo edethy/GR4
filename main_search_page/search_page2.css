@@ -10,6 +10,25 @@
   white-space: normal;
 }
 
+ul.img-list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+}
+
+ul.img-list li {
+	display: inline-block;
+	height: 120px;
+	margin: 0 1em 1em 0;
+	position: relative;
+	width: 200px;
+}
+
+#update_search {
+	float:left;
+}
+
 #search {
 	margin-left: 5%;
 	margin-right: 5%;

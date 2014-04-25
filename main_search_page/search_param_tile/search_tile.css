@@ -1,6 +1,7 @@
 .tile {
 	width:200px;
 	height:120px;
+	position: relative;
 }
 
 .tile:hover .btnEdit {

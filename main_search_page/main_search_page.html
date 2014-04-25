@@ -49,7 +49,8 @@
 						var img = $('<img>').attr('src', '../menu_pictures/gender.png').width('100%').height('80%');
 					}
 
-					var new_tile = $('<div>').addClass('thumbnail tile btn btn-default');
+					var list_wrapper = $('<li>');
+					var new_tile = $('<div>').addClass('thumbnail tile');
     				var new_row = $('<div>').addClass('row cost_tile').height('100%');
     				var pic_col = $('<div>').addClass('col-md-5').height('95%');
     				img.css({width:'100%', height:'80%', 'margin-top':'7.5%', 'margin-left':'15%'});
@@ -67,7 +68,8 @@
     				new_row.append(pic_col);
     				new_row.append(second_col);
     				new_tile.append(new_row);
-    				$('#search_param_tiles').append(new_tile);
+    				list_wrapper.append(new_tile);
+    				$('#search_param_tiles').append(list_wrapper);
 				}
     		});
 
@@ -106,11 +108,14 @@
 					<h2 style="color:blue">Search</h2>
 				</div>
 			</div>
-			<div id="search_param_tiles" class="row">
-				<button id="update_search" type="button" class="btn btn-default enter_modal" data-toggle="modal" data-target="#udpate_search_modal" style="width:200px; height:120px; background-color:grey;">
-					Update Search
-				</button>
-			</div>
+			<!-- <div id="search_param_tiles" class="row"> -->
+			<ul id="search_param_tiles" class="img-list">
+				<li>	
+					<button id="update_search" type="button" class="btn btn-default enter_modal" data-toggle="modal" data-target="#udpate_search_modal" style="width:200px; height:120px; background-color:grey;">
+						Update Search
+					</button>
+				</li>
+			</ul>
 			<div style="margin-left:2%; margin-right:2%;">
 			<div class="row row-xs-height">
 				<div class="col-md-3">
