@@ -10,6 +10,13 @@
   white-space: normal;
 }
 
+#search {
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
 img {
 	position: relative;
 	width: 100%;
