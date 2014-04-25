@@ -22,6 +22,24 @@ $(document).ready(function() {
     window.location.href = 'user_prof2.php';
     return false;
   })
+  
+  $("#home_link").on("click", function(e) { 	
+  	$("#home_link").attr("color", "black"); 
+  	$("#home_link").attr("color", "black");
+  	$("#home_link").attr("color", "black");  	
+  }); 
+  
+  $("#about_link").on("click", function(e) { 	
+  	$("#about_link").attr("color", "black");   
+  	$("#home_link").attr("color", "black");
+  	$("#home_link").attr("color", "black");	
+  });
+  
+  $("#program_link").on("click", function(e) { 	
+  	$("#program_link").attr("color", "black"); 
+  	$("#home_link").attr("color", "gray");
+  	$("#home_link").attr("color", "black");  	
+  });
 })
 </script>
 <body>
@@ -31,9 +49,9 @@ $(document).ready(function() {
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav inline" style= "padding-right: 90px;">
-          <li><a href="../user_profile/user_prof2.php">Home</a></li>
-          <li><a href="#">About</a></li>
-  		    <li><a href="../main_search_page/main_search_page.php">Find a Program</a></li>
+          <li><a id= "home_link" href="../user_profile/user_prof2.php">Home</a></li>
+          <li><a id= "about_link" href="#">About</a></li>
+  		    <li><a id="program_link" href="../main_search_page/main_search_page.php">Find a Program</a></li>
         </ul>
       
       <div id= "logo" class="page-header inline homehome">
@@ -42,7 +60,7 @@ $(document).ready(function() {
        
       <form class="navbar-form navbar-right inline" role="search">
           <div class="form-group">
-            <input type="text" class="form-control" id="search_by_program" placeholder="Search">
+            <input type="text" class="form-control" id="search_by_program" placeholder="Know it by name?">
           </div>
           <button type="submit" class="btn btn-default dummy_page">
           	<span class="glyphicon glyphicon-search"></span>
