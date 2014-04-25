@@ -9,6 +9,16 @@ var location_tile = function(param_type, location, radius_values) {
 	this.radius = radius_values;
 }
 
+var age_tile = function(param_type, age_values) {
+	this.type = param_type;
+	this.age = age_values;
+}
+
+var activity_tile= function(param_type, activity_values) {
+	this.type = param_type;
+	this.activity = activity_values;
+}
+
 function get_checked_cost(){
 	$cost_params = [];
 	console.log("YIPPE");
@@ -47,4 +57,53 @@ function get_location_tile() {
 	}
 	var new_location_tile = new location_tile("location", $location_city, $radius_params);
 	return new_location_tile;
+}
+
+function get_age_tile() {
+	console.log("age"); 
+	$age_params= []; 
+	
+	if ($("#all_ages").is(":checked")){
+		$radius_params.push("all ages");
+	}
+	if ($("#under_5").is(":checked")){
+		$radius_params.push("less than 5");
+	}
+	if ($("#5_10").is(":checked")){
+		$radius_params.push("5-10");
+	}
+	if ($("#10_15").is(":checked")){
+		$radius_params.push("10-15");
+	}
+	if ($("#15_18").is(":checked")){
+		$radius_params.push("15-18");
+	}
+	var new_location_tile = new age_tile("age", $age_params);
+	return new_age_tile;
+	
+}
+
+
+function get_activity_tile() {
+	console.log("activity"); 
+	$activity_params= []; 
+	
+	if ($("#college").is(":checked")){
+		$radius_params.push("college-prep");
+	}
+	if ($("#stem").is(":checked")){
+		$radius_params.push("STEM");
+	}
+	if ($("#athletic).is(":checked")){
+		$radius_params.push("athletic");
+	}
+	if ($("#service").is(":checked")){
+		$radius_params.push("service");
+	}
+	if ($("religious").is(":checked")){
+		$radius_params.push("religious");
+	}
+	var new_activity_tile = new age_tile("activity", $activity_params);
+	return new_activity_tile;
+	
 }
