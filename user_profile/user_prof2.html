@@ -6,6 +6,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="user_prof.js"></script>
+    <script src="search_page3.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Teacher Profile</title>
@@ -15,6 +16,38 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <link type='text/css' rel='stylesheet' href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
     <link type='text/css' rel='stylesheet' href="default.css" />
+    <style>
+    
+		div.recent_tile > span.tile-content {
+			height: 205px; 
+			width: 255px;
+			background: black;	
+			color: white;
+			left: 0;
+			top: 0;
+			right: 50px;
+			opacity: 0;
+			position:absolute;
+			display: table;
+			cursor: pointer;
+			margin-left:15px;
+			-webkit-transition: opacity 500ms;
+			-moz-transition: opacity 500ms;
+			-o-transition: opacity 500ms;
+			transition: opacity 500ms;
+			margin-left: 15px; 
+	
+		}
+		
+		div.thumbnail.recent_tile:hover span.tile-content{
+			background-color:#283A90;
+			opacity:1;
+			z-index: 1000;
+			color: white;
+
+		}
+    
+    </style>
   </head>
 
   <body style="margin-left:5%; margin-right:5%; margin-top:2%; margin-bottom:2%;">
@@ -100,6 +133,37 @@
 			</button>   		
 		</div>
     </div>
+    <!-- BEGINNING OF FAVORITES -->
+    <div style="margin-left:0%; margin-right:0%;">
+			<div class="row row-xs-height">
+				<div class="col-md-3">
+					<h1 id='favorites'>Favorites</h1>
+				</div>
+			</div>
+			<div id="favorites_wrapper">
+				<div class="row" id="no_favorites">
+					<div class="col-md-1"></div>
+					<div class="well well-lg fav-well">You have no favorites yet!</div>
+				</div>
+				<div class="row">
+					<div class="col-md-1"></div>
+					<div class="col-md-1 left_arrow_slot"></div>
+					<div class="wrapper_fav1">
+						<div class="col-md-2 fav1"></div>
+					</div>
+					<div class="col-md-1"></div>
+					<div class="wrapper_fav2">
+						<div class="col-md-2 fav2"></div>
+					</div>
+					<div class="col-md-1"></div>
+					<div class="wrapper_fav3">
+						<div class="col-md-2 fav3"></div>
+					</div>
+					<div class="col-md-1 right_arrow_slot"></div>
+				</div>
+			</div>
+	</div>
+	<!-- END OF FAVORITES -->
     <div class="row">
       <div class="col-md-8">
         <h3>Recently Reviewed Programs </h3>
@@ -109,20 +173,38 @@
     <div class="row">&nbsp</div>
     <div class="row">
       <div class="col-md-1"></div>
-      <div class="col-md-3">
-            <a href="#" class="thumbnail">
-              <img src="../program_logos/amphibious.png" alt="...">
-            </a>
+      <div class="col-md-3 recent_tile">   		
+		<div class="recent_tile thumbnail">
+			<div class="row recent_tile_image">
+			  <img class="recent_tile_image" src="../program_logos/amphibious.png" alt="...">
+			</div>
+			<div class="row recent_tile_name">
+				<a href="#"><h4>Amphibious Achievement</h4></a>
+			</div>
+			<span class="tile-content">JUST TRYING TO MAKE THIS WORK</span>        
+		</div>
       </div>
-      <div class="col-md-3">
-            <a href="#" class="thumbnail">
-              <img src="../program_logos/lti.png" alt="...">
-            </a>
+      <div class="col-md-3">   		
+		<div class="recent_tile thumbnail">
+			<div class="row recent_tile_image">
+			  <img class="recent_tile_image" src="../program_logos/lti.png" alt="...">
+			 </div>
+			<div class="row recent_tile_name">
+				<a href="#"><h4>LTI</h4></a>
+			</div>
+			<span class="tile-content">JUST TRYING TO MAKE THIS WORK</span>        
+		</div>
       </div>
-      <div class="col-md-3">
-            <a href="#" class="thumbnail">
-              <img src="../program_logos/ymca.jpeg" alt="...">
-            </a>
+      <div class="col-md-3">     		
+		<div class="recent_tile thumbnail">
+			<div class="row recent_tile_image">
+				  <img class="recent_tile_image" src="../program_logos/ymca.jpeg" alt="...">
+			</div>
+			<div class="row recent_tile_name">
+				<a href="#"><h4>YMCA</h4></a>
+			</div>
+			<span class="tile-content">JUST TRYING TO MAKE THIS WORK</span> 
+		</div> 
       </div>
       <!--<div class="col-md-3">
             <a href="#" class="thumbnail">
