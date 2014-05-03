@@ -54,6 +54,8 @@ var right_hover;
                 }
         }
         $("#results_wrapper").load("search_results.html");
+        $("#update_search_modal").modal("hide");
+        e.stopImmediatePropagation();
     });
 
 
@@ -233,7 +235,6 @@ function left_hover_func() {
 }
 
 function create_search_tile(tile_type, response) {
-
 	if (tile_type == "cost") {
 		var search_param = $('<p>').addClass('search_param').text("Cost");
 		var img = $('<img>').attr('src', '../menu_pictures/cost.png').width('100%').height('80%');
