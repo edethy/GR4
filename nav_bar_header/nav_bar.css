@@ -2,17 +2,19 @@
 ############################# Horizontal Navigation Bar #################################
 
 
+
 #logo {
-	font-family: 'Lobster', cursive;
 	font-size: 100pt; 
 	padding-left: 20px; 
 	margin-left: 10px; 
 }
 
 div.inline { 
-	margin-top: 0px; 
 	padding-top: 0px; 
 	float:left; 
+	border-bottom: none;
+	margin-left: 90px;
+	margin-top: 0px; 
 }
 
 .clearBoth { 
@@ -26,9 +28,32 @@ div.inline {
 
 #search_bar {
 	padding-top: 80px; 
+	color: #333; 
 
 }
 
 #search_by_program {
 	width: 240px; 
+}
+
+.navbar-default * {
+	background-color: #003366;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+	
+}
+
+.navbar-default .navbar-nav>li>a {
+	color: #CCCCCC;
+}
+
+
+.glyphicon {
+	background-color: white;
+	color: #777;
+}
+
+button.btn.btn-default:hover .glyphicon, button.btn.btn-default:hover {
+	background-color: #99CC99; 
+	color: black;
 }
