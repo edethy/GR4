@@ -87,9 +87,10 @@ ul.dropdown-menu-form {
 	width: 200px;
 	margin-top: 10px;
 }
-.hi_but{
+.update_btn{
 	width: 60px;
 	float: right;
+	margin-right: 5px;
 	height: 25pt;
 	font-size: 10pt;
 	text-align: left;

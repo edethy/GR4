@@ -19,10 +19,46 @@
 	    <link type="text/css" href="blahblah.css" rel="stylesheet" />
 	</head>
 
-
 	<body>
 
 		<script>
+
+			// given following lists (extracted through php code from the database):
+				// race_white : all programs for white students
+				// race_black: all programs for black students
+				// race_hispanic
+				// race_asian
+				// race_other
+				// GPA_1 : all programs between 0.0-1.0
+				// GPA_2 : all programs between 1.0-2.0
+				// GPA_3 : all programs between 2.0-3.0
+				// GPA_4 : all programs between 3.0-4.0
+				// gender_f : females 
+				// gender_m : males
+				// gender_o : other
+				// grade_k2 
+				// grade_345
+				// grade_68
+				// grade_912
+				// cost_free
+				// cost_10
+				// cost_20
+				// cost_35
+				// cost_more
+				// time_summer
+				// time_schoolyear
+				// time_weekdays
+				// time_weekends
+				// focus_stem
+				// focus_testing
+				// focus_sports
+				// focus_mentoring
+				// focus_music
+				// focus_academics
+				// focus_leadership
+				// focus_college
+				// focus_credit
+
 			$(document).ready(function() {
 				var parameters_dict = {
 					"student_profile" : {
@@ -31,15 +67,14 @@
 						"gender" : [],
 						"grade_level" :[]
 					},
-					"program_focus" : [],
 					"program_profile" : {
 						"cost" : [],
 						"time" : [],
 						"location" : {
 							"zip_code" : "",
-							"radius_from" : []
 						}
-					}
+					},
+					"program_focus" : []
 				}
 
 				$('.dropdown-menu').on('click', function(e) {
@@ -47,10 +82,10 @@
 						e.stopPropagation();
 					}
 				})
-				$('.hi_but').on('click', function(e) {
+				$('.update_btn').on('click', function(e) {
 					$('.dropdown.open .dropdown-toggle').dropdown('toggle');
 					console.log("click");
-					console.log(parameters_dict["student_profile"]);
+					console.log(parameters_dict);
 				})
 				$(".race_checkbox").on("change", "input[type=checkbox]",function(e){
 						//if checked is false, remove from list
@@ -102,6 +137,48 @@
 						}
 						console.log(parameters_dict["program_focus"]);
 				})
+				$(".cost_checkbox").on("change", "input[type=checkbox]", function(e){
+					var id = e.target.id;
+						var is_checked = this.checked;
+						if (is_checked) {
+							parameters_dict["program_profile"]["cost"].push(id);
+						} else {
+							var change_array = parameters_dict["program_profile"]["cost"];
+							var index = change_array.indexOf(id);
+							change_array.splice(index, 1);
+						}
+						console.log(parameters_dict["program_profile"]["cost"]);
+				})
+				$(".year_checkbox").on("change", "input[type=checkbox]", function(e){
+					var id = e.target.id;
+						var is_checked = this.checked;
+						if (is_checked) {
+							parameters_dict["program_profile"]["time"].push(id);
+						} else {
+							var change_array = parameters_dict["program_profile"]["time"];
+							var index = change_array.indexOf(id);
+							change_array.splice(index, 1);
+						}
+						console.log(parameters_dict["program_profile"]["time"]);
+				})	
+				$(".day_checkbox").on("change", "input[type=checkbox]", function(e){
+					var id = e.target.id;
+						var is_checked = this.checked;
+						if (is_checked) {
+							parameters_dict["program_profile"]["time"].push(id);
+						} else {
+							var change_array = parameters_dict["program_profile"]["time"];
+							var index = change_array.indexOf(id);
+							change_array.splice(index, 1);
+						}
+						console.log(parameters_dict["program_profile"]["time"]);
+				})
+
+				function makeSearchResultsList() { // function will return a list of all program names to be displayed
+					//TODO: this function
+					return [];
+				}	
+
 			})
 		</script>
 
@@ -193,33 +270,27 @@
 							</div>
 							<div class="grade_level">
 								<label class="checkbox grade_level_checkbox" >
-									<input type="checkbox" id="grade_3_4">
-									3-4
+									<input type="checkbox" id="grade_3_5">
+									3-5
 								</label>
 							</div>
 							<div class="grade_level">
 								<label class="checkbox grade_level_checkbox">
-									<input type="checkbox" id="grade_5_6">
-									5-6
+									<input type="checkbox" id="grade_6_8">
+									6-8
 								</label>
 							</div>
 						</li>
 						<li class="gl">
 							<div class="grade_level">
 								<label class="checkbox grade_level_checkbox">
-									<input type="checkbox" id="grade_7_8">
-									7-8
-								</label>
-							</div>
-							<div class="grade_level">
-								<label class="checkbox grade_level_checkbox">
 									<input type="checkbox" id="grade_hs">
-									High School
+									9-12
 								</label>
 							</div>
 						</li>
 						<li>
-							<button type="button" class="btn btn-default btn-small hi_but" href="#">Update</button>
+							<button type="button" class="btn btn-default btn-small update_btn" href="#">Update</button>
 						</li>	
 					</ul>
 				</div>
@@ -237,14 +308,14 @@
 						<li class="c">
 							<div class="cost">
 								<label class="checkbox cost_checkbox">
-									<input type="checkbox" id="profile_cost_free">
+									<input type="checkbox" id="cost_free">
 								Free
 								</label>
 							</div>
 							<div class="cost">
 								<label class="checkbox cost_checkbox">
-									<input type="checkbox" id="profile_cost_5_10">
-								$5-$10/hour
+									<input type="checkbox" id="cost_10">
+								Up to $10/hour
 								</label>
 							</div>
 						</li>
@@ -252,13 +323,13 @@
 							
 							<div class="cost">
 								<label class="checkbox cost_checkbox">
-									<input type="checkbox" id="profile_cost_10_20">
+									<input type="checkbox" id="cost_20">
 								$10-$20/hour
 								</label>
 							</div>
 							<div class="cost">
 								<label class="checkbox cost_checkbox">
-									<input type="checkbox" id="profile_cost_20_35">
+									<input type="checkbox" id="cost_35">
 								$20-$35/hour 
 								</label>
 							</div>
@@ -267,7 +338,7 @@
 							
 							<div class="cost">
 								<label class="checkbox cost_checkbox">
-									<input type="checkbox" id="profile_cost_35_plus">
+									<input type="checkbox" id="cost_more">
 								$35+/hour
 								</label>
 							</div>
@@ -291,36 +362,8 @@
 						<li class="w">
 							<div class="day">
 								<label class="checkbox day_checkbox">
-									<input type = "checkbox" id="monday">
-									Monday
-								</label>
-							</div>
-							<div class="day">
-								<label class="checkbox day_checkbox">
-									<input type="checkbox" id="tuesday">
-									Tuesday
-								</label>
-							</div>
-						</li>
-						<li class="w">
-							<div class="day">
-								<label class="checkbox day_checkbox">
-									<input type="checkbox" id="wednesday">
-									Wednesday
-								</label>
-							</div>
-							<div class="day">
-								<label class="checkbox day_checkbox">
-									<input type="checkbox" id="thursday">
-									Thursday
-								</label>
-							</div>
-						</li>
-						<li class="w">
-							<div class="day">
-								<label class="checkbox day_checkbox">
-									<input type="checkbox" id="friday">
-									Friday
+									<input type = "checkbox" id="weekdays">
+									Weekdays
 								</label>
 							</div>
 							<div class="day">
@@ -333,11 +376,11 @@
 						<li>Location</li>
 						<li class="w">
 							<div class="set_location">
-               		 			<input type='text' class='form-control' id='get_location' placeholder='zip code or city, state'></input>
+               		 			<input type='text' class='form-control' id='get_location' placeholder='zip code i.e. 02139'></input>
                		 		</div>
                		 	</li>
 						<li>
-							<button type="button" class="btn btn-default btn-small hi_but" href="#">Update</button>
+							<button type="button" class="btn btn-default btn-small update_btn" href="#">Update</button>
 						</li>
 					</ul>
 				</div>
@@ -347,7 +390,50 @@
 				<div class="dropdown">
 					<button type="button" class="dropdown-toggle btn btn-default dropdown_btn" data-toggle="dropdown" href="#">Program Focus<b class="caret"></b>
 					</button>
-					<ul class="dropdown-menu dropdown-menu-form" role="menu">
+					<ul class="dropdown-menu dropdown-menu-form" role="menu">						
+						<li>
+							<label class="checkbox focus_checkbox">
+								<input type="checkbox" id="focus_academics">
+								Academics
+							</label>
+						</li>
+
+						<li>
+							<label class="checkbox focus_checkbox">
+								<input type="checkbox" id="focus_college_prep">
+								College-Prep
+							</label>
+						</li>						
+						<li>
+							<label class="checkbox focus_checkbox">
+								<input type="checkbox" id="focus_credit_recover">
+								Credit-Recovery
+							</label>
+						</li>
+						<li>
+							<label class="checkbox focus_checkbox">
+								<input type="checkbox" id="focus_leadership">
+								Leadership
+							</label>
+						</li>
+						<li>
+							<label class="checkbox focus_checkbox">
+								<input type="checkbox" id="focus_mentoring">
+								Mentoring
+							</label>
+						</li>						
+						<li>
+							<label class="checkbox focus_checkbox">
+								<input type="checkbox" id="focus_music">
+								Music
+							</label>
+						</li>
+						<li>
+							<label class="checkbox focus_checkbox">
+								<input type="checkbox" id="focus_sports">
+								Sports
+							</label>
+						</li>
 						<li>
 							<label class="checkbox focus_checkbox">
 								<input type="checkbox" id="focus_stem">
@@ -361,49 +447,7 @@
 							</label>
 						</li>
 						<li>
-							<label class="checkbox focus_checkbox">
-								<input type="checkbox" id="focus_sports">
-								Sports
-							</label>
-						</li>
-						<li>
-							<label class="checkbox focus_checkbox">
-								<input type="checkbox" id="focus_mentoring">
-								Mentoring
-							</label>
-						</li>
-						<li>
-							<label class="checkbox focus_checkbox">
-								<input type="checkbox" id="focus_music">
-								Music
-							</label>
-						</li>
-						<li>
-							<label class="checkbox focus_checkbox">
-								<input type="checkbox" id="focus_academics">
-								Academics
-							</label>
-						</li>
-						<li>
-							<label class="checkbox focus_checkbox">
-								<input type="checkbox" id="focus_leadership">
-								Leadership
-							</label>
-						</li>
-						<li>
-							<label class="checkbox focus_checkbox">
-								<input type="checkbox" id="focus_college_prep">
-								College-Prep
-							</label>
-						</li>
-						<li>
-							<label class="checkbox focus_checkbox">
-								<input type="checkbox" id="focus_credit_recover">
-								Credit-Recovery
-							</label>
-						</li>
-						<li>
-							<button type="button" class="btn btn-default btn-small hi_but" href="#">Update</button>
+							<button type="button" class="btn btn-default btn-small update_btn" href="#">Update</button>
 						</li>	
 					</ul>
 				</div>
