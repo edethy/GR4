@@ -8,7 +8,6 @@
   while($row = mysql_fetch_array($result)) {
     array_push($array, $row['Program_Name']);
   }
-
   mysql_close($con);
 ?>
 

@@ -67,7 +67,7 @@ ul.dropdown-menu-form {
 	margin-right: 5px;
 	width: 140px;
 }
-.l {
+.w {
 	margin-left: 15px;
 }
 .day {
@@ -83,7 +83,10 @@ ul.dropdown-menu-form {
 	margin-right: 5px;
 	width: 140px;
 }
-
+#get_location {
+	width: 200px;
+	margin-top: 10px;
+}
 .hi_but{
 	width: 60px;
 	float: right;

@@ -9,9 +9,23 @@
 		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'/>
     	<link type="text/css" href="nav_bar.css" rel="stylesheet"/>
     	<script src="program_page.js"></script>
+
+
 	</head>
 	<body>
-		<?php include("main_search.php") ?>
+		<?php include("main_search.php") 
+			$db = mysql_connect("sql.mit.edu", "edethy", "Persi123");
+			if(!$db){
+				die("Could not connect:".mysql_error());
+			}
+			mysql_select_db("edethy+connected",$db) or die(mysql_error());
+
+			$program_id=$_GET['program'];
+
+			$query = "Select Program_Name, Program_Description, Program_Cost, Program_Website from 'Out-of-School Programs' where  Program_id = amphibious_achievement";
+			$result = mysql_query($query, $db);
+
+		?>
 		<div id="program_title"> Amphibious Achievement </div>
 		<table>
 			<tr>
@@ -29,7 +43,8 @@
 						<p> <b> Cost: </b> Free </p>
 						<p> <b> Age: </b> 9-12 Graders </p>
 						<p> <b> Activity: </b> Academics, Athletics, College-Prep </p>
-						<p> <b> Description: </b> Amphibious Achievement is a dual athletic and academic mentorship program for inner-city high school students from the Boston Public School system. It was founded in 2010 by MIT student-athletes who saw the benefits that athletics can have on academic and personal success. Through the synergy of coaching in swimming and rowing and tutoring in college preparatory academics, the program fosters success in and out of the water for low-income urban high school students. </p>
+						<!--<p> <b> Description: </b> Amphibious Achievement is a dual athletic and academic mentorship program for inner-city high school students from the Boston Public School system. It was founded in 2010 by MIT student-athletes who saw the benefits that athletics can have on academic and personal success. Through the synergy of coaching in swimming and rowing and tutoring in college preparatory academics, the program fosters success in and out of the water for low-income urban high school students. </p>-->
+						<p><?php echo $result ?></p>
 					</div>
 				</td>
 			</tr>

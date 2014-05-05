@@ -5,9 +5,9 @@
 			}
 			mysql_select_db("edethy+connected") or die("Could not select Database");
 
-			/*program_id=$_GET['program'];*/
+			$program_id=$_GET['program'];
 
-			$query = "SELECT * FROM `Out-of-School Programs` WHERE `Program_ID` = 'amphibious_achievement'";
+			$query = "SELECT * FROM `Out-of-School Programs` WHERE `Program_ID` = '".$program_id."'";
 			if(!$query){
 				trigger_error(mysql_error()." in " .$query);
 			}

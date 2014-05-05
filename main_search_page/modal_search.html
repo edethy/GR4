@@ -36,7 +36,7 @@
 						"cost" : [],
 						"time" : [],
 						"location" : {
-							"zip_code" : [],
+							"zip_code" : "",
 							"radius_from" : []
 						}
 					}
@@ -232,12 +232,7 @@
 					</button>
 					<ul class="dropdown-menu dropdown-menu-form" role="menu">
 						<li> 
-						<div id="cost_all">
-							<label class="checkbox cost_checkbox">
-								<input type="checkbox">
 								Cost
-							</label>
-						</div>
 						</li>
 						<li class="c">
 							<div class="cost">
@@ -246,28 +241,30 @@
 								Free
 								</label>
 							</div>
-						</li>
-						<li class="c">
 							<div class="cost">
 								<label class="checkbox cost_checkbox">
 									<input type="checkbox" id="profile_cost_5_10">
 								$5-$10/hour
 								</label>
 							</div>
+						</li>
+						<li class="c">
+							
 							<div class="cost">
 								<label class="checkbox cost_checkbox">
 									<input type="checkbox" id="profile_cost_10_20">
 								$10-$20/hour
 								</label>
 							</div>
-						</li>
-						<li class="c">
 							<div class="cost">
 								<label class="checkbox cost_checkbox">
 									<input type="checkbox" id="profile_cost_20_35">
 								$20-$35/hour 
 								</label>
 							</div>
+						</li>
+						<li class="c">
+							
 							<div class="cost">
 								<label class="checkbox cost_checkbox">
 									<input type="checkbox" id="profile_cost_35_plus">
@@ -291,7 +288,7 @@
 							</div>
 						</li>
 						<li>Days of the week</li>
-						<li class="l">
+						<li class="w">
 							<div class="day">
 								<label class="checkbox day_checkbox">
 									<input type = "checkbox" id="monday">
@@ -305,7 +302,7 @@
 								</label>
 							</div>
 						</li>
-						<li class="l">
+						<li class="w">
 							<div class="day">
 								<label class="checkbox day_checkbox">
 									<input type="checkbox" id="wednesday">
@@ -319,7 +316,7 @@
 								</label>
 							</div>
 						</li>
-						<li class="l">
+						<li class="w">
 							<div class="day">
 								<label class="checkbox day_checkbox">
 									<input type="checkbox" id="friday">
@@ -332,6 +329,13 @@
 									Weekends
 								</label>
 							</div>
+						</li>
+						<li>Location</li>
+						<li class="w">
+							<div class="set_location">
+               		 			<input type='text' class='form-control' id='get_location' placeholder='zip code or city, state'></input>
+               		 		</div>
+               		 	</li>
 						<li>
 							<button type="button" class="btn btn-default btn-small hi_but" href="#">Update</button>
 						</li>
