@@ -77,6 +77,38 @@
 					"program_focus" : []
 				}
 
+
+				/* TESTING -- DONT DELETE FOR NOW; CANNED UNTIL THESE LISTS CAN BE GENERATED FROM DATABASE*/
+				var grade_345 = ['Amphibious Achievement', 'LTI', 'SailFuture'];
+				var focus_stem = ['Amphibious Achievement', 'LTI'];
+				var race_black = ['LTI', "Amphibious Achievement"];
+				var focus_credit = [];
+				var focus_music = [];
+				var focus_academics = [];
+				var focus_college = ['Amphibious Achievement'];
+				var focus_leadership = [];
+				var focus_sports = [];
+				var focus_testing = [];
+				var cost_free = [];
+				var cost_10 = [];
+				var cost_20 = ['LTI'];
+				var cost_35 = ['Amphibious Achievement'];
+				var time_schoolyear = [];
+				var time_summer = [];
+				var cost_more = ['Amphibious Achievement'];
+				var time_weekends = [];
+				var time_weekdays = [];
+				var gender_f = [];
+				var gender_m = [];
+				var gender_o = [];
+				var grade_k2 = [];
+				var grade_68 = [];
+				var grade_912 = [];
+				var race_asian = [];
+				var race_other = [];
+				var race_hispanic = [];
+				var race_white = [];
+
 				var selection_dict = {
 					"focus_credit_recover":focus_credit,
 					"focus_music":focus_music,
@@ -86,6 +118,7 @@
 					"focus_mentoring":focus_mentoring,
 					"focus_sports":focus_sports,
 					"focus_testing":focus_testing,
+					"focus_stem":focus_stem,
 					"cost_free":cost_free,
 					"cost_10":cost_10,
 					"cost_20":cost_20,
@@ -119,6 +152,8 @@
 					$('.dropdown.open .dropdown-toggle').dropdown('toggle');
 					console.log("click");
 					console.log(parameters_dict);
+					console.log("running makeSearchResultsList():");
+					console.log(makeSearchResultsList());
 				})
 				$(".race_checkbox").on("change", "input[type=checkbox]",function(e){
 						//if checked is false, remove from list
@@ -207,8 +242,8 @@
 						console.log(parameters_dict["program_profile"]["time"]);
 				})
 
-				/* FUNCTION TO GENERATE LIST OF PROGRAMS PASSED INTO SEARCH RESULTS */
-				/* RETURNS a list of all program names*/
+				/**** FUNCTION TO GENERATE LIST OF PROGRAMS PASSED INTO SEARCH RESULTS ****/
+				/**** RETURNS a list of all program names ****/
 				function makeSearchResultsList() {
 					// create a set of all programs with ethnicities checked
 					var ethnicity_set = {};
@@ -284,7 +319,7 @@
 					var intersection_set = {}; // a program has intersected all requests 
 					for (var i=0; i<set_list.length;i++) {
 						if (set_list[i] != null) {
-							var programs = set_list[i].keys();
+							var programs = Object.keys(set_list[i]);
 							for (var j=0; j<programs.length; j++) {
 								if (intersection_set[programs[j]] == undefined) {
 									intersection_set[programs[j]] = 1;
@@ -296,15 +331,16 @@
 							intersection_num++;
 						}
 					}
-					var intersection_set_programs = intersection_set.keys();
+					var intersection_set_programs = Object.keys(intersection_set);
+					console.log("intersection_set_programs: " + intersection_set_programs);
 					var final_list = [];
 					for (var i=0; i<intersection_set_programs.length; i++) {
 						if (intersection_set[intersection_set_programs[i]] == intersection_num) {
-							final_list.push(intersection_set[intersection_set_programs[i]]);
+							final_list.push(intersection_set_programs[i]);
 						}
 					}
 					return final_list;
-				}	
+				}
 
 			})
 		</script>
