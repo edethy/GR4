@@ -1,16 +1,3 @@
-<?php
-  $con=mysql_connect("sql.mit.edu","edethy","Persi123") or die('Could not connect: ' . mysql_error());
-  mysql_select_db("edethy+connected") or die('Could not select database');
-
-  $query = "SELECT `Program_Name` FROM `Out-of-School Programs`";
-  $result = mysql_query($query);
-  $array = Array();
-  while($row = mysql_fetch_array($result)) {
-    array_push($array, $row['Program_Name']);
-  }
-  mysql_close($con);
-?>
-
 <!DOCTYPE html>
 
 <html>
@@ -23,122 +10,74 @@
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <link type='text/css' rel='stylesheet' href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
-<script>
+  <script>
+		$(document).ready(function() {
 
+			var program_names = ['Amphibious Achievement', 'Leadership Training Institute', 'SailFuture']; // this needs to be  gotten from the database of programs
 
-    $(document).ready(function() {
+			$("#search_by_program").on("keypress", function(e) {
+				if(e.which == 13){
+					// should call search_program_name(name)
+					window.location.href = "dummy_page.php";
+					return false;
+		  		}
+		  	});
 
-      <?php 
-        $js_array = json_encode($array);
-        echo "var program_names = ". $js_array . ";\n";
-      ?>
+			$("#search_button").on("click", function(e) {
+				// should call search_program_name(name)
+				window.location.href = 'dummy_page.php';
+				return false;
+			});
 
-      $("#search_by_program").on("keypress", function(e) {
-        if(e.which == 13){
-          // should call search_program_name(name)
-          window.location.href = "dummy_page.php";
-          return false;
-          }
-        });
-
-      $("#search_button").on("click", function(e) {
-        // should call search_program_name(name)
-        window.location.href = 'dummy_page.php';
-        return false;
-      });
-
-      $(".homehome").click(function(){
-        window.location.href = 'user_prof2.php';
-        return false;
-      });
+			$(".homehome").click(function(){
+				window.location.href = 'user_prof2.php';
+				return false;
+			});
   
-      $("#home_link").on("click", function(e) {   
-        console.log("HOME"); 
-        $("#home_link").css({ color: "#99CC99" }); 
-        $("#about_link").css({ color: "#CCCCCC" });
-        $("#home_link").css({ color: "#777" });   
-      }); 
+			$("#home_link").on("click", function(e) { 	
+				console.log("HOME"); 
+				$("#home_link").css({ color: "#99CC99" }); 
+				$("#about_link").css({ color: "#CCCCCC" });
+				$("#home_link").css({ color: "#777" }); 	
+			}); 
   
-      $("#about_link").on("click", function(e) { 
-        console.log("ABOUT");   
-        $("#about_link").css({ color: "#99CC99" });   
-        $("#home_link").css({ color: "#CCCCCC" });
-        $("#program_link").css({ color: "#CCCCCC" }); 
-      });
+			$("#about_link").on("click", function(e) { 
+				console.log("ABOUT"); 	
+				$("#about_link").css({ color: "#99CC99" });   
+				$("#home_link").css({ color: "#CCCCCC" });
+				$("#program_link").css({ color: "#CCCCCC" });	
+			});
   
-      $("#program_link").on("click", function(e) { 
-        console.log("PROGRAM");   
-        $("#program_link").css({ color: "#99CC99" });
-        $("#about_link").css({ color: "#CCCCCC" });
-        $("#home_link").css({ color: "#CCCCCC" });  
-      });
+			$("#program_link").on("click", function(e) { 
+				console.log("PROGRAM"); 	
+				$("#program_link").css({ color: "#99CC99" });
+				$("#about_link").css({ color: "#CCCCCC" });
+				$("#home_link").css({ color: "#CCCCCC" }); 	
+			});
 
-      $("#search_by_program").autocomplete({ 
-        source: program_names,
-        minLength: 2,
-        select: function(event, ui) {
-          var selected_word = ui.item.value;
-          program_name_search(selected_word);
-          console.log(selected_word);
-        }
-      });
+			$("#search_by_program").autocomplete({ 
+				source: program_names,
+				minLength: 2,
+				select: function(event, ui) {
+					var selected_word = ui.item.value;
+					program_name_search(selected_word);
+					console.log(selected_word);
+				}
+			});
 
-      function program_name_search(name) {
-          if ($.inArray(name, program_names) > -1) { // the name that is being searched is actually an existing program
-            // load HTML page of the form ./program_page/ID
-          }
-          else {
-            // load HTML page for program name not found
-          }
-          $("#search_by_program").autocomplete.close();
-      }
+			function program_name_search(name) {
+			  	if ($.inArray(name, program_names) > -1) { // the name that is being searched is actually an existing program
+			  		// load HTML page of the form ./program_page/ID
+			  	}
+			  	else {
+			  		// load HTML page for program name not found
+			  	}
+			  	$("#search_by_program").autocomplete.close();
+			}
 
-    })
+		})
   </script>
 </head>
-=======
-  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-  <link type='text/css' rel='stylesheet' href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
-</head>
-<script>
-$(document).ready(function() {
-  $("#search_by_program").on("keypress", function(e) {
-   if(e.which == 13){
-      window.location.href = "dummy_page.php";
-       return false;
-  }
-  })
-  $(".dummy_page").on("click", function(e) {
-    window.location.href = 'dummy_page.php';
-    return false;
-  })
-  $(".homehome").click(function(){
-    window.location.href = 'user_prof2.php';
-    return false;
-  })
-  
-  $("#home_link").on("click", function(e) {   
-    console.log("HOME"); 
-    $("#home_link").css({ color: "blue" }); 
-    $("#about_link").css({ color: "#777" });
-    $("#home_link").css({ color: "#777" });   
-  }); 
-  
-  $("#about_link").on("click", function(e) { 
-    console.log("ABOUT");   
-    $("#about_link").css({ color: "blue" });   
-    $("#home_link").css({ color: "#777" });
-    $("#program_link").css({ color: "#777" });  
-  });
-  
-  $("#program_link").on("click", function(e) { 
-    console.log("PROGRAM");   
-    $("#program_link").css({ color: "blue" });
-    $("#about_link").css({ color: "#777" });
-    $("#home_link").css({ color: "#777" });   
-  });
-})
-</script>
 <body>
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
@@ -148,38 +87,21 @@ $(document).ready(function() {
         <ul id="link_list" class="nav navbar-nav inline" style= "padding-right: 90px; color: #CCCCCC;">
           <li><a style= "color: #CCCCCC;" id= "home_link" href="../user_profile/user_prof2.php">Home</a></li>
           <li><a style= "color: #CCCCCC;"id= "about_link" href="#">About</a></li>
-        <li><a style= "color: #CCCCCC;" id="program_link" href="../main_search_page/main_search_page.php">Find a Program</a></li>
+  		  <li><a style= "color: #CCCCCC;" id="program_link" href="../main_search_page/main_search_page.php">Find a Program</a></li>
         </ul>
       
-    <div id= "logo" class="page-header inline homehome">
-        <h1 style="border-bottom: none; font-size:60px;">connect<span style= "color: #99CC99;">ed</span></h1>
-    </div>    
+		<div id= "logo" class="page-header inline homehome">
+    		<h1 style="border-bottom: none; font-size:60px;">connect<span style= "color: #99CC99;">ed</span></h1>
+		</div>    
        
-      <form id="search_bar" class="navbar-form navbar-right inline" role="search">
-        <div class="form-group">
-        <input type="text" class="form-control" id="search_by_program" placeholder="Know of a program by name?">
-        </div>
-        <button type="submit" id="search_button" class="btn btn-default dummy_page">
-        <span class="glyphicon glyphicon-search"></span>
-        </button>
-        <ul id="link_list" class="nav navbar-nav inline" style= "padding-right: 90px;">
-          <li><a id= "home_link" href="../user_profile/user_prof2.php">Home</a></li>
-          <li><a id= "about_link" href="#">About</a></li>
-          <li><a id="program_link" href="../main_search_page/main_search_page.php">Find a Program</a></li>
-        </ul>
-      
-      <div id= "logo" class="page-header inline homehome">
-        <h1 style="font-family: 'Lobster', cursive; font-size: 60pt;">connect<span style= "color: blue;">ED</span></h1>
-    </div>    
-       
-      <form id="search_bar" class="navbar-form navbar-right inline" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" id="search_by_program" placeholder="Know of a program by name?">
-          </div>
-          <button type="submit" class="btn btn-default dummy_page">
-            <span class="glyphicon glyphicon-search"></span>
-          </button>
-      </form>
+		  <form id="search_bar" class="navbar-form navbar-right inline" role="search">
+			  <div class="form-group">
+				<input type="text" class="form-control" id="search_by_program" placeholder="Know of a program by name?">
+			  </div>
+			  <button type="submit" id="search_button" class="btn btn-default dummy_page">
+				<span class="glyphicon glyphicon-search"></span>
+			  </button>
+		  </form>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>

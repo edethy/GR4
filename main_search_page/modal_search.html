@@ -14,6 +14,8 @@
 		<script src="search_params_modal.js"></script>
 		<script src="submit_search_func.js"></script>
 		<script src="search.js"></script>
+		<script src="../slider/js/bootstrap-slider.js"></script>
+		<link type="text/css" href="../slider/css/slider.css" rel="stylesheet"/>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	    <title>Main Search Page</title>
 	    <link type="text/css" href="blahblah.css" rel="stylesheet" />
@@ -149,6 +151,7 @@
 					"race_white":race_white
 				}
 
+				$(".slider").slider();
 				$('.dropdown-menu').on('click', function(e) {
 					if($(this).hasClass('dropdown-menu-form')) {
 						e.stopPropagation();
@@ -162,8 +165,6 @@
 					console.log(makeSearchResultsList());
 				})
 				$(".race_checkbox").on("change", "input[type=checkbox]",function(e){
-						//if checked is false, remove from list
-						//if checked is true, add to list
 						var id = e.target.id;
 						var is_checked = this.checked;
 						if (is_checked) {
@@ -223,6 +224,7 @@
 						}
 						console.log(parameters_dict["program_focus"]);
 				})
+
 				$(".cost_checkbox").on("change", "input[type=checkbox]", function(e){
 					var id = e.target.id;
 						var is_checked = this.checked;
@@ -381,7 +383,8 @@
 		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 		        <h4 class="modal-title">Add Search Parameters to Update Your Search!</h4>
 		      </div>
-		      <div class="modal-body">
+		
+		<div style="background-color: #F0F0F0" class="modal-body">
 
 		<div class="search_params">
 
@@ -390,7 +393,7 @@
 					<button type="button" class="dropdown-toggle btn btn-default dropdown_btn" data-toggle="dropdown" href="#">Student Profile<b class="caret"></b>
 					</button>
 					<ul class="dropdown-menu dropdown-menu-form" role="menu">
-						<li>Race/Ethnicity</li>
+						<li class="dropdown-title">Race/Ethnicity</li>
 							<li class="r">
 							<div class="race">
 								<label class="checkbox race_checkbox">
@@ -475,7 +478,7 @@
 								</label>
 							</div>
 						</li>
-						<li>Grade-Level</li>
+						<li class="dropdown-title">Grade-Level</li>
 						<li class="gl">
 							<div class="grade_level">
 								<label class="checkbox grade_level_checkbox">
@@ -517,7 +520,7 @@
 					<button type="button" class="dropdown-toggle btn btn-default dropdown_btn" data-toggle="dropdown" href="#">Program Profile<b class="caret"></b>
 					</button>
 					<ul class="dropdown-menu dropdown-menu-form" role="menu">
-						<li> 
+						<li class="dropdown-title"> 
 								Cost
 						</li>
 						<li class="c">
@@ -558,7 +561,7 @@
 								</label>
 							</div>
 						</li>	
-						<li>Time of year </li>
+						<li class="dropdown-title">Time of year </li>
 						<li class="y">
 							<div class="time_of_year">
 								<label class="checkbox year_checkbox">
@@ -573,8 +576,8 @@
 								</label>
 							</div>
 						</li>
-						<li>Days of the week</li>
-						<li class="w">
+						<li class="dropdown-title">Days of the week</li>
+						<li>
 							<div class="day">
 								<label class="checkbox day_checkbox">
 									<input type = "checkbox" id="weekdays">
@@ -588,7 +591,7 @@
 								</label>
 							</div>
 						</li>
-						<li>Location</li>
+						<li class="dropdown-title">Location</li>
 						<li class="w">
 							<div class="set_location">
                		 			<input type='text' class='form-control' id='get_location' placeholder='zip code i.e. 02139'></input>
@@ -671,14 +674,13 @@
 	 <div id="results_wrapper">
 		<div class="row search_res">
 			<div class='col-md-1'></div>
-				<div class="well well-sm search-well">You have no search results </div>
+				<div class="well-sm search-well">You have no search results </div>
 		</div>
 	</div>
 	</div>
 		       
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-		        <button type="button" class="btn btn-primary" data-dismiss="modal" id="submit_search_button2">Update Search</button>
+		      <div class="modal-footer">   
+		        <button id="cancelBtn" type="button" class="btn btn-default" data-dismiss="modal">Exit</button>
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
