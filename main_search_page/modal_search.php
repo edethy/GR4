@@ -1,3 +1,248 @@
+<?php
+  
+  $con=mysql_connect("sql.mit.edu","edethy","Persi123") or die('Could not connect: ' . mysql_error());
+  mysql_select_db("edethy+connected") or die('Could not select database');
+	//race_white
+	$race_white = "SELECT Program_Name FROM `Out-of-School Programs` WHERE race_white=1";
+	$result = mysql_query($race_white);
+	$race_white_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($race_white_array, $row['Program_Name']);
+	 }
+  	// race_black
+	$race_black = "SELECT Program_Name FROM `Out-of-School Programs` WHERE race_black=1";
+	$result = mysql_query($race_black);
+	$race_black_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($race_black_array, $row['Program_Name']);
+	}
+	// race_hispanic
+	$race_hispanic = "SELECT Program_Name FROM `Out-of-School Programs` WHERE race_hispanic=1";
+	$result = mysql_query($race_hispanic);
+	$race_hispanic_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($race_hispanic_array, $row['Program_Name']);
+	}
+	// race_asian
+	$race_asian = "SELECT Program_Name FROM `Out-of-School Programs` WHERE race_asian=1";
+	$result = mysql_query($race_asian);
+	$race_asian_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($race_asian_array, $row['Program_Name']);
+	}
+	// race_other
+	$race_other = "SELECT Program_Name FROM `Out-of-School Programs` WHERE race_other=1";
+	$result = mysql_query($race_other);
+	$race_other_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($race_other_array, $row['Program_Name']);
+	}
+	// gpa_1 : all programs between 0.0-1.0
+	$gpa_1 = "SELECT Program_Name FROM `Out-of-School Programs` WHERE GPA_1=1";
+	$result = mysql_query($gpa_1);
+	$gpa_1_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($gpa_1_array, $row['Program_Name']);
+	}
+	// gpa_2 : all programs between 1.0-2.0
+	$gpa_2 = "SELECT Program_Name FROM `Out-of-School Programs` WHERE GPA_2=1";
+	$result = mysql_query($gpa_2);
+	$gpa_2_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($gpa_2_array, $row['Program_Name']);
+	}
+	// gpa_3 : all programs between 2.0-3.0
+	$gpa_3 = "SELECT Program_Name FROM `Out-of-School Programs` WHERE GPA_3=1";
+	$result = mysql_query($gpa_3);
+	$gpa_3_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($gpa_3_array, $row['Program_Name']);
+	}
+	// gpa_4 : all programs between 3.0-4.0
+	$gpa_4 = "SELECT Program_Name FROM `Out-of-School Programs` WHERE GPA_4=1";
+	$result = mysql_query($gpa_4);
+	$gpa_4_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($gpa_4_array, $row['Program_Name']);
+	}
+	// gender_f : females 
+	$gender_f = "SELECT Program_Name FROM `Out-of-School Programs` WHERE gender_f=1";
+	$result = mysql_query($gender_f);
+	$gender_f_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($gender_f_array, $row['Program_Name']);
+	}
+	// gender_m : males
+	$gender_m = "SELECT Program_Name FROM `Out-of-School Programs` WHERE gender_m=1";
+	$result = mysql_query($gender_m);
+	$gender_m_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($gender_m_array, $row['Program_Name']);
+	}
+	// gender_o : other
+	$gender_o = "SELECT Program_Name FROM `Out-of-School Programs` WHERE gender_o=1";
+	$result = mysql_query($gender_m);
+	$gender_o_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($gender_o_array, $row['Program_Name']);
+	}
+	// grade_k2 
+	$grade_k2 = "SELECT Program_Name FROM `Out-of-School Programs` WHERE grade_k2=1";
+	$result = mysql_query($grade_k2);
+	$grade_k2_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($grade_k2_array, $row['Program_Name']);
+	}
+	// grade_345
+	$grade_35 = "SELECT Program_Name FROM `Out-of-School Programs` WHERE grade_345=1";
+	$result = mysql_query($grade_35);
+	$grade_35_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($grade_35_array, $row['Program_Name']);
+	}
+	// grade_68
+	$grade_68 = "SELECT Program_Name FROM `Out-of-School Programs` WHERE grade_68=1";
+	$result = mysql_query($grade_68);
+	$grade_68_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($grade_68_array, $row['Program_Name']);
+	}
+	// grade_912
+	$grade_912 = "SELECT Program_Name FROM `Out-of-School Programs` WHERE grade_912=1";
+	$result = mysql_query($grade_912);
+	$grade_912_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($grade_912_array, $row['Program_Name']);
+	}
+	// cost_free
+	$cost_free = "SELECT Program_Name FROM `Out-of-School Programs` WHERE cost_free=1";
+	$result = mysql_query($cost_free);
+	$cost_free_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($cost_free_array, $row['Program_Name']);
+	}
+	// cost_10
+	$cost_10 = "SELECT Program_Name FROM `Out-of-School Programs` WHERE cost_10=1";
+	$result = mysql_query($cost_10);
+	$cost_10_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($cost_10_array, $row['Program_Name']);
+	}
+	// cost_20
+	$cost_20 = "SELECT Program_Name FROM `Out-of-School Programs` WHERE cost_20=1";
+	$result = mysql_query($cost_20);
+	$cost_20_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($cost_20_array, $row['Program_Name']);
+	}
+	// cost_35
+	$cost_35 = "SELECT Program_Name FROM `Out-of-School Programs` WHERE cost_35=1";
+	$result = mysql_query($cost_35);
+	$cost_35_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($cost_35_array, $row['Program_Name']);
+	}
+	// cost_more
+	$cost_more = "SELECT Program_Name FROM `Out-of-School Programs` WHERE cost_more=1";
+	$result = mysql_query($cost_more);
+	$cost_more_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($cost_more_array, $row['Program_Name']);
+	}
+	// time_summer
+	$time_summer = "SELECT Program_Name FROM `Out-of-School Programs` WHERE time_summer=1";
+	$result = mysql_query($cost_more);
+	$time_summer_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($time_summer_array, $row['Program_Name']);
+	}
+	// time_schoolyear
+	$time_schoolyear = "SELECT Program_Name FROM `Out-of-School Programs` WHERE time_summer=1";
+	$result = mysql_query($time_schoolyear);
+	$time_schoolyear_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($time_schoolyear_array, $row['Program_Name']);
+	}
+	// time_weekdays
+	$time_weekdays = "SELECT Program_Name FROM `Out-of-School Programs` WHERE time_summer=1";
+	$result = mysql_query($time_weekdays);
+	$time_schoolyear_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($time_schoolyear_array, $row['Program_Name']);
+	}
+	// time_weekends
+	$time_weekends = "SELECT Program_Name FROM `Out-of-School Programs` WHERE time_summer=1";
+	$result = mysql_query($time_weekends);
+	$time_weekends_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($time_weekends_array, $row['Program_Name']);
+	}
+	// focus_stem
+	$focus_stem = "SELECT Program_Name FROM `Out-of-School Programs` WHERE focus_stem=1";
+	$result = mysql_query($focus_stem);
+	$focus_stem_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($focus_stem_array, $row['Program_Name']);
+	}
+	// focus_testing
+	$focus_testing = "SELECT Program_Name FROM `Out-of-School Programs` WHERE focus_testing=1";
+	$result = mysql_query($focus_stem);
+	$focus_testing_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($focus_testing_array, $row['Program_Name']);
+	}
+	// focus_sports
+	$focus_sports = "SELECT Program_Name FROM `Out-of-School Programs` WHERE focus_sports=1";
+	$result = mysql_query($focus_sports);
+	$focus_sports_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($focus_sports_array, $row['Program_Name']);
+	}
+	// focus_mentoring
+	$focus_mentoring = "SELECT Program_Name FROM `Out-of-School Programs` WHERE focus_mentoring=1";
+	$result = mysql_query($focus_mentoring);
+	$focus_mentoring_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($focus_mentoring_array, $row['Program_Name']);
+	}
+	// focus_music
+	$focus_music = "SELECT Program_Name FROM `Out-of-School Programs` WHERE focus_music=1";
+	$result = mysql_query($focus_music);
+	$focus_music_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($focus_music_array, $row['Program_Name']);
+	}
+	// focus_academics
+	$focus_academics = "SELECT Program_Name FROM `Out-of-School Programs` WHERE focus_academics=1";
+	$result = mysql_query($focus_academics);
+	$focus_academics_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($focus_academics_array, $row['Program_Name']);
+	}
+	// focus_leadership
+	$focus_leadership = "SELECT Program_Name FROM `Out-of-School Programs` WHERE focus_leadership=1";
+	$result = mysql_query($focus_leadership);
+	$focus_leadership_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($focus_leadership_array, $row['Program_Name']);
+	}
+	// focus_college
+	$focus_college = "SELECT Program_Name FROM `Out-of-School Programs` WHERE focus_college=1";
+	$result = mysql_query($focus_college);
+	$focus_college_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($focus_college_array, $row['Program_Name']);
+	}
+	// focus_credit
+	$focus_credit = "SELECT Program_Name FROM `Out-of-School Programs` WHERE focus_credit=1";
+	$result = mysql_query($focus_credit);
+	$focus_credit_array = Array();
+	while($row = mysql_fetch_array($result)) {
+	 	array_push($focus_credit_array, $row['Program_Name']);
+	}
+	mysql_close($con);
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -77,40 +322,176 @@
 					"program_focus" : []
 				}
 
+				<?php
+					//race_white
+			        $json_array = json_encode($race_white_array);
+			        echo "var race_white = ". $json_array . ";\n";
+			        //race_black
+			        $json_array = json_encode($race_black_array);
+			        echo "var race_black = ". $json_array . ";\n";
+			        //race_hispanic
+			        $json_array = json_encode($race_hispanic_array);
+			        echo "var race_hispanic = ". $json_array . ";\n";
+			        //race_asian
+			        $json_array = json_encode($race_asian_array);
+			        echo "var race_asian = ". $json_array . ";\n";
+			        //race_other
+			        $json_array = json_encode($race_other_array);
+			        echo "var race_other = ". $json_array . ";\n";
+			        //gpa_1
+			        $json_array = json_encode($gpa_1_array);
+			        echo "var gpa_1 = ". $json_array . ";\n";
+			        //gpa_2
+			        $json_array = json_encode($gpa_2_array);
+			        echo "var gpa_2 = ". $json_array . ";\n";
+			        //gpa_3
+			        $json_array = json_encode($gpa_3_array);
+			        echo "var gpa_3 = ". $json_array . ";\n";
+			        //gpa_4
+			        $json_array = json_encode($gpa_4_array);
+			        echo "var gpa_4 = ". $json_array . ";\n";
+			        //gender_f
+			        $json_array = json_encode($gender_f_array);
+			        echo "var gender_f = ". $json_array . ";\n";
+			        //gender_m
+			        $json_array = json_encode($gender_m_array);
+			        echo "var gender_m = ". $json_array . ";\n";
+			        //gpa_o
+			        $json_array = json_encode($gender_o_array);
+			        echo "var gender_o = ". $json_array . ";\n";
+			        // var grade_k2
+			        $json_array = json_encode($grade_k2_array);
+			        echo "var grade_k2 = ". $json_array . ";\n";
+			        // var grade_35
+			        $json_array = json_encode($grade_35_array);
+			        echo "var grade_35 = ". $json_array . ";\n";
+			       	// var grade_68
+			       	$json_array = json_encode($grade_68_array);
+			        echo "var grade_68 = ". $json_array . ";\n";
+			        // var grade_912
+			        $json_array = json_encode($grade_912_array);
+			        echo "var grade_912 = ". $json_array . ";\n";
+			        // var cost_free
+			        $json_array = json_encode($cost_free_array);
+			        echo "var cost_free = ". $json_array . ";\n";
+					// var cost_10
+					$json_array = json_encode($cost_10_array);
+			        echo "var cost_10 = ". $json_array . ";\n";
+					// var cost_20
+					$json_array = json_encode($cost_20_array);
+			        echo "var cost_20 = ". $json_array . ";\n";
+					// var cost_35
+					$json_array = json_encode($cost_35_array);
+			        echo "var cost_35 = ". $json_array . ";\n";
+					// var cost_more
+					$json_array = json_encode($cost_more_array);
+			        echo "var cost_more = ". $json_array . ";\n";
+			        // var time_schoolyear
+					$json_array = json_encode($time_schoolyear_array);
+			        echo "var time_schoolyear = ". $json_array . ";\n";
+			        // var time_summer
+					$json_array = json_encode($time_summer_array);
+			        echo "var time_summer = ". $json_array . ";\n";
+			        // var time_weekdays
+					$json_array = json_encode($time_weekdays_array);
+			        echo "var time_weekdays = ". $json_array . ";\n";
+			        // var time_weekends
+					$json_array = json_encode($time_weekends_array);
+			        echo "var time_weekends = ". $json_array . ";\n";
+			        // var focus_stem
+			        $json_array = json_encode($focus_stem_array);
+			        echo "var focus_stem = ". $json_array . ";\n";
+			        // var focus_credit
+					$json_array = json_encode($focus_credit_array);
+			        echo "var focus_credit = ". $json_array . ";\n";
+					// var focus_music
+					$json_array = json_encode($focus_music_array);
+			        echo "var focus_music = ". $json_array . ";\n";
+					// var focus_academics
+					$json_array = json_encode($focus_academics_array);
+			        echo "var focus_academics = ". $json_array . ";\n";
+					// var focus_college
+					$json_array = json_encode($focus_college_array);
+			        echo "var focus_college = ". $json_array . ";\n";
+					// var focus_leadership
+					$json_array = json_encode($focus_leadership_array);
+			        echo "var focus_leadership = ". $json_array . ";\n";
+					// var focus_sports
+					$json_array = json_encode($focus_sports_array);
+			        echo "var focus_sports = ". $json_array . ";\n";
+					// var focus_testing
+					$json_array = json_encode($focus_testing_array);
+			        echo "var focus_testing = ". $json_array . ";\n";
+      			?>
+
+      			console.log("race_white:", race_white);
+      			console.log("race_black:", race_white);
+      			console.log("race_hispanic:", race_white);
+      			console.log("race_asian:", race_white);
+      			console.log("race_other:", race_white);
+      			console.log("gpa_1:", gpa_1);
+      			console.log("gpa_2:", gpa_2);
+      			console.log("gpa_3:", gpa_3);
+      			console.log("gpa_4:", gpa_4);
+      			console.log("gender_f:", gender_f);
+      			console.log("gender_m:", gender_m);
+      			console.log("gender_o:", gender_o);
+				console.log("grade_k2:", grade_k2);
+				console.log("grade_35:", grade_35);
+				console.log("grade_68:", grade_68);
+				console.log("grade_912:", grade_912);
+      			console.log("cost_free:", cost_free);
+      			console.log("cost_10:", cost_10);
+      			console.log("cost_20:", cost_20);
+      			console.log("cost_35:", cost_35);
+      			console.log("cost_more:", cost_more);
+      			console.log("time_schoolyear:", time_schoolyear);
+      			console.log("time_summer:", time_summer);
+      			console.log("time_weekends:", time_weekends);
+      			console.log("time_weekdays:", time_weekdays);
+      			console.log("focus_mentoring:", focus_mentoring);
+      			console.log("focus_stem:", focus_stem);
+      			console.log("focus_credit:", focus_credit);
+      			console.log("focus_music:", focus_music);
+      			console.log("focus_academics:", focus_academics);
+      			console.log("focus_leadership:", focus_leadership);
+				console.log("focus_sports:", focus_sports);
+      			console.log("focus_testing:", focus_testing);
+
 				/* TESTING -- DONT DELETE FOR NOW; CANNED UNTIL THESE LISTS CAN BE GENERATED FROM DATABASE*/
-				var grade_345 = ['Amphibious Achievement', 'LTI', 'SailFuture'];
-				var focus_stem = ['Amphibious Achievement', 'LTI'];
-				var race_black = ['LTI', "Amphibious Achievement"];
-				var focus_credit = [];
-				var focus_music = [];
-				var focus_academics = [];
-				var focus_college = ['Amphibious Achievement'];
-				var focus_leadership = [];
-				var focus_sports = [];
-				var focus_testing = [];
-				var cost_free = [];
-				var cost_10 = [];
-				var cost_20 = ['LTI'];
-				var cost_35 = ['Amphibious Achievement'];
-				var gpa_1 = [];
-				var gpa_2 =[];
-				var gpa_3 = [];
-				var gpa_4 = [];
-				var time_schoolyear = [];
-				var time_summer = [];
-				var cost_more = ['Amphibious Achievement'];
-				var time_weekends = [];
-				var time_weekdays = [];
-				var gender_f = [];
-				var gender_m = [];
-				var gender_o = [];
-				var grade_k2 = [];
-				var grade_68 = [];
-				var grade_912 = [];
-				var race_asian = [];
-				var race_other = [];
-				var race_hispanic = [];
-				var race_white = [];
+				// var grade_345 = ['Amphibious Achievement', 'LTI', 'SailFuture'];
+				// var focus_stem = ['Amphibious Achievement', 'LTI'];
+				// var race_black = ['LTI', "Amphibious Achievement"];
+				// var focus_credit = [];
+				// var focus_music = [];
+				// var focus_academics = [];
+				// var focus_college = ['Amphibious Achievement'];
+				// var focus_leadership = [];
+				// var focus_sports = [];
+				// var focus_testing = [];
+				// var cost_free = [];
+				// var cost_10 = [];
+				// var cost_20 = ['LTI'];
+				// var cost_35 = ['Amphibious Achievement'];
+				// var gpa_1 = [];
+				// var gpa_2 =[];
+				// var gpa_3 = [];
+				// var gpa_4 = [];
+				// var time_schoolyear = [];
+				// var time_summer = [];
+				// var cost_more = ['Amphibious Achievement'];
+				// var time_weekends = [];
+				// var time_weekdays = [];
+				// var gender_f = [];
+				// var gender_m = [];
+				// var gender_o = [];
+				// var grade_k2 = [];
+				// var grade_68 = [];
+				// var grade_912 = [];
+				// var race_asian = [];
+				// var race_other = [];
+				// var race_hispanic = [];
+				// var race_white = [];
 
 				var selection_dict = {
 					"focus_credit_recover":focus_credit,
@@ -138,7 +519,7 @@
 					"gpa_2":gpa_2,
 					"gpa_3":gpa_3,
 					"gpa_4":gpa_4,
-					"grade_3_5":grade_345,
+					"grade_3_5":grade_35,
 					"grade_k_2":grade_k2,
 					"grade_6_8":grade_68,
 					"grade_hs":grade_912,
