@@ -5,17 +5,17 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script src="user_prof.js"></script>
     <script src="search_page3.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Teacher Profile</title>
     <link type="text/css" href="user_prof.css" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-    <link type="text/css" href="nav_bar.css" rel="stylesheet" />
+    <link type="text/css" href="../nav_bar_header/nav_bar.css" rel="stylesheet" />
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <link type='text/css' rel='stylesheet' href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
     <link type='text/css' rel='stylesheet' href="default.css" />
+    <link type='text/css' rel='stylesheet' href="modal.css" />
     <style>
     
 		div.recent_tile > span.tile-content {
@@ -50,7 +50,7 @@
   </head>
 
   <body style="margin-left:5%; margin-right:5%; margin-top:2%; margin-bottom:2%;">
-    <?php include("main_search.php") ?>
+    <?php include("../nav_bar_header/nav_bar.php") ?>
     <div id="container">
    
     <div class="row"> <!-- top row -->

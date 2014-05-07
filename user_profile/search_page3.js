@@ -146,8 +146,17 @@ var parameters_dict = {
 						e.stopPropagation();
 					}
 				})
-				$('.update_btn').on('click', function(e) {
-					$('.dropdown.open .dropdown-toggle').dropdown('toggle');
+
+				/*$("#search_btn").on('click', function() {
+					//window.location.href='/GR5/GR4/main_search_page/main_search_page.html';	
+					console.log("listening");
+					$("#udpate_search_modal").modal("toggle"); 
+				}); */
+
+				$("#search_btn").on('click', function(e) {
+					/*$("#udpate_search_modal").modal("toggle");*/
+					console.log("search button listenting");
+					//$('.dropdown.open .dropdown-toggle').dropdown('toggle');
 					console.log("click");
 					console.log(parameters_dict);
 					console.log("running makeSearchResultsList():");
@@ -514,7 +523,7 @@ function left_hover_func() {
 	}
 }
 
-function create_search_tile(tile_type, response) {
+/*function create_search_tile(tile_type, response) {
 
 	if (tile_type == "cost") {
 		var search_param = $('<p>').addClass('search_param').text("Cost");
@@ -555,6 +564,6 @@ function create_search_tile(tile_type, response) {
 	list_wrapper.append(new_tile);
 	$('#search_param_tiles').append(list_wrapper);
 
-}
+}*/
 
 })
