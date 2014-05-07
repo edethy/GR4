@@ -99,3 +99,23 @@ ul.dropdown-menu-form {
 #results_wrapper {
 	margin: 20px;
 }
+
+.close {
+	opacity: 1; 
+	color: #99cc99; 
+	text-shadow: 0 0px; 
+}
+
+.modal-header {
+	background-color: #003366; 
+	color: white; 
+}
+
+#cancelBtn {
+	color: #003366; 
+}
+
+#submitBtn {
+	background-color: #99cc99; 
+	border-color: #99cc99; 
+} 
