@@ -13,7 +13,7 @@
 	font-size:40pt;
 	font-family:Garamond;
 	font-weight:bold;
-	color:#FFFFF;
+	color:#003366;
 	margin-left: 2%;
 	margin-top: 2%;
 }
@@ -31,6 +31,7 @@
 	float:right;
 	float:top;
 	position: absolute;
+	color: #99CC99;
 }
 
 .rating {

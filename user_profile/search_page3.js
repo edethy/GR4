@@ -1,30 +1,10 @@
-var Favorite = function(img, name, url) {
+/*var Favorite = function(img, name, url) {
 	this.img = img;
 	this.name = name;
 	this.url = url;
 }
 
-
-function placeCaretAtEnd(el) {
-    el.focus();
-    if (typeof window.getSelection != "undefined"
-            && typeof document.createRange != "undefined") {
-        var range = document.createRange();
-        range.selectNodeContents(el);
-        range.collapse(false);
-        var sel = window.getSelection();
-        sel.removeAllRanges();
-        sel.addRange(range);
-    } else if (typeof document.body.createTextRange != "undefined") {
-        var textRange = document.body.createTextRange();
-        textRange.moveToElementText(el);
-        textRange.collapse(false);
-        textRange.select();
-    }
-}
-
-
-var searched_params = ['location'];
+var searched_params = ['location'];*/
 
 $(document).ready(function() {
 var img_urls = [];
@@ -96,6 +76,8 @@ var right_hover;
 	});
 	
 	$(".modal-body").append(create_all_parameters());
+	
+	/*$(".modal-body").append(create_all_parameters());
  	$pop_mod = create_individual_parameters("location");
     $("#all_parameters").append($pop_mod);
     if(!$(".button_wrapper").length > 0) {
@@ -135,8 +117,299 @@ var right_hover;
                 }
         }
         $("#results_wrapper").load("search_results.html");
-    });
+    });*/
 
+
+var parameters_dict = {
+					"student_profile" : {
+						"race": [],
+						"gpa" : [],
+						"gender" : [],
+						"grade_level" :[]
+					},
+					"program_profile" : {
+						"cost" : [],
+						"time" : [],
+						"location" : {
+							"zip_code" : "",
+						}
+					},
+					"program_focus" : []
+				}
+
+
+				/* TESTING -- DONT DELETE FOR NOW; CANNED UNTIL THESE LISTS CAN BE GENERATED FROM DATABASE*/
+				var grade_345 = ['Amphibious Achievement', 'LTI', 'SailFuture'];
+				var focus_stem = ['Amphibious Achievement', 'LTI'];
+				var race_black = ['LTI', "Amphibious Achievement"];
+				var focus_credit = [];
+				var focus_music = [];
+				var focus_academics = [];
+				var focus_college = ['Amphibious Achievement'];
+				var focus_leadership = [];
+				var focus_sports = [];
+				var focus_testing = [];
+				var cost_free = [];
+				var cost_10 = [];
+				var cost_20 = ['LTI'];
+				var cost_35 = ['Amphibious Achievement'];
+				var time_schoolyear = [];
+				var time_summer = [];
+				var cost_more = ['Amphibious Achievement'];
+				var time_weekends = [];
+				var time_weekdays = [];
+				var gender_f = [];
+				var gender_m = [];
+				var gender_o = [];
+				var grade_k2 = [];
+				var grade_68 = [];
+				var grade_912 = [];
+				var race_asian = [];
+				var race_other = [];
+				var race_hispanic = [];
+				var race_white = [];
+
+				var selection_dict = {
+					"focus_credit_recover":focus_credit,
+					"focus_music":focus_music,
+					"focus_academics":focus_academics,
+					"focus_college_prep":focus_college,
+					"focus_leadership":focus_leadership,
+					"focus_mentoring":focus_mentoring,
+					"focus_sports":focus_sports,
+					"focus_testing":focus_testing,
+					"focus_stem":focus_stem,
+					"cost_free":cost_free,
+					"cost_10":cost_10,
+					"cost_20":cost_20,
+					"cost_35":cost_35,
+					"cost_more":cost_more,
+					"school_year":time_schoolyear,
+					"summer":time_summer,
+					"weekends":time_weekends,
+					"weekdays":time_weekdays,
+					"gender_female":gender_f,
+					"gender_male":gender_m,
+					"gender_other":gender_o,
+					//GPA was not inserted into this...
+					"grade_3_5":grade_345,
+					"grade_k_2":grade_k2,
+					"grade_6_8":grade_68,
+					"grade_hs":grade_912,
+					"race_asian":race_asian,
+					"race_other":race_other,
+					"race_hispanic":race_hispanic,
+					"race_black":race_black,
+					"race_white":race_white
+				}
+
+				$(".slider").slider();
+				$('.dropdown-menu').on('click', function(e) {
+					if($(this).hasClass('dropdown-menu-form')) {
+						e.stopPropagation();
+					}
+				})
+
+				/*$("#search_btn").on('click', function() {
+					//window.location.href='/GR5/GR4/main_search_page/main_search_page.html';	
+					console.log("listening");
+					$("#udpate_search_modal").modal("toggle"); 
+				}); */
+
+				$("#search_btn").on('click', function(e) {
+					/*$("#udpate_search_modal").modal("toggle");*/
+					console.log("search button listenting");
+					//$('.dropdown.open .dropdown-toggle').dropdown('toggle');
+					console.log("click");
+					console.log(parameters_dict);
+					console.log("running makeSearchResultsList():");
+					console.log(makeSearchResultsList());
+				})
+				$(".race_checkbox").on("change", "input[type=checkbox]",function(e){
+						var id = e.target.id;
+						var is_checked = this.checked;
+						if (is_checked) {
+							parameters_dict["student_profile"]["race"].push(id);
+						} else {
+							var change_array = parameters_dict["student_profile"]["race"];
+							var index = change_array.indexOf(id);
+							change_array.splice(index, 1);
+						}
+						console.log(parameters_dict["student_profile"]["race"]);
+					})
+				$(".gender_checkbox").on("change", "input[type=checkbox]", function(e){
+						var id = e.target.id;
+						var is_checked = this.checked;
+						if (is_checked) {
+							parameters_dict["student_profile"]["gender"].push(id);
+						} else {
+							var change_array = parameters_dict["student_profile"]["gender"];
+							var index = change_array.indexOf(id);
+							change_array.splice(index, 1);
+						}
+						console.log(parameters_dict["student_profile"]["gender"]);
+				})
+				$(".grade_level_checkbox").on("change", "input[type=checkbox]", function(e) {
+						var id = e.target.id;
+						var is_checked = this.checked;
+						if (is_checked) {
+							parameters_dict["student_profile"]["grade_level"].push(id);
+						} else {
+							var change_array = parameters_dict["student_profile"]["grade_level"];
+							var index = change_array.indexOf(id);
+							change_array.splice(index, 1);
+						}
+						console.log(parameters_dict["student_profile"]["grade_level"]);
+				})
+				$(".focus_checkbox").on("change", "input[type=checkbox]", function(e){
+					var id = e.target.id;
+						var is_checked = this.checked;
+						if (is_checked) {
+							parameters_dict["program_focus"].push(id);
+						} else {
+							var change_array = parameters_dict["program_focus"];
+							var index = change_array.indexOf(id);
+							change_array.splice(index, 1);
+						}
+						console.log(parameters_dict["program_focus"]);
+				})
+
+				$(".cost_checkbox").on("change", "input[type=checkbox]", function(e){
+					var id = e.target.id;
+						var is_checked = this.checked;
+						if (is_checked) {
+							parameters_dict["program_profile"]["cost"].push(id);
+						} else {
+							var change_array = parameters_dict["program_profile"]["cost"];
+							var index = change_array.indexOf(id);
+							change_array.splice(index, 1);
+						}
+						console.log(parameters_dict["program_profile"]["cost"]);
+				})
+				$(".year_checkbox").on("change", "input[type=checkbox]", function(e){
+					var id = e.target.id;
+						var is_checked = this.checked;
+						if (is_checked) {
+							parameters_dict["program_profile"]["time"].push(id);
+						} else {
+							var change_array = parameters_dict["program_profile"]["time"];
+							var index = change_array.indexOf(id);
+							change_array.splice(index, 1);
+						}
+						console.log(parameters_dict["program_profile"]["time"]);
+				})	
+				$(".day_checkbox").on("change", "input[type=checkbox]", function(e){
+					var id = e.target.id;
+						var is_checked = this.checked;
+						if (is_checked) {
+							parameters_dict["program_profile"]["time"].push(id);
+						} else {
+							var change_array = parameters_dict["program_profile"]["time"];
+							var index = change_array.indexOf(id);
+							change_array.splice(index, 1);
+						}
+						console.log(parameters_dict["program_profile"]["time"]);
+				})
+
+				/**** FUNCTION TO GENERATE LIST OF PROGRAMS PASSED INTO SEARCH RESULTS ****/
+				/**** RETURNS a list of all program names ****/
+				function makeSearchResultsList() {
+					// create a set of all programs with ethnicities checked
+					var ethnicity_set = {};
+					if (parameters_dict["student_profile"]["race"].length == 0) {
+						ethnicity_set = null;
+					}
+					for (var i=0; i < parameters_dict["student_profile"]["race"].length; i++) {
+						var list_to_add = selection_dict[parameters_dict["student_profile"]["race"][i]];
+						for (var j=0; j<list_to_add.length; j++) {
+							ethnicity_set[list_to_add[j]] = true;
+						}
+					}
+					var gender_set = {};
+					if (parameters_dict["student_profile"]["gender"].length == 0) {
+						gender_set = null;
+					}
+					else {
+						for (var i=0; i < parameters_dict["student_profile"]["gender"].length; i++) {
+							var list_to_add = selection_dict[parameters_dict["student_profile"]["gender"][i]];
+							for (var j=0; j<list_to_add.length; j++) {
+								gender_set[list_to_add[j]] = true;
+							}
+						}
+					}
+					var grade_set = {};
+					if (parameters_dict["student_profile"]["grade_level"].length == 0) {
+						grade_set = null;
+					}
+					else {
+						for (var i=0; i < parameters_dict["student_profile"]["grade_level"].length; i++) {
+							var list_to_add = selection_dict[parameters_dict["student_profile"]["grade_level"][i]];
+							for (var j=0; j<list_to_add.length; j++) {
+								grade_set[list_to_add[j]] = true;
+							}
+						}
+					}
+					var focus_set = {};
+					if (parameters_dict["program_focus"].length == 0) {
+						focus_set = null;
+					}
+					else {
+						for (var i=0; i < parameters_dict["program_focus"].length; i++) {
+							var list_to_add = selection_dict[parameters_dict["program_focus"][i]];
+							for (var j=0; j<list_to_add.length; j++) {
+								focus_set[list_to_add[j]] = true;
+							}
+						}
+					}
+					var cost_set = {};
+					if (parameters_dict["program_profile"]["cost"].length == 0) {
+						cost_set = null;
+					}
+					for (var i=0; i < parameters_dict["program_profile"]["cost"].length; i++) {
+						var list_to_add = selection_dict[parameters_dict["program_profile"]["cost"][i]];
+						for (var j=0; j<list_to_add.length; j++) {
+							cost_set[list_to_add[j]] = true;
+						}
+					}
+					var time_set = {};
+					if (parameters_dict["program_profile"]["time"].length == 0) {
+						time_set = null;
+					}
+					else {
+						for (var i=0; i < parameters_dict["program_profile"]["time"].length; i++) {
+							var list_to_add = selection_dict[parameters_dict["program_profile"]["time"][i]];
+							for (var j=0; j<list_to_add.length; j++) {
+								time_set[list_to_add[j]] = true;
+							}
+						}
+					}
+					var set_list = [ethnicity_set, gender_set, grade_set, focus_set, cost_set, time_set];
+					var intersection_num = 0;  // number of selected parameter categories the search is satisfying
+					var intersection_set = {}; // a program has intersected all requests 
+					for (var i=0; i<set_list.length;i++) {
+						if (set_list[i] != null) {
+							var programs = Object.keys(set_list[i]);
+							for (var j=0; j<programs.length; j++) {
+								if (intersection_set[programs[j]] == undefined) {
+									intersection_set[programs[j]] = 1;
+								}
+								else {
+									intersection_set[programs[j]] = intersection_set[programs[j]] + 1;
+								}
+							}
+							intersection_num++;
+						}
+					}
+					var intersection_set_programs = Object.keys(intersection_set);
+					console.log("intersection_set_programs: " + intersection_set_programs);
+					var final_list = [];
+					for (var i=0; i<intersection_set_programs.length; i++) {
+						if (intersection_set[intersection_set_programs[i]] == intersection_num) {
+							final_list.push(intersection_set_programs[i]);
+						}
+					}
+					return final_list;
+				}
 
 if (favorites.length != 0){
 	build_favorites();
@@ -313,7 +586,7 @@ function left_hover_func() {
 	}
 }
 
-function create_search_tile(tile_type, response) {
+/*function create_search_tile(tile_type, response) {
 
 	if (tile_type == "cost") {
 		var search_param = $('<p>').addClass('search_param').text("Cost");
@@ -354,6 +627,6 @@ function create_search_tile(tile_type, response) {
 	list_wrapper.append(new_tile);
 	$('#search_param_tiles').append(list_wrapper);
 
-}
+}*/
 
 })

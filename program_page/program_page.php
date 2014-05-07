@@ -16,12 +16,8 @@
 			while($row = mysql_fetch_assoc($result)) {
 				$rows[] = $row;
 			}
-			//var_dump($rows);
 			mysql_close($db);
 		?>
-
-
-
 
 <!DOCTYPE html>
 <html>
@@ -32,7 +28,7 @@
 		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 		<link type='text/css' rel='stylesheet' href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
 		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-    	<link type="text/css" href="nav_bar.css" rel="stylesheet" />
+    	<link type="text/css" href="../nav_bar_header/nav_bar.css" rel="stylesheet" />
 		<script type="text/javascript">
 
 		$(document).ready(function() {
@@ -80,12 +76,13 @@
 		</script>
 	</head>
 	<body>
+		<?php include('../nav_bar_header/nav_bar.php') ?>
 		<div id="program_title"> <?php echo $rows[1]['Program_Name']; ?></div>
 		<table>
 			<tr>
 				<td>
 					<div id="title_logo_stars">
-						<div id="program_logo_box"><img id="program_logo" src="program_logos/amphibious.png"></div>
+						<div id="program_logo_box"><img id="program_logo" src="../<?php echo $rows[1]['Program_Logo']; ?> "></div>
 						<div style="font-size:25pt; color:yellow; margin-left:8px;">
 							<span height="250">&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
 						</div>
@@ -97,6 +94,8 @@
 						<p> <b> Cost: </b> <?php echo $rows[1]["Program_Cost"]; ?> </p>
 						<p> <b> Age: </b> <?php echo $rows[1]["Program_Age"]; ?> </p>
 						<p> <b> Activity: </b> <?php echo $rows[1]["Program_Focus"]; ?> </p>
+						<p> <b> Program Contact: </b> <?php echo $rows[1]["Program_Contact"]; ?> </p>
+						<p> <b> Program Website: </b><a href="<?php echo $rows[1]['Program_Website']; ?>"> <?php echo $rows[1]["Program_Website"]; ?></a> </p>
 						<p><b> Description: </b> <?php echo $rows[1]["Program_Description"]; ?> </p>
 					</div>
 				</td>
@@ -137,7 +136,7 @@
 						</div>					
 					</div>
 					<div class="row" style="width:92%; margin-left:4%;margin-top:1%; margin-bottom:1%">
-							<div id="comment_text"> Amphibious Achievement is a great program for inner-city students. I love the program at MIT! Amphibious Achievement is a great program for inner-city students. I love the program at MIT! Amphibious Achievement is a great program for inner-city students. I love the program at MIT! Amphibious Achievement is a great program for inner-city students. I love the program at MIT! </div>
+							<div id="comment_text"> I could not have been more please with the program.  The instructors were patient and kind and really willing to work with my student to help her learn new things. </div>
 					</div>
 				</div>
 					<div class="thumbnail comment">
@@ -158,7 +157,7 @@
 							</div>					
 						</div>
 						<div class="row" style="width:92%; margin-left:4%;margin-top:1%; margin-bottom:1%">
-								<div id="comment_text"> I love Amphibious Achievement! Weee! I love Amphibious Achievement! Weee! I love Amphibious Achievement! Weee! I love Amphibious Achievement! Weee! I love Amphibious Achievement! Weee! I love Amphibious Achievement! Weee! I love Amphibious Achievement! Weee! </div>
+								<div id="comment_text"> This program changed my student's life.  She had such a fun time learning and making new friends and it was really great. </div>
 						</div>
 					</div>
 			</div>
