@@ -4,46 +4,77 @@
 <head>
   <link type="text/css" href="nav_bar.css" rel="stylesheet" />
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <link type='text/css' rel='stylesheet' href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
   <script>
 		$(document).ready(function() {
-		  $("#search_by_program").on("keypress", function(e) {
-		   if(e.which == 13){
-			  window.location.href = "dummy_page.php";
-			   return false;
-		  }
-		  })
-		  $(".dummy_page").on("click", function(e) {
-			window.location.href = 'dummy_page.php';
-			return false;
-		  })
-		  $(".homehome").click(function(){
-			window.location.href = 'user_prof2.php';
-			return false;
-		  })
+
+			var program_names = ['Amphibious Achievement', 'Leadership Training Institute', 'SailFuture']; // this needs to be  gotten from the database of programs
+
+			$("#search_by_program").on("keypress", function(e) {
+				if(e.which == 13){
+					// should call search_program_name(name)
+					window.location.href = "dummy_page.php";
+					return false;
+		  		}
+		  	});
+
+			$("#search_button").on("click", function(e) {
+				// should call search_program_name(name)
+				window.location.href = 'dummy_page.php';
+				return false;
+			});
+
+			$(".homehome").click(function(){
+				window.location.href = 'user_prof2.php';
+				return false;
+			});
   
-		  $("#home_link").on("click", function(e) { 	
-			console.log("HOME"); 
-			$("#home_link").css({ color: "#99CC99" }); 
-			$("#about_link").css({ color: "#CCCCCC" });
-			$("#home_link").css({ color: "#777" }); 	
-		  }); 
+			$("#home_link").on("click", function(e) { 	
+				console.log("HOME"); 
+				$("#home_link").css({ color: "#99CC99" }); 
+				$("#about_link").css({ color: "#CCCCCC" });
+				$("#home_link").css({ color: "#777" }); 	
+			}); 
   
-		  $("#about_link").on("click", function(e) { 
-			console.log("ABOUT"); 	
-			$("#about_link").css({ color: "#99CC99" });   
-			$("#home_link").css({ color: "#CCCCCC" });
-			$("#program_link").css({ color: "#CCCCCC" });	
-		  });
+			$("#about_link").on("click", function(e) { 
+				console.log("ABOUT"); 	
+				$("#about_link").css({ color: "#99CC99" });   
+				$("#home_link").css({ color: "#CCCCCC" });
+				$("#program_link").css({ color: "#CCCCCC" });	
+			});
   
-		  $("#program_link").on("click", function(e) { 
-			console.log("PROGRAM"); 	
-			$("#program_link").css({ color: "#99CC99" });
-			$("#about_link").css({ color: "#CCCCCC" });
-			$("#home_link").css({ color: "#CCCCCC" }); 	
-		  });
+			$("#program_link").on("click", function(e) { 
+				console.log("PROGRAM"); 	
+				$("#program_link").css({ color: "#99CC99" });
+				$("#about_link").css({ color: "#CCCCCC" });
+				$("#home_link").css({ color: "#CCCCCC" }); 	
+			});
+
+			$("#search_by_program").autocomplete({ 
+				source: program_names,
+				minLength: 2,
+				select: function(event, ui) {
+					var selected_word = ui.item.value;
+					program_name_search(selected_word);
+					console.log(selected_word);
+				}
+			});
+
+			function program_name_search(name) {
+			  	if ($.inArray(name, program_names) > -1) { // the name that is being searched is actually an existing program
+			  		// load HTML page of the form ./program_page/ID
+			  	}
+			  	else {
+			  		// load HTML page for program name not found
+			  	}
+			  	$("#search_by_program").autocomplete.close();
+			}
+
 		})
   </script>
 </head>
@@ -67,7 +98,7 @@
 			  <div class="form-group">
 				<input type="text" class="form-control" id="search_by_program" placeholder="Know of a program by name?">
 			  </div>
-			  <button type="submit" class="btn btn-default dummy_page">
+			  <button type="submit" id="search_button" class="btn btn-default dummy_page">
 				<span class="glyphicon glyphicon-search"></span>
 			  </button>
 		  </form>

@@ -1,3 +1,28 @@
+<?php 
+			$db = mysql_connect("sql.mit.edu", "edethy", "Persi123");
+			if(!$db){
+				die("Could not connect:". mysql_error());
+			}
+			mysql_select_db("edethy+connected") or die("Could not select Database");
+
+			$program_id=$_GET['program'];
+
+			$query = "SELECT * FROM `Out-of-School Programs` WHERE `Program_ID` = '".$program_id."'";
+			if(!$query){
+				trigger_error(mysql_error()." in " .$query);
+			}
+			$result = mysql_query($query, $db);
+			$rows[]  = array();
+			while($row = mysql_fetch_assoc($result)) {
+				$rows[] = $row;
+			}
+			//var_dump($rows);
+			mysql_close($db);
+		?>
+
+
+
+
 <!DOCTYPE html>
 <html>
 	<head>		
@@ -55,8 +80,7 @@
 		</script>
 	</head>
 	<body>
-		<?php include("main_search.php") ?>
-		<div id="program_title"> Amphibious Achievement </div>
+		<div id="program_title"> <?php echo $rows[1]['Program_Name']; ?></div>
 		<table>
 			<tr>
 				<td>
@@ -69,11 +93,11 @@
 				</td>
 				<td>
 					<div style="position:relative; margin-left:5%; margin-right:5%;">
-						<p> <b> Location: </b> Cambridge, MA </p>
-						<p> <b> Cost: </b> Free </p>
-						<p> <b> Age: </b> 9-12 Graders </p>
-						<p> <b> Activity: </b> Academics, Athletics, College-Prep </p>
-						<p> <b> Description: </b> Amphibious Achievement is a dual athletic and academic mentorship program for inner-city high school students from the Boston Public School system. It was founded in 2010 by MIT student-athletes who saw the benefits that athletics can have on academic and personal success. Through the synergy of coaching in swimming and rowing and tutoring in college preparatory academics, the program fosters success in and out of the water for low-income urban high school students. </p>
+						<p> <b> Location: </b> <?php echo $rows[1]["Program_Location"]; ?> </p>
+						<p> <b> Cost: </b> <?php echo $rows[1]["Program_Cost"]; ?> </p>
+						<p> <b> Age: </b> <?php echo $rows[1]["Program_Age"]; ?> </p>
+						<p> <b> Activity: </b> <?php echo $rows[1]["Program_Focus"]; ?> </p>
+						<p><b> Description: </b> <?php echo $rows[1]["Program_Description"]; ?> </p>
 					</div>
 				</td>
 			</tr>
