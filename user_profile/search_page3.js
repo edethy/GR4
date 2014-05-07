@@ -4,6 +4,26 @@ var Favorite = function(img, name, url) {
 	this.url = url;
 }
 
+
+function placeCaretAtEnd(el) {
+    el.focus();
+    if (typeof window.getSelection != "undefined"
+            && typeof document.createRange != "undefined") {
+        var range = document.createRange();
+        range.selectNodeContents(el);
+        range.collapse(false);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+    } else if (typeof document.body.createTextRange != "undefined") {
+        var textRange = document.body.createTextRange();
+        textRange.moveToElementText(el);
+        textRange.collapse(false);
+        textRange.select();
+    }
+}
+
+
 var searched_params = ['location'];
 
 $(document).ready(function() {
@@ -14,6 +34,67 @@ current_index = 0;
 var left_hover;
 var right_hover;
 
+	//makes sure that someone can escape the text field using enter
+	$("#onetext").on('focus', function(e){
+		$(document).keypress(function(e) {
+    		if(e.which == 13) {
+    			$('#onetext').blur()
+       		}
+   		 }); 
+	}); 
+	
+	
+	$("#twotext").on('focus', function(e){
+		$(document).keypress(function(e) {
+    		if(e.which == 13) {
+    			$('#twotext').blur()
+       		}
+   		 }); 
+	});
+	
+	
+	$("#threetext").on('focus', function(e){
+		$(document).keypress(function(e) {
+    		if(e.which == 13) {
+    			$('#threetext').blur()
+       		}
+   		 }); 
+	});
+	
+	
+	$("#fourtext").on('focus', function(e){
+		$(document).keypress(function(e) {
+    		if(e.which == 13) {
+    			$('#fourtext').blur()
+       		}
+   		 }); 
+	});
+	 
+	//makes all the editable text fields respond to edit button 
+	$("#one").on('click', function(e){
+		$("#onetext").focus();
+		placeCaretAtEnd($('#onetext').get(0)); 
+		 
+	}); 
+	
+	$("#two").on('click', function(e){
+		$("#twotext").focus();
+		placeCaretAtEnd($('#twotext').get(0));
+		 
+	});
+	
+	$("#three").on('click', function(e){
+		$("#threetext").focus();
+		placeCaretAtEnd($('#threetext').get(0));
+		 
+	});
+	
+	$("#four").on('click', function(e){
+		$("#fourtext").focus();
+		placeCaretAtEnd($('#fourtext').get(0));
+		 
+	});
+	
 	$(".modal-body").append(create_all_parameters());
  	$pop_mod = create_individual_parameters("location");
     $("#all_parameters").append($pop_mod);

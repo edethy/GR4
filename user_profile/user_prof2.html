@@ -19,8 +19,8 @@
     <style>
     
 		div.recent_tile > span.tile-content {
-			color: #CCCCCC;
-			background-color:#003366;
+			color: #003366;
+			background-color:#99CC99;
 			height: 205px; 
 			width: 255px;	
 			left: 0;
@@ -49,7 +49,7 @@
     </style>
   </head>
 
-  <body style="margin-left:5%; margin-right:5%; margin-top:2%; margin-bottom:2%;">
+  <body style="background-color: #F0F0F0; color: #003366; margin-left:5%; margin-right:5%; margin-top:2%; margin-bottom:2%;">
     <?php include("main_search.php") ?>
     <div id="container">
    
@@ -76,9 +76,9 @@
 			<div class="col-md-5">
 				<div class="list-group">
 				<div class="list-group-item">
-					<span class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span> 
+					<span style="cursor: pointer;" id="one" class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span> 
 					<h4 class="list-group-item-heading">School District:</h4>
-					<p class="list-group-item-text" contenteditable="true">Boston Public Schools</p>
+					<p  id="onetext" class="list-group-item-text" contenteditable="true">Boston Public Schools</p>
 					<p>&nbsp</p>
 				</div>
 				</div>
@@ -86,21 +86,21 @@
 			<div class="col-md-5">
 				<div class="list-group">
 				<div class="list-group-item">
-					<span class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span>  
+					<span style="cursor: pointer;" id="two" class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span>  
 					<h4 class="list-group-item-heading">School:</h4>
-					<p class="list-group-item-text" contenteditable="true">Boston Latin High School</p>
+					<p id="twotext" class="list-group-item-text" contenteditable="true">Boston Latin High School</p>
 					<p>&nbsp</p>
 				</div>
 				</div>
 			</div>
 		</div>
-		<div class= "row"> <!-- row 3 -->
+		<div7 class= "row"> <!-- row 3 -->
 			<div class="col-md-5">
 				<div class="list-group">
 				<div class="list-group-item">
-					<span class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span> 
+					<span style="cursor: pointer;" id="three" class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span> 
 					<h4 class="list-group-item-heading">Teaching Grades:</h4>
-					<p class = "list-group-item-text" contenteditable="true">Grades 9-12</p>
+					<p id="threetext" class = "list-group-item-text" contenteditable="true">Grades 9-12</p>
 					<p>&nbsp</p>
 				</div>
 				</div>
@@ -108,9 +108,9 @@
 			<div class="col-md-5">
 				<div class="list-group">
 				<div class="list-group-item">
-					<span class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span> 
+					<span style="cursor: pointer;" id="four" class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span> 
 					<h4 class="list-group-item-heading">Subjects:</h4>
-					<p class="list-group-item-text" contenteditable="true">English</p>
+					<p id="fourtext" class="list-group-item-text" contenteditable="true">English</p>
 					<p>&nbsp</p>
 				</div>
 				</div>
@@ -123,7 +123,7 @@
     <div class="row">&nbsp</div>
     <div class="row">&nbsp</div>
     <div class="row">&nbsp</div>
-    <div class="jumbotron"> 
+    <div class="jumbotron" style="background-color:white"> 
     	<div class="container">
     		<h2>Need to find an after-school program?</h2>
     		<p>We can help you find the perfect after-school program to fit your students' needs.</p>
@@ -142,7 +142,7 @@
 			<div id="favorites_wrapper">
 				<div class="row" id="no_favorites">
 					<div class="col-md-1"></div>
-					<div class="well well-lg fav-well">You have no favorites yet!</div>
+					<div style="background-color: white;" class="well well-lg fav-well">You have no favorites yet!</div>
 				</div>
 				<div class="row">
 					<div class="col-md-1"></div>
@@ -178,7 +178,7 @@
 			  <img class="recent_tile_image" src="../program_logos/amphibious.png" alt="...">
 			</div>
 			<div class="row recent_tile_name">
-				<a href="#"><h4>Amphibious Achievement</h4></a>
+				<a style="color: #003366;"><h4>Amphibious Achievement</h4></a>
 			</div>
 			<span class="tile-content">JUST TRYING TO MAKE THIS WORK</span>        
 		</div>
@@ -189,7 +189,7 @@
 			  <img class="recent_tile_image" src="../program_logos/lti.png" alt="...">
 			 </div>
 			<div class="row recent_tile_name">
-				<a href="#"><h4>LTI</h4></a>
+				<a style="color: #003366;"><h4>LTI</h4></a>
 			</div>
 			<span class="tile-content">JUST TRYING TO MAKE THIS WORK</span>        
 		</div>
@@ -200,7 +200,7 @@
 				  <img class="recent_tile_image" src="../program_logos/ymca.jpeg" alt="...">
 			</div>
 			<div class="row recent_tile_name">
-				<a href="#"><h4>YMCA</h4></a>
+				<a style="color: #003366;"><h4>YMCA</h4></a>
 			</div>
 			<span class="tile-content">JUST TRYING TO MAKE THIS WORK</span> 
 		</div> 
