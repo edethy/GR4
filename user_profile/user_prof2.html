@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
+  <head>	
+	<script src="../main_search_page/search_list_results.js"></script>
+	<!--<script src="search_page2.js"></script> -->
+	<script src="../main_search_page/search_params_modal.js"></script>
+	<script src="../main_search_page/submit_search_func.js"></script>
+	<script src="../main_search_page/search.js"></script>
+	<script src="../slider/js/bootstrap-slider.js"></script>
+	<link type="text/css" href="../slider/css/slider.css" rel="stylesheet"/>
+	<link type="text/css" href="../main_search_page/blahblah.css" rel="stylesheet" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
@@ -49,6 +57,330 @@
 		}
     
     </style>
+    <script>
+
+			// given following lists (extracted through php code from the database):
+				// race_white : all programs for white students
+				// race_black: all programs for black students
+				// race_hispanic
+				// race_asian
+				// race_other
+				// GPA_1 : all programs between 0.0-1.0
+				// GPA_2 : all programs between 1.0-2.0
+				// GPA_3 : all programs between 2.0-3.0
+				// GPA_4 : all programs between 3.0-4.0
+				// gender_f : females 
+				// gender_m : males
+				// gender_o : other
+				// grade_k2 
+				// grade_345
+				// grade_68
+				// grade_912
+				// cost_free
+				// cost_10
+				// cost_20
+				// cost_35
+				// cost_more
+				// time_summer
+				// time_schoolyear
+				// time_weekdays
+				// time_weekends
+				// focus_stem
+				// focus_testing
+				// focus_sports
+				// focus_mentoring
+				// focus_music
+				// focus_academics
+				// focus_leadership
+				// focus_college
+				// focus_credit
+
+			$(document).ready(function() {
+				var parameters_dict = {
+					"student_profile" : {
+						"race": [],
+						"gpa" : [],
+						"gender" : [],
+						"grade_level" :[]
+					},
+					"program_profile" : {
+						"cost" : [],
+						"time" : [],
+						"location" : {
+							"zip_code" : "",
+						}
+					},
+					"program_focus" : []
+				}
+
+
+				/* TESTING -- DONT DELETE FOR NOW; CANNED UNTIL THESE LISTS CAN BE GENERATED FROM DATABASE*/
+				var grade_345 = ['Amphibious Achievement', 'LTI', 'SailFuture'];
+				var focus_stem = ['Amphibious Achievement', 'LTI'];
+				var race_black = ['LTI', "Amphibious Achievement"];
+				var focus_credit = [];
+				var focus_music = [];
+				var focus_academics = [];
+				var focus_college = ['Amphibious Achievement'];
+				var focus_leadership = [];
+				var focus_sports = [];
+				var focus_testing = [];
+				var cost_free = [];
+				var cost_10 = [];
+				var cost_20 = ['LTI'];
+				var cost_35 = ['Amphibious Achievement'];
+				var time_schoolyear = [];
+				var time_summer = [];
+				var cost_more = ['Amphibious Achievement'];
+				var time_weekends = [];
+				var time_weekdays = [];
+				var gender_f = [];
+				var gender_m = [];
+				var gender_o = [];
+				var grade_k2 = [];
+				var grade_68 = [];
+				var grade_912 = [];
+				var race_asian = [];
+				var race_other = [];
+				var race_hispanic = [];
+				var race_white = [];
+
+				var selection_dict = {
+					"focus_credit_recover":focus_credit,
+					"focus_music":focus_music,
+					"focus_academics":focus_academics,
+					"focus_college_prep":focus_college,
+					"focus_leadership":focus_leadership,
+					"focus_mentoring":focus_mentoring,
+					"focus_sports":focus_sports,
+					"focus_testing":focus_testing,
+					"focus_stem":focus_stem,
+					"cost_free":cost_free,
+					"cost_10":cost_10,
+					"cost_20":cost_20,
+					"cost_35":cost_35,
+					"cost_more":cost_more,
+					"school_year":time_schoolyear,
+					"summer":time_summer,
+					"weekends":time_weekends,
+					"weekdays":time_weekdays,
+					"gender_female":gender_f,
+					"gender_male":gender_m,
+					"gender_other":gender_o,
+					//GPA was not inserted into this...
+					"grade_3_5":grade_345,
+					"grade_k_2":grade_k2,
+					"grade_6_8":grade_68,
+					"grade_hs":grade_912,
+					"race_asian":race_asian,
+					"race_other":race_other,
+					"race_hispanic":race_hispanic,
+					"race_black":race_black,
+					"race_white":race_white
+				}
+
+				$(".slider").slider();
+				$('.dropdown-menu').on('click', function(e) {
+					if($(this).hasClass('dropdown-menu-form')) {
+						e.stopPropagation();
+					}
+				})
+				$('.update_btn').on('click', function(e) {
+					$('.dropdown.open .dropdown-toggle').dropdown('toggle');
+					console.log("click");
+					console.log(parameters_dict);
+					console.log("running makeSearchResultsList():");
+					console.log(makeSearchResultsList());
+				})
+				$(".race_checkbox").on("change", "input[type=checkbox]",function(e){
+						var id = e.target.id;
+						var is_checked = this.checked;
+						if (is_checked) {
+							parameters_dict["student_profile"]["race"].push(id);
+						} else {
+							var change_array = parameters_dict["student_profile"]["race"];
+							var index = change_array.indexOf(id);
+							change_array.splice(index, 1);
+						}
+						console.log(parameters_dict["student_profile"]["race"]);
+					})
+				$(".gender_checkbox").on("change", "input[type=checkbox]", function(e){
+						var id = e.target.id;
+						var is_checked = this.checked;
+						if (is_checked) {
+							parameters_dict["student_profile"]["gender"].push(id);
+						} else {
+							var change_array = parameters_dict["student_profile"]["gender"];
+							var index = change_array.indexOf(id);
+							change_array.splice(index, 1);
+						}
+						console.log(parameters_dict["student_profile"]["gender"]);
+				})
+				$(".grade_level_checkbox").on("change", "input[type=checkbox]", function(e) {
+						var id = e.target.id;
+						var is_checked = this.checked;
+						if (is_checked) {
+							parameters_dict["student_profile"]["grade_level"].push(id);
+						} else {
+							var change_array = parameters_dict["student_profile"]["grade_level"];
+							var index = change_array.indexOf(id);
+							change_array.splice(index, 1);
+						}
+						console.log(parameters_dict["student_profile"]["grade_level"]);
+				})
+				$(".focus_checkbox").on("change", "input[type=checkbox]", function(e){
+					var id = e.target.id;
+						var is_checked = this.checked;
+						if (is_checked) {
+							parameters_dict["program_focus"].push(id);
+						} else {
+							var change_array = parameters_dict["program_focus"];
+							var index = change_array.indexOf(id);
+							change_array.splice(index, 1);
+						}
+						console.log(parameters_dict["program_focus"]);
+				})
+
+				$(".cost_checkbox").on("change", "input[type=checkbox]", function(e){
+					var id = e.target.id;
+						var is_checked = this.checked;
+						if (is_checked) {
+							parameters_dict["program_profile"]["cost"].push(id);
+						} else {
+							var change_array = parameters_dict["program_profile"]["cost"];
+							var index = change_array.indexOf(id);
+							change_array.splice(index, 1);
+						}
+						console.log(parameters_dict["program_profile"]["cost"]);
+				})
+				$(".year_checkbox").on("change", "input[type=checkbox]", function(e){
+					var id = e.target.id;
+						var is_checked = this.checked;
+						if (is_checked) {
+							parameters_dict["program_profile"]["time"].push(id);
+						} else {
+							var change_array = parameters_dict["program_profile"]["time"];
+							var index = change_array.indexOf(id);
+							change_array.splice(index, 1);
+						}
+						console.log(parameters_dict["program_profile"]["time"]);
+				})	
+				$(".day_checkbox").on("change", "input[type=checkbox]", function(e){
+					var id = e.target.id;
+						var is_checked = this.checked;
+						if (is_checked) {
+							parameters_dict["program_profile"]["time"].push(id);
+						} else {
+							var change_array = parameters_dict["program_profile"]["time"];
+							var index = change_array.indexOf(id);
+							change_array.splice(index, 1);
+						}
+						console.log(parameters_dict["program_profile"]["time"]);
+				})
+
+				/**** FUNCTION TO GENERATE LIST OF PROGRAMS PASSED INTO SEARCH RESULTS ****/
+				/**** RETURNS a list of all program names ****/
+				function makeSearchResultsList() {
+					// create a set of all programs with ethnicities checked
+					var ethnicity_set = {};
+					if (parameters_dict["student_profile"]["race"].length == 0) {
+						ethnicity_set = null;
+					}
+					for (var i=0; i < parameters_dict["student_profile"]["race"].length; i++) {
+						var list_to_add = selection_dict[parameters_dict["student_profile"]["race"][i]];
+						for (var j=0; j<list_to_add.length; j++) {
+							ethnicity_set[list_to_add[j]] = true;
+						}
+					}
+					var gender_set = {};
+					if (parameters_dict["student_profile"]["gender"].length == 0) {
+						gender_set = null;
+					}
+					else {
+						for (var i=0; i < parameters_dict["student_profile"]["gender"].length; i++) {
+							var list_to_add = selection_dict[parameters_dict["student_profile"]["gender"][i]];
+							for (var j=0; j<list_to_add.length; j++) {
+								gender_set[list_to_add[j]] = true;
+							}
+						}
+					}
+					var grade_set = {};
+					if (parameters_dict["student_profile"]["grade_level"].length == 0) {
+						grade_set = null;
+					}
+					else {
+						for (var i=0; i < parameters_dict["student_profile"]["grade_level"].length; i++) {
+							var list_to_add = selection_dict[parameters_dict["student_profile"]["grade_level"][i]];
+							for (var j=0; j<list_to_add.length; j++) {
+								grade_set[list_to_add[j]] = true;
+							}
+						}
+					}
+					var focus_set = {};
+					if (parameters_dict["program_focus"].length == 0) {
+						focus_set = null;
+					}
+					else {
+						for (var i=0; i < parameters_dict["program_focus"].length; i++) {
+							var list_to_add = selection_dict[parameters_dict["program_focus"][i]];
+							for (var j=0; j<list_to_add.length; j++) {
+								focus_set[list_to_add[j]] = true;
+							}
+						}
+					}
+					var cost_set = {};
+					if (parameters_dict["program_profile"]["cost"].length == 0) {
+						cost_set = null;
+					}
+					for (var i=0; i < parameters_dict["program_profile"]["cost"].length; i++) {
+						var list_to_add = selection_dict[parameters_dict["program_profile"]["cost"][i]];
+						for (var j=0; j<list_to_add.length; j++) {
+							cost_set[list_to_add[j]] = true;
+						}
+					}
+					var time_set = {};
+					if (parameters_dict["program_profile"]["time"].length == 0) {
+						time_set = null;
+					}
+					else {
+						for (var i=0; i < parameters_dict["program_profile"]["time"].length; i++) {
+							var list_to_add = selection_dict[parameters_dict["program_profile"]["time"][i]];
+							for (var j=0; j<list_to_add.length; j++) {
+								time_set[list_to_add[j]] = true;
+							}
+						}
+					}
+					var set_list = [ethnicity_set, gender_set, grade_set, focus_set, cost_set, time_set];
+					var intersection_num = 0;  // number of selected parameter categories the search is satisfying
+					var intersection_set = {}; // a program has intersected all requests 
+					for (var i=0; i<set_list.length;i++) {
+						if (set_list[i] != null) {
+							var programs = Object.keys(set_list[i]);
+							for (var j=0; j<programs.length; j++) {
+								if (intersection_set[programs[j]] == undefined) {
+									intersection_set[programs[j]] = 1;
+								}
+								else {
+									intersection_set[programs[j]] = intersection_set[programs[j]] + 1;
+								}
+							}
+							intersection_num++;
+						}
+					}
+					var intersection_set_programs = Object.keys(intersection_set);
+					console.log("intersection_set_programs: " + intersection_set_programs);
+					var final_list = [];
+					for (var i=0; i<intersection_set_programs.length; i++) {
+						if (intersection_set[intersection_set_programs[i]] == intersection_num) {
+							final_list.push(intersection_set_programs[i]);
+						}
+					}
+					return final_list;
+				}
+
+			})
+		</script>
+
   </head>
 
   <body style="background-color: #F0F0F0; color: #003366; margin-left:5%; margin-right:5%; margin-top:2%; margin-bottom:2%;">
@@ -135,6 +467,304 @@
 
 		</div>
     </div>
+
+<!-- ########################### MODAL STUFF ####################################### -->
+<!--		<button id="update_search" type="button" class="btn btn-default enter_modal" data-toggle="modal" data-target="#udpate_search_modal" style="width:200px; height:120px; background-color:grey;">Update Search</button>
+
+		 <div class="modal fade" id="udpate_search_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title">Add Search Parameters to Update Your Search!</h4>
+		      </div>
+		
+		<div style="background-color: #F0F0F0" class="modal-body">
+
+		<div class="search_params">
+
+			<div class="block student_profile_dropdown">
+				<div class="dropdown">
+					<button type="button" class="dropdown-toggle btn btn-default dropdown_btn" data-toggle="dropdown" href="#">Student Profile<b class="caret"></b>
+					</button>
+					<ul class="dropdown-menu dropdown-menu-form" role="menu">
+						<li class="dropdown-title">Race/Ethnicity</li>
+							<li class="r">
+							<div class="race">
+								<label class="checkbox race_checkbox">
+									<input type="checkbox" id="race_white">
+								White
+								</label>
+							</div>
+
+							<div class="race">
+								<label class="checkbox race_checkbox" >
+									<input type="checkbox" id="race_hispanic">
+										Hispanic
+								</label>
+							</div>
+							<div class="race">
+								<label class="checkbox race_checkbox" >
+									<input type="checkbox" id="race_black">
+									Black
+								</label>
+							</div>
+						</li>
+						<li class="r">
+							<div class="race">
+								<label class="checkbox race_checkbox" >
+									<input type="checkbox" id="race_asian">
+									Asian
+								</label>
+							</div>
+							<div class="race">
+								<label class="checkbox race_checkbox" >
+									<input type="checkbox" id="race_other">
+									Other
+								</label>
+							</div>
+						</li>
+						</li>
+						<li class="dropdown-title">GPA</li>
+						<li class="gpa">
+							<div class="slider slider-horizontal" style="width: 140px;">
+								<div class="slider-track">
+									<div class="slider-selection" style="left:0%; width:100%;"></div>
+
+								</div>
+							</div>
+						</li>
+						<li class="dropdown-title">Gender</li>
+						<li class="g">
+							<div class="gender">
+								<label class="checkbox gender_checkbox">
+									<input type="checkbox"  id="gender_female">
+									Female
+								</label>
+							</div>
+							<div class="gender">
+								<label class="checkbox gender_checkbox" >
+									<input type="checkbox" id="gender_male">
+									Male
+								</label>
+							</div>
+							<div class="gender">
+								<label class="checkbox gender_checkbox" >
+									<input type="checkbox" id="gender_other">
+									Other
+								</label>
+							</div>
+						</li>
+						<li class="dropdown-title">Grade-Level</li>
+						<li class="gl">
+							<div class="grade_level">
+								<label class="checkbox grade_level_checkbox">
+									<input type="checkbox"  id="grade_k_2">
+									K-2
+								</label>
+							</div>
+							<div class="grade_level">
+								<label class="checkbox grade_level_checkbox" >
+									<input type="checkbox" id="grade_3_5">
+									3-5
+								</label>
+							</div>
+							<div class="grade_level">
+								<label class="checkbox grade_level_checkbox">
+									<input type="checkbox" id="grade_6_8">
+									6-8
+								</label>
+							</div>
+						</li>
+						<li class="gl">
+							<div class="grade_level">
+								<label class="checkbox grade_level_checkbox">
+									<input type="checkbox" id="grade_hs">
+									9-12
+								</label>
+							</div>
+						</li>
+						<li>
+							<button type="button" class="btn btn-default btn-small update_btn" href="#">Update</button>
+						</li>	
+					</ul>
+				</div>
+			</div>
+
+
+			<div class="block program_profile_dropdown">
+				<div class="dropdown">
+					<button type="button" class="dropdown-toggle btn btn-default dropdown_btn" data-toggle="dropdown" href="#">Program Profile<b class="caret"></b>
+					</button>
+					<ul class="dropdown-menu dropdown-menu-form" role="menu">
+						<li class="dropdown-title"> 
+								Cost
+						</li>
+						<li class="c">
+							<div class="cost">
+								<label class="checkbox cost_checkbox">
+									<input type="checkbox" id="cost_free">
+								Free
+								</label>
+							</div>
+							<div class="cost">
+								<label class="checkbox cost_checkbox">
+									<input type="checkbox" id="cost_10">
+								Up to $10/hour
+								</label>
+							</div>
+						</li>
+						<li class="c">
+							
+							<div class="cost">
+								<label class="checkbox cost_checkbox">
+									<input type="checkbox" id="cost_20">
+								$10-$20/hour
+								</label>
+							</div>
+							<div class="cost">
+								<label class="checkbox cost_checkbox">
+									<input type="checkbox" id="cost_35">
+								$20-$35/hour 
+								</label>
+							</div>
+						</li>
+						<li class="c">
+							
+							<div class="cost">
+								<label class="checkbox cost_checkbox">
+									<input type="checkbox" id="cost_more">
+								$35+/hour
+								</label>
+							</div>
+						</li>	
+						<li class="dropdown-title">Time of year </li>
+						<li class="y">
+							<div class="time_of_year">
+								<label class="checkbox year_checkbox">
+									<input type="checkbox" id="school_year">
+									School Year
+								</label>
+							</div>
+							<div class="time_of_year">
+								<label class="checkbox year_checkbox">
+									<input type="checkbox" id="summer">
+									Summer
+								</label>
+							</div>
+						</li>
+						<li class="dropdown-title">Days of the week</li>
+						<li>
+							<div class="day">
+								<label class="checkbox day_checkbox">
+									<input type = "checkbox" id="weekdays">
+									Weekdays
+								</label>
+							</div>
+							<div class="day">
+								<label class="checkbox day_checkbox">
+									<input type="checkbox" id="weekends">
+									Weekends
+								</label>
+							</div>
+						</li>
+						<li class="dropdown-title">Location</li>
+						<li class="w">
+							<div class="set_location">
+               		 			<input type='text' class='form-control' id='get_location' placeholder='zip code i.e. 02139'></input>
+               		 		</div>
+               		 	</li>
+						<li>
+							<button type="button" class="btn btn-default btn-small update_btn" href="#">Update</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="block program_focus_dropdown">
+				<div class="dropdown">
+					<button type="button" class="dropdown-toggle btn btn-default dropdown_btn" data-toggle="dropdown" href="#">Program Focus<b class="caret"></b>
+					</button>
+					<ul class="dropdown-menu dropdown-menu-form" role="menu">						
+						<li>
+							<label class="checkbox focus_checkbox">
+								<input type="checkbox" id="focus_academics">
+								Academics
+							</label>
+						</li>
+
+						<li>
+							<label class="checkbox focus_checkbox">
+								<input type="checkbox" id="focus_college_prep">
+								College-Prep
+							</label>
+						</li>						
+						<li>
+							<label class="checkbox focus_checkbox">
+								<input type="checkbox" id="focus_credit_recover">
+								Credit-Recovery
+							</label>
+						</li>
+						<li>
+							<label class="checkbox focus_checkbox">
+								<input type="checkbox" id="focus_leadership">
+								Leadership
+							</label>
+						</li>
+						<li>
+							<label class="checkbox focus_checkbox">
+								<input type="checkbox" id="focus_mentoring">
+								Mentoring
+							</label>
+						</li>						
+						<li>
+							<label class="checkbox focus_checkbox">
+								<input type="checkbox" id="focus_music">
+								Music
+							</label>
+						</li>
+						<li>
+							<label class="checkbox focus_checkbox">
+								<input type="checkbox" id="focus_sports">
+								Sports
+							</label>
+						</li>
+						<li>
+							<label class="checkbox focus_checkbox">
+								<input type="checkbox" id="focus_stem">
+								Stem
+							</label>
+						</li>
+						<li>
+							<label class="checkbox focus_checkbox">
+								<input type="checkbox" id="focus_testing">
+								Testing
+							</label>
+						</li>
+						<li>
+							<button type="button" class="btn btn-default btn-small update_btn" href="#">Update</button>
+						</li>	
+					</ul>
+				</div>
+			</div>
+			
+	 <div id="results_wrapper">
+		<div class="row search_res">
+			<div class='col-md-1'></div>
+				<div class="well-sm search-well">You have no search results </div>
+		</div>
+	</div>
+	</div>
+		       
+		      <div class="modal-footer">   
+		        <button id="cancelBtn" type="button" class="btn btn-default" data-dismiss="modal">Exit</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal ---> 
+		
+<!-- ########################### END OF MODAL STUFF ################################# ---->     
+    
     <!-- BEGINNING OF FAVORITES -->
     <div style="margin-left:0%; margin-right:0%;">
 			<div class="row row-xs-height">
