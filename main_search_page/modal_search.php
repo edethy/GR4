@@ -246,21 +246,17 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<!-- <link type="text/css" href="search_page.css" rel="stylesheet" /> -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.js"></script>
 		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 		<link type='text/css' rel='stylesheet' href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
-		<!--<link type="text/css" href="search_page2.css" rel="stylesheet" /> -->
 		<script src="search_list_results.js"></script>
-		<!--<script src="search_page2.js"></script>-->
 		<script src="search_list_results.js"></script>
-		<!--<script src="search_page2.js"></script> -->
 		<script src="search_params_modal.js"></script>
 		<script src="submit_search_func.js"></script>
 		<script src="search.js"></script>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	    <title>Main Search Page</title>
+	    <title>connected | Modal Search Test</title>
 	    <link type="text/css" href="blahblah.css" rel="stylesheet" />
 	</head>
 
@@ -274,15 +270,15 @@
 				// race_hispanic
 				// race_asian
 				// race_other
-				// GPA_1 : all programs between 0.0-1.0
-				// GPA_2 : all programs between 1.0-2.0
-				// GPA_3 : all programs between 2.0-3.0
-				// GPA_4 : all programs between 3.0-4.0
+				// gpa_1 : all programs between 0.0-1.0
+				// gpa_2 : all programs between 1.0-2.0
+				// gpa_3 : all programs between 2.0-3.0
+				// gpa_4 : all programs between 3.0-4.0
 				// gender_f : females 
 				// gender_m : males
 				// gender_o : other
 				// grade_k2 
-				// grade_345
+				// grade_35
 				// grade_68
 				// grade_912
 				// cost_free
@@ -1056,8 +1052,7 @@
 		</div>
 	</div>
 	</div>
-		       
-		      <div class="modal-footer">
+			<div class="modal-footer">
 		        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 		        <button type="button" class="btn btn-primary" data-dismiss="modal" id="submit_search_button2">Update Search</button>
 		      </div>
