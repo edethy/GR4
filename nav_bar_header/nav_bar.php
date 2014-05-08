@@ -58,17 +58,15 @@
 		  	});
 
 			$("#search_button").on("click", function(e) {
-				if(e.which == 13){
-					var program_request = $('#search_by_program').val();
-					console.log("program_request:",program_request);
-					if (name_id_dict[program_request]!=undefined) {
-						window.location.href = "../program_page/program_page.php?program=" + name_id_dict[program_request];
-					}
-					else {
-						window.location.href = "../program_page/program_notFound.php";
-					}
-					return false;
-		  		}
+				var program_request = $('#search_by_program').val();
+				console.log("program_request:",program_request);
+				if (name_id_dict[program_request]!=undefined) {
+					window.location.href = "../program_page/program_page.php?program=" + name_id_dict[program_request];
+				}
+				else {
+					window.location.href = "../program_page/program_notFound.php";
+				}
+				return false;
 			});
 
 			$(".homehome").click(function(){

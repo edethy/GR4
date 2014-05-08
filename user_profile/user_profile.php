@@ -518,6 +518,19 @@
 					"race_white":race_white
 				}
 
+				function setModalSize() {
+					/** set height of modal **/
+					var size = {width: $(window).width() , height: $(window).height() }
+				    var offset = 50;
+				    var offsetBody = 200;
+				    $('#udpate_search_modal').css('height', size.height - offset );
+				    $('.search_params').css('height', size.height - (offset + offsetBody));
+				    $('#udpate_search_modal').css('top', 0);
+				    /** set height of dropdowns **/
+				}
+
+				setModalSize();
+
 				$("#amphibious_review").on("click", function(e) {
 					// should call search_program_name(name)
 					window.location.href = '../program_page/program_page.php?program=amphibious_achievement';
@@ -769,7 +782,7 @@
     <div id="container">   
     <div class="row"> <!-- top row -->
       <div class="col-md-8">
-        <h1 style="padding-left: 13%;" id="userheading">Welcome Back Ms. Agrawal!</h1>
+        <h1 id="userheading">Welcome Back Ms. Agrawal!</h1>
       </div>
     </div>
     
@@ -1228,7 +1241,7 @@
 			 <div id="results_wrapper">
 				<div class="row search_res">
 					<div class='col-md-1'></div>
-						<div class="well-sm search-well">You have no search results </div>
+						<div class="well-sm search-well no_results">You have no search results </div>
 				</div>
 			</div>
 		</div>		       

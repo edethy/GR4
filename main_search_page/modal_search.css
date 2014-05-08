@@ -11,7 +11,7 @@
 
 ul.dropdown-menu-form {
     padding: 5px 10px 0;
-    max-height: 280px;
+    max-height: 500px;
     overflow-y: scroll;
     max-width: 450px;
     overflow-x: auto;
@@ -139,4 +139,8 @@ ul.dropdown-menu-form {
 .radio, .checkbox {
 	font-weight: 300; 
 	color:white; 
+}
+
+.no_results {
+	font-size: 1.2em;
 }
