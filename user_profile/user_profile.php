@@ -264,7 +264,7 @@
 			color: #003366;
 			background-color:#99CC99;
 			height: 205px; 
-			width: 255px;	
+			width: 100%;	
 			left: 0;
 			top: 0;
 			right: 50px;
@@ -581,15 +581,14 @@
 					console.log("running makeSearchResultsList():");
 					console.log(makeSearchResultsList());
 					var results = makeSearchResultsList();
-
 					if (results.length != 0) {
-						$('#no_results_well').hide();
+						$('#no_results_container').hide();
 						$('#results_container').html("");
 						$('#results_container').append(results_html(results));
 					}
 					else {
 						$('#results_container').html("");
-						$('#no_results_well').show();
+						$('#no_results_container').show();
 					}
 					
 					console.log("Finished updating the search results");
