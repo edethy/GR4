@@ -20,8 +20,8 @@ var result_html = 	'<div class="row">'+
 								'<div class="description_div"></div>'+
 							'</div>'+										
 						'</div>'+
-						'<div class="col-md-1" style="padding-left:13%">'+
-							'<button type="button" class="btnAddToFavorites btn btn-default glyphicon glyphicon-heart"></button>'+
+						'<div style="padding-left:5%">'+
+							'<button type="button" style="margin-left:5%" class="btnAddToFavorites btn btn-default glyphicon glyphicon-heart"></button>'+
 						'</div>'+
 					'</div>'; 
 			
@@ -155,6 +155,8 @@ function show_NoResults() {
 
 //updates the dictionary that keeps track of what programs are favorites
 function results_html(newList) {
+
+	console.log("running results_html");
 	var outer_row = $('<div></div'); 	
 	var arrayLength = newList.length;
 	
@@ -273,12 +275,12 @@ $(document).ready( function() {
 
 //deleting a favorite
 function deleteFavorite(oldFav) {
-	
-	console.log('deleting'); 
+
 	var toDelete = document.getElementById(oldFav+'_favTile');
 	toDelete.parentNode.removeChild(toDelete);
 
 }
+
 
 //listener to delete a favorite
 $('.favorite-hover-x.glyphicon.glyphicon-trash').on('click', function(e) {
@@ -287,16 +289,11 @@ $('.favorite-hover-x.glyphicon.glyphicon-trash').on('click', function(e) {
 	
 }); 
 
-
-
-
-
 	//favorites and toggles the heart button
 	$('button.btnAddToFavorites.btn.btn-default.glyphicon.glyphicon-heart').on('click', function(e) {
+		console.log("adding heart listener");
 		var thisBtn= e.target; 
 		var title= $(thisBtn).attr('id');
-		console.log(favorites_dict);  
-		console.log(title);
 		
 		//have to be able to get title
 		if (favorites_dict[title]==false){

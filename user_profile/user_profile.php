@@ -258,6 +258,7 @@
     <link type='text/css' rel='stylesheet' href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
     <!-- <link type='text/css' rel='stylesheet' href="default.css" /> -->
    	<link type="text/css" href="../main_search_page/modal_search.css" rel="stylesheet" />
+   	<script src="searchResults.js"></script>
     <style>
 		div.recent_tile > span.tile-content {
 			color: #003366;
@@ -518,6 +519,38 @@
 					"race_white":race_white
 				}
 
+				function setModalSize() {
+					/** set height of modal **/
+					var size = {width: $(window).width() , height: $(window).height() }
+				    var offset = 50;
+				    var offsetBody = 200;
+				    $('#udpate_search_modal').css('height', size.height - offset );
+				    $('.search_params').css('height', size.height - (offset + offsetBody));
+				    $('#udpate_search_modal').css('top', 0);
+				    /** set height of dropdowns **/
+				}
+
+				setModalSize();
+
+				//favorites and toggles the heart button
+				$('button.btnAddToFavorites.btn.btn-default.glyphicon.glyphicon-heart').on('click', function(e) {
+					console.log("adding heart listener");
+					var thisBtn= e.target; 
+					var title= $(thisBtn).attr('id');
+					
+					//have to be able to get title
+					if (favorites_dict[title]==false){
+						$(thisBtn).css("background-color","red"); 
+						$(thisBtn).css("color","white");
+						favorites_dict[title]= true;  
+						console.log(favorites_dict); 
+					} else {
+						$(thisBtn).css("background-color","white"); 
+						$(thisBtn).css("color","black");
+						favorites_dict[title]=false; 
+					}
+					 
+				});
 				$("#amphibious_review").on("click", function(e) {
 					// should call search_program_name(name)
 					window.location.href = '../program_page/program_page.php?program=amphibious_achievement';
@@ -544,10 +577,22 @@
 				})
 				$('.update_btn').on('click', function(e) {
 					$('.dropdown.open .dropdown-toggle').dropdown('toggle');
-					console.log("click");
 					console.log(parameters_dict);
 					console.log("running makeSearchResultsList():");
 					console.log(makeSearchResultsList());
+					var results = makeSearchResultsList();
+
+					if (results.length != 0) {
+						$('#no_results_well').hide();
+						$('#results_container').html("");
+						$('#results_container').append(results_html(results));
+					}
+					else {
+						$('#results_container').html("");
+						$('#no_results_well').show();
+					}
+					
+					console.log("Finished updating the search results");
 				})
 				$(".race_checkbox").on("change", "input[type=checkbox]",function(e){
 						//if checked is false, remove from list
@@ -769,7 +814,7 @@
     <div id="container">   
     <div class="row"> <!-- top row -->
       <div class="col-md-8">
-        <h1 style="padding-left: 13%;" id="userheading">Welcome Back Ms. Agrawal!</h1>
+        <h1 id="userheading">Welcome Back Ms. Agrawal!</h1>
       </div>
     </div>
     
@@ -932,7 +977,7 @@
     </div><!-- row -->
 	</div>
 	<!-- BEGINNING OF MODAL -->
-	<div class="modal fade" id="udpate_search_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style:"max-height:80%;">
+	<div class="modal fade" id="udpate_search_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
@@ -1228,9 +1273,11 @@
 			 <div id="results_wrapper">
 				<div class="row search_res">
 					<div class='col-md-1'></div>
-						<div id='noResults_container' style="background-color: white" class="well-sm search-well">You have no search results </div>
+						<div id="no_results_container" style="background-color: white" class="well-sm search-well no_results">You have no search results </div>
+						<div id="results_container"></div>
 				</div>
-			</div>
+
+				</div>
 		</div>		       
 		      <div class="modal-footer">   
 		        <button id="cancelBtn" type="button" class="btn btn-default" data-dismiss="modal">Exit</button>
