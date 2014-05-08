@@ -1,3 +1,15 @@
+<?php
+	$con=mysql_connect("sql.mit.edu","edethy","Persi123") or die('Could not connect: ' . mysql_error());
+	mysql_select_db("edethy+connected") or die('Could not select database');
+	$program_names = "SELECT Program_Name FROM `Out-of-School Programs";
+	$result = mysql_query($program_names);
+	$programs_array = Array();
+	while($row = mysql_fetch_array($result)) {
+		array_push($programs_array, $row['Program_Name']);
+	}
+	mysql_close($con);
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -13,7 +25,11 @@
   <script>
 		$(document).ready(function() {
 
-			var program_names = ['Amphibious Achievement', 'Leadership Training Institute', 'SailFuture']; // this needs to be  gotten from the database of programs
+			//var program_names = ['Amphibious Achievement', 'Leadership Training Institute', 'SailFuture']; // this needs to be  gotten from the database of programs
+			<?php
+		        $json_array = json_encode($programs_array);
+		        echo "var program_names = ". $json_array . ";\n";
+			?>
 
 			$("#search_by_program").on("keypress", function(e) {
 				if(e.which == 13){

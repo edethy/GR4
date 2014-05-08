@@ -7,7 +7,7 @@
 	$race_white_array = Array();
 	while($row = mysql_fetch_array($result)) {
 	 	array_push($race_white_array, $row['Program_Name']);
-	 }
+	}
   	// race_black
 	$race_black = "SELECT Program_Name FROM `Out-of-School Programs` WHERE race_black=1";
 	$result = mysql_query($race_black);
@@ -518,6 +518,21 @@
 					"race_white":race_white
 				}
 
+				$("#amphibious_review").on("click", function(e) {
+					// should call search_program_name(name)
+					window.location.href = '../program_page/program_page.php?program=amphibious_achievement';
+					return false;
+				});
+				$("#lti_review").on("click", function(e) {
+					// should call search_program_name(name)
+					window.location.href = '../program_page/program_page.php?program=lti';
+					return false;
+				});
+				$("#ymca_review").on("click", function(e) {
+					// should call search_program_name(name)
+					window.location.href = '../program_page/program_page.php?program=ymca';
+					return false;
+				});
 				$('.dropdown-menu').on('click', function(e) {
 					if($(this).hasClass('dropdown-menu-form')) {
 						e.stopPropagation();
@@ -743,7 +758,6 @@
 					return final_list;
 				}
 			})
-    		console.log("ended js");
 		</script>
   </head>
 
@@ -823,7 +837,10 @@
     <div class="row">&nbsp</div>
     <div class="row">&nbsp</div>
     <div class="row">&nbsp</div>
-    <div class="jumbotron well well-lg" style="background-color: white;"> 
+
+    <!-- Beginning of Find A Program well -->
+    <div class="row">
+    <div class="well well-lg" style="background-color: white;"> 
     	<div class="container">
     		<h2>Need to find an out-of-school program?</h2>
     		<p>We can help you find the perfect out-of-school program to fit your students' needs.</p>
@@ -832,36 +849,42 @@
 			</button>
 
 		</div>
-    </div>    
+    </div>
+	</div>
+    <!-- End of Find a Program well --> 
     <!-- BEGINNING OF FAVORITES -->
     <div>
-			<div class="row row-xs-height">
-				<div class="col-md-3">
-					<h1 id='favorites'>Favorites</h1>
+		<div class="row row-xs-height">
+			<div class="col-md-3">
+				<h1 id='favorites'>Favorites</h1>
+			</div>
+		</div>
+		<div id="favorites_wrapper">
+			<div class="row" id="no_favorites">
+				<div class="col-md-1"></div>
+				<div class="well well-lg" style="background-color: white;">
+					<div class="container">
+						You have no favorites yet!
+					</div>
 				</div>
 			</div>
-			<div id="favorites_wrapper">
-				<div class="row" id="no_favorites">
-					<div class="col-md-1"></div>
-					<div style="background-color: white;" class="well well-lg fav-well">You have no favorites yet!</div>
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-1 left_arrow_slot"></div>
+				<div class="wrapper_fav1">
+					<div class="col-md-2 fav1"></div>
 				</div>
-				<div class="row">
-					<div class="col-md-1"></div>
-					<div class="col-md-1 left_arrow_slot"></div>
-					<div class="wrapper_fav1">
-						<div class="col-md-2 fav1"></div>
-					</div>
-					<div class="col-md-1"></div>
-					<div class="wrapper_fav2">
-						<div class="col-md-2 fav2"></div>
-					</div>
-					<div class="col-md-1"></div>
-					<div class="wrapper_fav3">
-						<div class="col-md-2 fav3"></div>
-					</div>
-					<div class="col-md-1 right_arrow_slot"></div>
+				<div class="col-md-1"></div>
+				<div class="wrapper_fav2">
+					<div class="col-md-2 fav2"></div>
 				</div>
+				<div class="col-md-1"></div>
+				<div class="wrapper_fav3">
+					<div class="col-md-2 fav3"></div>
+				</div>
+				<div class="col-md-1 right_arrow_slot"></div>
 			</div>
+		</div>
 	</div>
 	<!-- END OF FAVORITES -->
     <div class="row">
@@ -874,7 +897,7 @@
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-3 recent_tile">   		
-		<div class="recent_tile thumbnail">
+		<div id="amphibious_review" class="recent_tile thumbnail">
 			<div class="row recent_tile_image">
 			  <img class="recent_tile_image" src="../program_logos/amphibious.png" alt="...">
 			</div>
@@ -885,7 +908,7 @@
 		</div>
       </div>
       <div class="col-md-3">   		
-		<div class="recent_tile thumbnail">
+		<div id="lti_review" class="recent_tile thumbnail">
 			<div class="row recent_tile_image">
 			  <img class="recent_tile_image" src="../program_logos/lti.png" alt="...">
 			 </div>
@@ -896,7 +919,7 @@
 		</div>
       </div>
       <div class="col-md-3">     		
-		<div class="recent_tile thumbnail">
+		<div id="ymca_review" class="recent_tile thumbnail">
 			<div class="row recent_tile_image">
 				  <img class="recent_tile_image" src="../program_logos/ymca.jpg" alt="...">
 			</div>
