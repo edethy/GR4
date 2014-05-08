@@ -12,11 +12,10 @@
 		<script src="search.js"></script>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	    <title>connected | Modal Search Test</title>
-	    <link type="text/css" href="blahblah.css" rel="stylesheet" />
+	    <link type="text/css" href="modal_search.css" rel="stylesheet" />
 	</head>
 
 	<body>
-
 		<script>
 
 			// given following lists (extracted through php code from the database):
@@ -73,41 +72,6 @@
 					"program_focus" : []
 				}
 
-				/* ONT DELETE FROM HTML PAGE; ON PHP THESE ARE GENERATED FROM DATABASE*/
-				var focus_stem = ['Amphibious Achievement', 'LTI'];
-				var focus_credit = [];
-				var focus_music = [];
-				var focus_academics = [];
-				var focus_college = ['Amphibious Achievement'];
-				var focus_leadership = [];
-				var focus_sports = [];
-				var focus_testing = [];
-				var cost_free = [];
-				var cost_10 = [];
-				var cost_20 = ['LTI'];
-				var cost_35 = ['Amphibious Achievement'];
-				var gpa_1 = [];
-				var gpa_2 =[];
-				var gpa_3 = [];
-				var gpa_4 = [];
-				var time_schoolyear = [];
-				var time_summer = [];
-				var cost_more = ['Amphibious Achievement'];
-				var time_weekends = [];
-				var time_weekdays = [];
-				var gender_f = [];
-				var gender_m = [];
-				var gender_o = [];
-				var grade_k2 = [];
-				var grade_35 = ['Amphibious Achievement', 'LTI', 'SailFuture'];
-				var grade_68 = [];
-				var grade_912 = [];
-				var race_asian = [];
-				var race_other = [];
-				var race_hispanic = [];
-				var race_white = [];
-				var race_black = ['LTI', "Amphibious Achievement"];
-
       			console.log("race_white:", race_white);
       			console.log("race_black:", race_white);
       			console.log("race_hispanic:", race_white);
@@ -141,6 +105,41 @@
       			console.log("focus_leadership:", focus_leadership);
 				console.log("focus_sports:", focus_sports);
       			console.log("focus_testing:", focus_testing);
+
+				/* TESTING -- DONT DELETE FOR NOW; CANNED UNTIL THESE LISTS CAN BE GENERATED FROM DATABASE*/
+				// var grade_345 = ['Amphibious Achievement', 'LTI', 'SailFuture'];
+				// var focus_stem = ['Amphibious Achievement', 'LTI'];
+				// var race_black = ['LTI', "Amphibious Achievement"];
+				// var focus_credit = [];
+				// var focus_music = [];
+				// var focus_academics = [];
+				// var focus_college = ['Amphibious Achievement'];
+				// var focus_leadership = [];
+				// var focus_sports = [];
+				// var focus_testing = [];
+				// var cost_free = [];
+				// var cost_10 = [];
+				// var cost_20 = ['LTI'];
+				// var cost_35 = ['Amphibious Achievement'];
+				// var gpa_1 = [];
+				// var gpa_2 =[];
+				// var gpa_3 = [];
+				// var gpa_4 = [];
+				// var time_schoolyear = [];
+				// var time_summer = [];
+				// var cost_more = ['Amphibious Achievement'];
+				// var time_weekends = [];
+				// var time_weekdays = [];
+				// var gender_f = [];
+				// var gender_m = [];
+				// var gender_o = [];
+				// var grade_k2 = [];
+				// var grade_68 = [];
+				// var grade_912 = [];
+				// var race_asian = [];
+				// var race_other = [];
+				// var race_hispanic = [];
+				// var race_white = [];
 
 				var selection_dict = {
 					"focus_credit_recover":focus_credit,
@@ -411,7 +410,8 @@
 		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 		        <h4 class="modal-title">Add Search Parameters to Update Your Search!</h4>
 		      </div>
-		      <div class="modal-body">
+		
+		<div style="background-color: #F0F0F0" class="modal-body">
 
 		<div class="search_params">
 
@@ -420,7 +420,7 @@
 					<button type="button" class="dropdown-toggle btn btn-default dropdown_btn" data-toggle="dropdown" href="#">Student Profile<b class="caret"></b>
 					</button>
 					<ul class="dropdown-menu dropdown-menu-form" role="menu">
-						<li>Race/Ethnicity</li>
+						<li class="dropdown-title">Race/Ethnicity</li>
 							<li class="r">
 							<div class="race">
 								<label class="checkbox race_checkbox">
@@ -457,7 +457,7 @@
 							</div>
 						</li>
 						</li>
-						<li>GPA</li>
+						<li class="dropdown-title">GPA</li>
 						<li class="gpa">
 							<div class="gpa">
 								<label class="checkbox gpa_checkbox">
@@ -484,7 +484,7 @@
 								</label>
 							</div>
 						</li>
-						<li>Gender</li>
+						<li class="dropdown-title">Gender</li>
 						<li class="g">
 							<div class="gender">
 								<label class="checkbox gender_checkbox">
@@ -505,7 +505,7 @@
 								</label>
 							</div>
 						</li>
-						<li>Grade-Level</li>
+						<li class="dropdown-title">Grade-Level</li>
 						<li class="gl">
 							<div class="grade_level">
 								<label class="checkbox grade_level_checkbox">
@@ -540,14 +540,12 @@
 					</ul>
 				</div>
 			</div>
-
-
 			<div class="block program_profile_dropdown">
 				<div class="dropdown">
 					<button type="button" class="dropdown-toggle btn btn-default dropdown_btn" data-toggle="dropdown" href="#">Program Profile<b class="caret"></b>
 					</button>
 					<ul class="dropdown-menu dropdown-menu-form" role="menu">
-						<li> 
+						<li class="dropdown-title"> 
 								Cost
 						</li>
 						<li class="c">
@@ -588,7 +586,7 @@
 								</label>
 							</div>
 						</li>	
-						<li>Time of year </li>
+						<li class="dropdown-title">Time of year </li>
 						<li class="y">
 							<div class="time_of_year">
 								<label class="checkbox year_checkbox">
@@ -603,8 +601,8 @@
 								</label>
 							</div>
 						</li>
-						<li>Days of the week</li>
-						<li class="w">
+						<li class="dropdown-title">Days of the week</li>
+						<li>
 							<div class="day">
 								<label class="checkbox day_checkbox">
 									<input type = "checkbox" id="weekdays">
@@ -618,7 +616,7 @@
 								</label>
 							</div>
 						</li>
-						<li>Location</li>
+						<li class="dropdown-title">Location</li>
 						<li class="w">
 							<div class="set_location">
                		 			<input type='text' class='form-control' id='get_location' placeholder='zip code i.e. 02139'></input>
@@ -630,7 +628,6 @@
 					</ul>
 				</div>
 			</div>
-
 			<div class="block program_focus_dropdown">
 				<div class="dropdown">
 					<button type="button" class="dropdown-toggle btn btn-default dropdown_btn" data-toggle="dropdown" href="#">Program Focus<b class="caret"></b>
@@ -701,18 +698,17 @@
 	 <div id="results_wrapper">
 		<div class="row search_res">
 			<div class='col-md-1'></div>
-				<div class="well well-sm search-well">You have no search results </div>
+				<div class="well-sm search-well">You have no search results </div>
 		</div>
 	</div>
 	</div>
 		       
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-		        <button type="button" class="btn btn-primary" data-dismiss="modal" id="submit_search_button2">Update Search</button>
+		      <div class="modal-footer">   
+		        <button id="cancelBtn" type="button" class="btn btn-default" data-dismiss="modal">Exit</button>
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
-		</div><!-- /.modal 
+		</div><!-- /.modal -->
 		<!-- MODAL FOR UPDATE THE SEARCH END -->
 	</div>
 	</body>

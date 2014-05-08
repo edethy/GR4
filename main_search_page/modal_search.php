@@ -257,11 +257,10 @@
 		<script src="search.js"></script>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	    <title>connected | Modal Search Test</title>
-	    <link type="text/css" href="blahblah.css" rel="stylesheet" />
+	    <link type="text/css" href="modal_search.css" rel="stylesheet" />
 	</head>
 
 	<body>
-
 		<script>
 
 			// given following lists (extracted through php code from the database):
@@ -418,6 +417,9 @@
 					// var focus_testing
 					$json_array = json_encode($focus_testing_array);
 			        echo "var focus_testing = ". $json_array . ";\n";
+			        // var focus_mentoring
+					$json_array = json_encode($focus_mentoring_array);
+			        echo "var focus_mentoring = ". $json_array . ";\n";
       			?>
 
       			console.log("race_white:", race_white);
@@ -758,7 +760,8 @@
 		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 		        <h4 class="modal-title">Add Search Parameters to Update Your Search!</h4>
 		      </div>
-		      <div class="modal-body">
+		
+		<div style="background-color: #F0F0F0" class="modal-body">
 
 		<div class="search_params">
 
@@ -767,7 +770,7 @@
 					<button type="button" class="dropdown-toggle btn btn-default dropdown_btn" data-toggle="dropdown" href="#">Student Profile<b class="caret"></b>
 					</button>
 					<ul class="dropdown-menu dropdown-menu-form" role="menu">
-						<li>Race/Ethnicity</li>
+						<li class="dropdown-title">Race/Ethnicity</li>
 							<li class="r">
 							<div class="race">
 								<label class="checkbox race_checkbox">
@@ -804,7 +807,7 @@
 							</div>
 						</li>
 						</li>
-						<li>GPA</li>
+						<li class="dropdown-title">GPA</li>
 						<li class="gpa">
 							<div class="gpa">
 								<label class="checkbox gpa_checkbox">
@@ -831,7 +834,7 @@
 								</label>
 							</div>
 						</li>
-						<li>Gender</li>
+						<li class="dropdown-title">Gender</li>
 						<li class="g">
 							<div class="gender">
 								<label class="checkbox gender_checkbox">
@@ -852,7 +855,7 @@
 								</label>
 							</div>
 						</li>
-						<li>Grade-Level</li>
+						<li class="dropdown-title">Grade-Level</li>
 						<li class="gl">
 							<div class="grade_level">
 								<label class="checkbox grade_level_checkbox">
@@ -887,14 +890,12 @@
 					</ul>
 				</div>
 			</div>
-
-
 			<div class="block program_profile_dropdown">
 				<div class="dropdown">
 					<button type="button" class="dropdown-toggle btn btn-default dropdown_btn" data-toggle="dropdown" href="#">Program Profile<b class="caret"></b>
 					</button>
 					<ul class="dropdown-menu dropdown-menu-form" role="menu">
-						<li> 
+						<li class="dropdown-title"> 
 								Cost
 						</li>
 						<li class="c">
@@ -935,7 +936,7 @@
 								</label>
 							</div>
 						</li>	
-						<li>Time of year </li>
+						<li class="dropdown-title">Time of year </li>
 						<li class="y">
 							<div class="time_of_year">
 								<label class="checkbox year_checkbox">
@@ -950,8 +951,8 @@
 								</label>
 							</div>
 						</li>
-						<li>Days of the week</li>
-						<li class="w">
+						<li class="dropdown-title">Days of the week</li>
+						<li>
 							<div class="day">
 								<label class="checkbox day_checkbox">
 									<input type = "checkbox" id="weekdays">
@@ -965,7 +966,7 @@
 								</label>
 							</div>
 						</li>
-						<li>Location</li>
+						<li class="dropdown-title">Location</li>
 						<li class="w">
 							<div class="set_location">
                		 			<input type='text' class='form-control' id='get_location' placeholder='zip code i.e. 02139'></input>
@@ -977,7 +978,6 @@
 					</ul>
 				</div>
 			</div>
-
 			<div class="block program_focus_dropdown">
 				<div class="dropdown">
 					<button type="button" class="dropdown-toggle btn btn-default dropdown_btn" data-toggle="dropdown" href="#">Program Focus<b class="caret"></b>
@@ -1044,21 +1044,19 @@
 					</ul>
 				</div>
 			</div>
-			
-	 <div id="results_wrapper">
-		<div class="row search_res">
-			<div class='col-md-1'></div>
-				<div class="well well-sm search-well">You have no search results </div>
-		</div>
-	</div>
-	</div>
-			<div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-		        <button type="button" class="btn btn-primary" data-dismiss="modal" id="submit_search_button2">Update Search</button>
+			 <div id="results_wrapper">
+				<div class="row search_res">
+					<div class='col-md-1'></div>
+						<div class="well-sm search-well">You have no search results </div>
+				</div>
+			</div>
+		</div>		       
+		      <div class="modal-footer">   
+		        <button id="cancelBtn" type="button" class="btn btn-default" data-dismiss="modal">Exit</button>
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
-		</div><!-- /.modal 
+		</div><!-- /.modal -->
 		<!-- MODAL FOR UPDATE THE SEARCH END -->
 	</div>
 	</body>

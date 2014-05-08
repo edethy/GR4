@@ -30,7 +30,7 @@
 			});
 
 			$(".homehome").click(function(){
-				window.location.href = 'user_prof2.php';
+				window.location.href = 'user_profile.php';
 				return false;
 			});
   
@@ -85,9 +85,8 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul id="link_list" class="nav navbar-nav inline" style= "padding-right: 90px; color: #CCCCCC;">
-          <li><a style= "color: #CCCCCC;" id= "home_link" href="../user_profile/user_prof2.php">Home</a></li>
+          <li><a style= "color: #CCCCCC;" id= "home_link" href="../user_profile/user_profile.php">Home</a></li>
           <li><a style= "color: #CCCCCC;"id= "about_link" href="#">About</a></li>
-  		  <li><a style= "color: #CCCCCC;" id="program_link" href="../main_search_page/main_search_page.php">Find a Program</a></li>
         </ul>
       
 		<div id= "logo" class="page-header inline homehome">
@@ -105,6 +104,5 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-</body>
-   
+</body>   
 </html>
