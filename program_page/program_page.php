@@ -33,17 +33,6 @@
 
 		$(document).ready(function() {
 
-			/*var enable_button = null;
-			function activate_button(enable_button){
-				if enable_button == null {
-					$("#addReviewBtn").attr("disabled", "disabled");
-					$("#addReviewBtn").unbind("mouseenter mouseleave");
-				}
-				else {
-					$("#addReviewBtn").removeAttr("disabled");
-				}
-			}*/
-
 			$('.rating span').click(function() {
 				enable_button = true;
 				activate_button(enable_button);
@@ -85,10 +74,6 @@
 			        $('#comment_list').prepend(new_comment);
 		    	}
 		    	else {
-		    		//Want a popup to appear that says please enter text
-		    		/*setTimeout(function(){
-		    			$(".enter_text").hide();
-		    		}, 1000);*/
 					$("#review_text").attr("placeholder", "Please enter text to submit a review");
 		    	}
 			});
