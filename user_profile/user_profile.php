@@ -1273,10 +1273,10 @@
 			 <div id="results_wrapper">
 				<div class="row search_res">
 					<div class='col-md-1'></div>
-						<div id="no_results_well" style="background-color: white" class="well-sm search-well no_results">You have no search results </div>
-						<div id="results_container">
-						</div>
+						<div id="no_results_container" style="background-color: white" class="well-sm search-well no_results">You have no search results </div>
+						<div id="results_container"></div>
 				</div>
+
 				</div>
 		</div>		       
 		      <div class="modal-footer">   
