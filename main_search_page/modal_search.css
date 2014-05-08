@@ -23,7 +23,7 @@ ul.dropdown-menu-form {
 	margin-right: auto;
 	max-width: 100%;
 	overflow-x: hidden;
-	overflow-y: hidden;
+	overflow-y: scroll;
 	white-space: nowrap;
 	height: 310px;
 }

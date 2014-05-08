@@ -7,6 +7,7 @@
 	<script src="../main_search_page/submit_search_func.js"></script>
 	<script src="../main_search_page/search.js"></script>
 	<script src="../slider/js/bootstrap-slider.js"></script>
+	
 	<link type="text/css" href="../slider/css/slider.css" rel="stylesheet"/>
 	<link type="text/css" href="../main_search_page/blahblah.css" rel="stylesheet" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -14,6 +15,7 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="user_prof.js"></script>
     <script src="search_page3.js"></script>
+    <script src="searchResults.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>Teacher Profile</title>
@@ -58,6 +60,7 @@
     </style>
     <script>
 
+			
 			// given following lists (extracted through php code from the database):
 				// race_white : all programs for white students
 				// race_black: all programs for black students
@@ -377,15 +380,17 @@
 					return final_list;
 				}
 
-			})
+			});
 		</script>
 
   </head>
 
-  <body style="background-color: #F0F0F0; color: #003366; margin-left:5%; margin-right:5%; margin-top:2%; margin-bottom:2%;">
-    <?php include("main_search.php") ?>
-    <div id="container">
-   
+    <body>
+  	<?php include("../nav_bar_header/nav_bar.php") ?>
+  </body>
+  <body class="body mybody">
+  	<div class="page_margins">
+    <div id="container">   
     <div class="row"> <!-- top row -->
       <div class="col-md-8">
         <h1 style="padding-left: 13%;" id="userheading">Welcome Back Ms. Agrawal!</h1>
@@ -396,81 +401,162 @@
 
 	<div class="row"> <!-- info row-->
       <div class="col-md-1"></div>
-      <div id= "profDiv" class="col-md-4">
-        <img id="prof_pic" src='../teacher_pics/shilpa.jpg' id='teacher_pic'>
-      </div>
-      <div class="col-md-1"></div>
-      <!-- info div -->
-      <div id="info_variables" class="col-md-5">
-		<div class="row"> <!-- row 1-->
-			<h3 id="userheading">Your Info:</h3>
-		</div>
-		<div class= "row"> <!-- row 2 -->
-			<div class="col-md-5">
-				<div class="list-group">
-				<div class="list-group-item">
-					<span style="cursor: pointer;" id="one" class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span> 
-					<h4 class="list-group-item-heading">School District:</h4>
-					<p  id="onetext" class="list-group-item-text" contenteditable="true">Boston Public Schools</p>
-					<p>&nbsp</p>
+	      <div id= "profDiv" class="col-md-4">
+	        <img id="prof_pic" src='../teacher_pics/shilpa.jpg' id='teacher_pic'>
+	      </div>
+	      <div class="col-md-1"></div>
+	      <!-- info div -->
+	      <div id="info_variables" class="col-md-5">
+			<div class="row"> <!-- row 1-->
+				<h3 id="userheading">Your Info:</h3>
+			</div> <!-- end of row 1 -->
+			<div class= "row"> <!-- row 2 -->
+				<div class="col-md-5">
+					<div class="list-group">
+					<div class="list-group-item">
+						<span style="cursor: pointer;" id="one" class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span> 
+						<h4 class="list-group-item-heading">School District:</h4>
+						<p  id="onetext" class="list-group-item-text" contenteditable="true">Boston Public Schools</p>
+						<p>&nbsp</p>
+					</div>
+					</div>
 				</div>
+				<div class="col-md-5">
+					<div class="list-group">
+					<div class="list-group-item">
+						<span style="cursor: pointer;" id="two" class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span>  
+						<h4 class="list-group-item-heading">School:</h4>
+						<p id="twotext" class="list-group-item-text" contenteditable="true">Boston Latin High School</p>
+						<p>&nbsp</p>
+					</div>
+					</div>
 				</div>
-			</div>
-			<div class="col-md-5">
-				<div class="list-group">
-				<div class="list-group-item">
-					<span style="cursor: pointer;" id="two" class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span>  
-					<h4 class="list-group-item-heading">School:</h4>
-					<p id="twotext" class="list-group-item-text" contenteditable="true">Boston Latin High School</p>
-					<p>&nbsp</p>
+			</div> <!-- end of row 2 -->
+			<div class= "row"> <!-- row 3 -->
+				<div class="col-md-5">
+					<div class="list-group">
+					<div class="list-group-item">
+						<span style="cursor: pointer;" id="three" class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span> 
+						<h4 class="list-group-item-heading">Teaching Grades:</h4>
+						<p id="threetext" class = "list-group-item-text" contenteditable="true">Grades 9-12</p>
+						<p>&nbsp</p>
+					</div>
+					</div>
 				</div>
+				<div class="col-md-5">
+					<div class="list-group">
+					<div class="list-group-item">
+						<span style="cursor: pointer;" id="four" class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span> 
+						<h4 class="list-group-item-heading">Subjects:</h4>
+						<p id="fourtext" class="list-group-item-text" contenteditable="true">English</p>
+						<p>&nbsp</p>
+					</div>
+					</div>
 				</div>
-			</div>
-		</div>
-		<div7 class= "row"> <!-- row 3 -->
-			<div style="padding-left: 0px;" class="col-md-5">
-				<div class="list-group">
-				<div class="list-group-item">
-					<span style="cursor: pointer;" id="three" class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span> 
-					<h4 class="list-group-item-heading">Teaching Grades:</h4>
-					<p id="threetext" class = "list-group-item-text" contenteditable="true">Grades 9-12</p>
-					<p>&nbsp</p>
-				</div>
-				</div>
-			</div>
-			<div style="padding-left: 15px; padding-right: 5px;"class="col-md-5">
-				<div class="list-group">
-				<div class="list-group-item">
-					<span style="cursor: pointer;" id="four" class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span> 
-					<h4 class="list-group-item-heading">Subjects:</h4>
-					<p id="fourtext" class="list-group-item-text" contenteditable="true">English</p>
-					<p>&nbsp</p>
-				</div>
-				</div>
-			</div>
-		</div> <!-- end of row 3 -->
-	</div> <!-- end of column -->
+			</div> <!-- end of row 3 -->
+		</div> <!-- end of column -->
 	</div> <!-- end of top row -->
-</div> <!-- end of container -->
+	</div> <!-- end of container -->
 
     <div class="row">&nbsp</div>
     <div class="row">&nbsp</div>
     <div class="row">&nbsp</div>
-    <div class="jumbotron" style="background-color:white"> 
+
+    <!-- Beginning of Find A Program well -->
+    <div class="row">
+    <div class="well well-lg" style="background-color: white;"> 
     	<div class="container">
-    		<h2>Need to find an after-school program?</h2>
-    		<p>We can help you find the perfect after-school program to fit your students' needs.</p>
+    		<h2>Need to find an out-of-school program?</h2>
+    		<p>We can help you find the perfect out-of-school program to fit your students' needs.</p>
 			<button style="background-color:#99CC99;" id="search_btn" type="button" class="btn btn-default btn-lg">
-				Start New Search&nbsp<span class="glyphicon glyphicon-search"></span> 
+				Find a Program&nbsp<span class="glyphicon glyphicon-search"></span> 
 			</button>
 
 		</div>
     </div>
-
-<!-- ########################### MODAL STUFF ####################################### -->
-<!--		<button id="update_search" type="button" class="btn btn-default enter_modal" data-toggle="modal" data-target="#udpate_search_modal" style="width:200px; height:120px; background-color:grey;">Update Search</button>
-
-		 <div class="modal fade" id="udpate_search_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	</div>
+    <!-- End of Find a Program well --> 
+    <!-- BEGINNING OF FAVORITES -->
+    <div>
+		<div class="row row-xs-height">
+			<div class="col-md-3">
+				<h1 id='favorites'>Favorites</h1>
+			</div>
+		</div>
+		<div id="favorites_wrapper">
+			<div class="row" id="no_favorites">
+				<div class="col-md-1"></div>
+				<div class="well well-lg" style="background-color: white;">
+					<div class="container">
+						You have no favorites yet!
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-1 left_arrow_slot"></div>
+				<div class="wrapper_fav1">
+					<div class="col-md-2 fav1"></div>
+				</div>
+				<div class="col-md-1"></div>
+				<div class="wrapper_fav2">
+					<div class="col-md-2 fav2"></div>
+				</div>
+				<div class="col-md-1"></div>
+				<div class="wrapper_fav3">
+					<div class="col-md-2 fav3"></div>
+				</div>
+				<div class="col-md-1 right_arrow_slot"></div>
+			</div>
+		</div>
+	</div>
+	<!-- END OF FAVORITES -->
+    <div class="row">
+      <div class="col-md-8">
+        <h3>Recently Reviewed Programs </h3>
+      </div>
+    </div>
+    <div class="row">&nbsp</div>
+    <div class="row">&nbsp</div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-3 recent_tile">   		
+		<div id="amphibious_review" class="recent_tile thumbnail">
+			<div class="row recent_tile_image">
+			  <img class="recent_tile_image" src="../program_logos/amphibious.png" alt="...">
+			</div>
+			<div class="row recent_tile_name">
+				<a style="color: #003366;"><h4>Amphibious Achievement</h4></a>
+			</div>
+			<span class="tile-content">Amphibious Achievement is an MIT-student run mentorship program for inner-city high school students. In the program, students learn how to row, swim, and becoming academically on-track at no cost.</span>        
+		</div>
+      </div>
+      <div class="col-md-3">   		
+		<div id="lti_review" class="recent_tile thumbnail">
+			<div class="row recent_tile_image">
+			  <img class="recent_tile_image" src="../program_logos/lti.png" alt="...">
+			 </div>
+			<div class="row recent_tile_name">
+				<a style="color: #003366;"><h4>LTI</h4></a>
+			</div>
+			<span class="tile-content">The Leadership Training Institute is a program for high school students that helps develop leadership skills. Throughout our 12-week program, students implement what they learn as they work to create a sustainable community service project.</span>        
+		</div>
+      </div>
+      <div class="col-md-3">     		
+		<div id="ymca_review" class="recent_tile thumbnail">
+			<div class="row recent_tile_image">
+				  <img class="recent_tile_image" src="../program_logos/ymca.jpg" alt="...">
+			</div>
+			<div class="row recent_tile_name">
+				<a style="color: #003366;"><h4>YMCA</h4></a>
+			</div>
+			<span class="tile-content">YMCA Cambridge offers the community a wide variety of opportunities to enrich the mind, body and spirit. We serve students of all ages.</span> 
+		</div> 
+      </div>    
+    </div><!-- row -->
+	</div>
+	<!-- BEGINNING OF MODAL -->
+	<div class="modal fade" id="udpate_search_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
@@ -526,11 +612,29 @@
 						</li>
 						<li class="dropdown-title">GPA</li>
 						<li class="gpa">
-							<div class="slider slider-horizontal" style="width: 140px;">
-								<div class="slider-track">
-									<div class="slider-selection" style="left:0%; width:100%;"></div>
-
-								</div>
+							<div class="gpa">
+								<label class="checkbox gpa_checkbox">
+									<input type="checkbox"  id="gpa_1">
+									0.0-1.0
+								</label>
+							</div>
+							<div class="gpa">
+								<label class="checkbox gpa_checkbox">
+									<input type="checkbox"  id="gpa_2">
+									1.0-2.0
+								</label>
+							</div>
+							<div class="gpa">
+								<label class="checkbox gpa_checkbox">
+									<input type="checkbox"  id="gpa_3">
+									2.0-3.0
+								</label>
+							</div>
+							<div class="gpa">
+								<label class="checkbox gpa_checkbox">
+									<input type="checkbox"  id="gpa_4">
+									3.0-4.0
+								</label>
 							</div>
 						</li>
 						<li class="dropdown-title">Gender</li>
@@ -584,13 +688,11 @@
 							</div>
 						</li>
 						<li>
-							<button type="button" class="btn btn-default btn-small update_btn" href="#">Update</button>
+							<button type="button" class="update_btn btn btn-default btn-small" style="margin-bottom:10px;" href="#">Update</button>
 						</li>	
 					</ul>
 				</div>
 			</div>
-
-
 			<div class="block program_profile_dropdown">
 				<div class="dropdown">
 					<button type="button" class="dropdown-toggle btn btn-default dropdown_btn" data-toggle="dropdown" href="#">Program Profile<b class="caret"></b>
@@ -674,12 +776,11 @@
                		 		</div>
                		 	</li>
 						<li>
-							<button type="button" class="btn btn-default btn-small update_btn" href="#">Update</button>
+							<button type="button" class="update_btn btn btn-default btn-small" style="margin-bottom:10px;" href="#">Update</button>
 						</li>
 					</ul>
 				</div>
 			</div>
-
 			<div class="block program_focus_dropdown">
 				<div class="dropdown">
 					<button type="button" class="dropdown-toggle btn btn-default dropdown_btn" data-toggle="dropdown" href="#">Program Focus<b class="caret"></b>
@@ -741,110 +842,25 @@
 							</label>
 						</li>
 						<li>
-							<button type="button" class="btn btn-default btn-small update_btn" href="#">Update</button>
+							<button type="button" class="update_btn btn btn-default btn-small" style="margin-bottom:10px;" href="#">Update</button>
 						</li>	
 					</ul>
 				</div>
 			</div>
-			
-	 <div id="results_wrapper">
-		<div class="row search_res">
-			<div class='col-md-1'></div>
-				<div class="well-sm search-well">You have no search results </div>
-		</div>
-	</div>
-	</div>
-		       
+			 <div id="results_wrapper">
+				<div class="row search_res">
+					<div class='col-md-1'></div>
+						<div class="well-sm search-well">You have no search results </div>
+				</div>
+			</div>
+		</div>		       
 		      <div class="modal-footer">   
 		        <button id="cancelBtn" type="button" class="btn btn-default" data-dismiss="modal">Exit</button>
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
-		</div><!-- /.modal ---> 
-		
-<!-- ########################### END OF MODAL STUFF ################################# ---->     
-    
-    <!-- BEGINNING OF FAVORITES -->
-    <div style="margin-left:0%; margin-right:0%;">
-			<div class="row row-xs-height">
-				<div class="col-md-3">
-					<h1 id='favorites'>Favorites</h1>
-				</div>
-			</div>
-			<div id="favorites_wrapper">
-				<div class="row" id="no_favorites">
-					<div class="col-md-1"></div>
-					<div style="background-color: white;" class="well well-lg fav-well">You have no favorites yet!</div>
-				</div>
-				<div class="row">
-					<div class="col-md-1"></div>
-					<div class="col-md-1 left_arrow_slot"></div>
-					<div class="wrapper_fav1">
-						<div class="col-md-2 fav1"></div>
-					</div>
-					<div class="col-md-1"></div>
-					<div class="wrapper_fav2">
-						<div class="col-md-2 fav2"></div>
-					</div>
-					<div class="col-md-1"></div>
-					<div class="wrapper_fav3">
-						<div class="col-md-2 fav3"></div>
-					</div>
-					<div class="col-md-1 right_arrow_slot"></div>
-				</div>
-			</div>
+		</div><!-- /.modal -->
 	</div>
-	<!-- END OF FAVORITES -->
-    <div class="row">
-      <div class="col-md-8">
-        <h3>Recently Reviewed Programs </h3>
-      </div>
-    </div>
-    <div class="row">&nbsp</div>
-    <div class="row">&nbsp</div>
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-3 recent_tile">   		
-		<div class="recent_tile thumbnail">
-			<div class="row recent_tile_image">
-			  <img class="recent_tile_image" src="../program_logos/amphibious.png" alt="...">
-			</div>
-			<div class="row recent_tile_name">
-				<a style="color: #003366;"><h4>Amphibious Achievement</h4></a>
-			</div>
-			<span class="tile-content">Amphibious Achievement is an MIT-student run mentorship program for inner-city high school students. In the program, students learn how to row, swim, and becoming academically on-track at no cost.</span>        
-		</div>
-      </div>
-      <div class="col-md-3">   		
-		<div class="recent_tile thumbnail">
-			<div class="row recent_tile_image">
-			  <img class="recent_tile_image" src="../program_logos/lti.png" alt="...">
-			 </div>
-			<div class="row recent_tile_name">
-				<a style="color: #003366;"><h4>LTI</h4></a>
-			</div>
-			<span class="tile-content">The Leadership Training Institute is a program for high school students that helps develop leadership skills. Throughout our 12-week program, students implement what they learn as they work to create a sustainable community service project.</span>        
-		</div>
-      </div>
-      <div class="col-md-3">     		
-		<div class="recent_tile thumbnail">
-			<div class="row recent_tile_image">
-				  <img class="recent_tile_image" src="../program_logos/ymca.jpg" alt="...">
-			</div>
-			<div class="row recent_tile_name">
-				<a style="color: #003366;"><h4>YMCA</h4></a>
-			</div>
-			<span class="tile-content">We offer our community a wide variety of opportunities to enrich the mind, body and spirit.</span> 
-		</div> 
-      </div>
-      <!--<div class="col-md-3">
-            <a href="#" class="thumbnail">
-              <img src="../program_logos/cri.jpg" alt="...">
-            </a>
-            </div>
-        -->
-      
-    </div><!-- row -->
+	<!-- END OF MODAL -->
   </body>
 </html>
-
