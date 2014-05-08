@@ -28,11 +28,25 @@
 		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 		<link type='text/css' rel='stylesheet' href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
 		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-    	<link type="text/css" href="../nav_bar_header/nav_bar.css" rel="stylesheet" />
+    	<link type="text/css" href="../nav_bar_header/nav_bar.css" rel="stylesheet" /> 
 		<script type="text/javascript">
 
 		$(document).ready(function() {
+
+			/*var enable_button = null;
+			function activate_button(enable_button){
+				if enable_button == null {
+					$("#addReviewBtn").attr("disabled", "disabled");
+					$("#addReviewBtn").unbind("mouseenter mouseleave");
+				}
+				else {
+					$("#addReviewBtn").removeAttr("disabled");
+				}
+			}*/
+
 			$('.rating span').click(function() {
+				enable_button = true;
+				activate_button(enable_button);
 				$('.rating .selected').removeClass('selected');
 				$(this).addClass('selected');
 			})
@@ -70,6 +84,13 @@
 			        new_comment.append(comment_text);
 			        $('#comment_list').prepend(new_comment);
 		    	}
+		    	else {
+		    		//Want a popup to appear that says please enter text
+		    		/*setTimeout(function(){
+		    			$(".enter_text").hide();
+		    		}, 1000);*/
+					$("#review_text").attr("placeholder", "Please enter text to submit a review");
+		    	}
 			});
 
     	});
@@ -96,7 +117,7 @@
 						<p> <b> Activity: </b> <?php echo $rows[1]["Program_Focus"]; ?> </p>
 						<p> <b> Program Contact: </b> <?php echo $rows[1]["Program_Contact"]; ?> </p>
 						<p> <b> Program Website: </b><a href="<?php echo $rows[1]['Program_Website']; ?>"> <?php echo $rows[1]["Program_Website"]; ?></a> </p>
-						<p><b> Description: </b> <?php echo $rows[1]["Program_Description"]; ?> </p>
+						<p> <b> Description: </b> <?php echo $rows[1]["Program_Description"]; ?> </p>
 					</div>
 				</td>
 			</tr>
@@ -162,6 +183,9 @@
 					</div>
 			</div>
 		</div>
+
+
+
 	</body>
 </html>
  

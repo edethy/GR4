@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	$('.rating span').click(function() {
+	/*$('.rating span').click(function() {
 		$('.rating .selected').removeClass('selected');
 		$(this).addClass('selected');
 	})
@@ -37,8 +37,10 @@ $(document).ready(function() {
 			new_comment.append(comment_top_row);
 			new_comment.append(comment_text);
 			$('#comment_list').prepend(new_comment);
+		} else {
+				$('#review_text').val("Please enter text to submit a review");
 		}
-	});
+	});*/
 	
 	
 	$(".teacher_description").popover({
