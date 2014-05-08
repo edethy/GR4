@@ -1,15 +1,3 @@
-
-
-//dictionary to keep track of favorites
-var favorites_dict= []; 	
-var favorites_list={}; 
-
-function add_favorite(title, isFav) {
-	favorites_dict[title]= isFav; 
-	var website_result = {};
-	
-}
-
 var favorite_html= '<div class="col-md-3">'+     		
 						'<div class="favorite_tile thumbnail">'+
 							'<div class="favorite_tile_image row"></div>'+
@@ -139,70 +127,101 @@ for(var i = 0; i < program_description.length; i++)
     description_result[program_description[i].key] = program_description[i].value;
 }
 
+//dictionary to keep track of favorites
+var favorites_dict= []; 	
+var favorites_list={}; 
+
+function add_favorite(title, isFav) {
+	favorites_dict[title]= isFav; 
+	var website_result = {};
+	
+}
+
+
+function hide_NoResults() {
+	
+	console.log('hiding'); 
+	var noresults_well = $('document').find($('#noresults_container')); 
+	console.log(noresults_well); 
+	noresults_well.css('opacity', '0'); 
+	noresults_well.css('height', '0px'); 
+}
+
+function show_NoResults() {
+	var noresults_well = $('document').find('noresults_container'); 
+	noresults_well.css('opacity', '1'); 
+	noresults_well.css('height', '38px'); 
+}
+
 //updates the dictionary that keeps track of what programs are favorites
 function results_html(newList) {
 	var outer_row = $('<div></div'); 	
 	var arrayLength = newList.length;
-	for (var i = 0; i < arrayLength; i++) {
 	
-	  	//making inner_row	
-	   var inner_row= $('<div></div'); 
-	   inner_row.attr('class', 'thumbnail program'); 
-	   inner_row.attr('id', newList[i]+'_container'); 
+	if (arrayLength==0) {
+		show_NoResults(); 
+	} else {
+		console.log('starting to hide'); 
+		hide_NoResults(); 
+		for (var i = 0; i < arrayLength; i++) {
+			
+			
+			//making inner_row	
+		   var inner_row= $('<div></div'); 
+		   inner_row.attr('class', 'thumbnail program'); 
+		   inner_row.attr('id', newList[i]+'_container'); 
 	  
-	   //getting everything from the dictionaries
-	   var logo= logo_result[ newList[i]]; 
-	   var website=  website_result[newList[i]]; 
-	   var description= description_result[newList[i]]; 
-	   var location= location_result[newList[i]]; 
+		   //getting everything from the dictionaries
+		   var logo= logo_result[ newList[i]]; 
+		   var website=  website_result[newList[i]]; 
+		   var description= description_result[newList[i]]; 
+		   var location= location_result[newList[i]]; 
 	   
 	   
-	   inner_row.append(result_html); 
+		   inner_row.append(result_html); 
 
-	   //set title
-	   var titleDiv= inner_row.find(".title_div"); 
-	   var newTitle = $('<h3></h3>');
-	   newTitle.css('margin-top', '2%'); 
-	   newTitle.css('margin-bottom', '1%'); 
-	   newTitle.text(newList[i]); 
-	   titleDiv.append(newTitle); 
+		   //set title
+		   var titleDiv= inner_row.find(".title_div"); 
+		   var newTitle = $('<h3></h3>');
+		   newTitle.css('margin-top', '2%'); 
+		   newTitle.css('margin-bottom', '1%'); 
+		   newTitle.text(newList[i]); 
+		   titleDiv.append(newTitle); 
 	   
-	   //set logo
-	   var logoDiv= inner_row.find(".logo_div"); 
-	   var newLogo = $('<img>'); 
-	   newLogo.attr('class', 'result_img logo_div'); 
-	   newLogo.attr('id', newList[i]+'_logo'); 
-	   newLogo.attr('src', logo);  
-	   newLogo.css('padding-bottom', '20%'); 
-	   newLogo.css('padding-left', '15%'); 
-	   logoDiv.append(newLogo); 
+		   //set logo
+		   var logoDiv= inner_row.find(".logo_div"); 
+		   var newLogo = $('<img>'); 
+		   newLogo.attr('class', 'result_img logo_div'); 
+		   newLogo.attr('id', newList[i]+'_logo'); 
+		   newLogo.attr('src', logo);  
+		   newLogo.css('padding-bottom', '20%'); 
+		   newLogo.css('padding-left', '15%'); 
+		   logoDiv.append(newLogo); 
 
-	   //set website
-	   var newWebsite = $('<a>Learn More</a>'); 
-	   newWebsite.attr('id', newList[i]+'_website'); 
-	   newWebsite.attr('href',website); 
+		   //set website
+		   var newWebsite = $('<a>Learn More</a>'); 
+		   newWebsite.attr('id', newList[i]+'_website'); 
+		   newWebsite.attr('href',website); 
 	   
-	   //set description
-	   var descriptionDiv= inner_row.find('.description_div'); 
-	   var newDescription= $('<p></p>');
-	   newDescription.attr('id', newList[i]+'_description');
-	   newDescription.text(description); 
-	   newDescription.append(newWebsite);   
-	   descriptionDiv.append(newDescription); 
+		   //set description
+		   var descriptionDiv= inner_row.find('.description_div'); 
+		   var newDescription= $('<p></p>');
+		   newDescription.attr('id', newList[i]+'_description');
+		   newDescription.text(description); 
+		   newDescription.append(newWebsite);   
+		   descriptionDiv.append(newDescription); 
 	   
-	   //set location
-	   var locationDiv= inner_row.find('.location_div'); 
-	   var newLocation= $('<div id="'+newList[i]+'_location"></div>'); 
-	   newLocation.text(location);  
-	   locationDiv.append(newLocation); 
+		   //set location
+		   var locationDiv= inner_row.find('.location_div'); 
+		   var newLocation= $('<div id="'+newList[i]+'_location"></div>'); 
+		   newLocation.text(location);  
+		   locationDiv.append(newLocation); 
 	   
-	   //set button name
-	   var heartBtn= inner_row.find('.btnAddToFavorites'); 
-	   heartBtn.attr('id', newList[i]); 
 		
-		outer_row.append(inner_row); 
-		add_favorite(newList[i], false); 
+			outer_row.append(inner_row); 
+			add_favorite(newList[i], false); 
 	  
+		}
 	}
 	
 	return outer_row;
@@ -235,19 +254,41 @@ function addFavorite(newFav) {
 	newTitleLink.append(newTitle); 
 	titleDiv.append(newTitleLink); 
 	
+	//add id to the button
+	var deleteButton= container.find('.favorite-hover-x.glyphicon.glyphicon-trash'); 
+	deleteButton.attr('id', newFav); 
+	deleteButton.css('cursor', 'pointer'); 
+	deleteButton.css('font-size', '15pt'); 
+	deleteButton.css('padding-left', '10%'); 
+	deleteButton.css('padding-top', '3%'); 
+
+	
 	return container; 
 
 }
+
+
 
 $(document).ready( function() {
 
 //deleting a favorite
 function deleteFavorite(oldFav) {
-
+	
+	console.log('deleting'); 
 	var toDelete = document.getElementById(oldFav+'_favTile');
-	toDelete.parentNode.removeChild(todDelete);
+	toDelete.parentNode.removeChild(toDelete);
 
 }
+
+//listener to delete a favorite
+$('.favorite-hover-x.glyphicon.glyphicon-trash').on('click', function(e) {
+	var program= $(e.target).attr('id'); 
+	deleteFavorite(program); 	
+	
+}); 
+
+
+
 
 
 	//favorites and toggles the heart button

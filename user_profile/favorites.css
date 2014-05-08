@@ -8,8 +8,8 @@ div.favorite_tile_name.row {
 	cursor: pointer;
 	text-align: center;
 	position: absolute;
-	bottom: 2%;
 	left: 25%;
+	top: 85%; 
 	
 }
 
@@ -19,6 +19,7 @@ div.favorite_tile_name.row {
 	position: absolute; 
 	left: 0px; 
 	top: 0px; 
+	z-index: 1000; 
 }
 
 div.favorite_tile.thumbnail: hover .favorite_hover_x {
@@ -29,6 +30,6 @@ div.favorite_tile.thumbnail {
 	position: relative; 
 	min-width: inherit;
 	min-height: inherit;
-	padding-bottom: 70%;
+	padding-bottom: 75%;
 	padding-top: 5%;
 }	

@@ -1228,7 +1228,7 @@
 			 <div id="results_wrapper">
 				<div class="row search_res">
 					<div class='col-md-1'></div>
-						<div style="background-color: white" class="well-sm search-well">You have no search results </div>
+						<div id='noResults_container' style="background-color: white" class="well-sm search-well">You have no search results </div>
 				</div>
 			</div>
 		</div>		       
