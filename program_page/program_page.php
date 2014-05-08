@@ -44,7 +44,7 @@
 					var new_comment = $('<div>').addClass('thumbnail comment');
 							
 					var teacher_img = $('<div>').addClass('col-md-2');
-			        var img = $('<img>').attr('src', 'teacher_pics/shilpa.jpg');
+			        var img = $('<img>').attr('src', '../teacher_pics/shilpa.jpg');
 			        img.css({width: '75%', 'margin-left': '15%'});
 			        teacher_img.append(img);
 
@@ -121,7 +121,7 @@
 				<div class="thumbnail comment">
 					<div class="row">
 						<div class="col-md-2">
-							<img src="teacher_pics/liz.jpg" style="width:75%; margin-left:15%;">
+							<img src="../teacher_pics/liz.jpg" style="width:75%; margin-left:15%;">
 						</div>
 						<div class="col-md-10 teacher_description" >
 							<div class="row">
@@ -142,7 +142,7 @@
 					<div class="thumbnail comment">
 						<div class="row">
 							<div class="col-md-2">
-								<img src="teacher_pics/fernanda.png" style="width:75%; margin-left:15%;">
+								<img src="../teacher_pics/fernanda.png" style="width:75%; margin-left:15%;">
 							</div>
 							<div class="col-md-10 teacher_description">
 								<div class="row">

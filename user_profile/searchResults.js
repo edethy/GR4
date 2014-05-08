@@ -142,7 +142,7 @@ function favorites_html(newList) {
 	   
 	   //set title
 	   var titleDiv= inner_row.find(".title_div"); 
-	   var newTitle = $('<h1></h1>');
+	   var newTitle = $('<h3></h3>');
 	   newTitle.text(newList[i]); 
 	   titleDiv.append(newTitle); 
 	   

@@ -1,6 +1,6 @@
-body {
-	background-color: #283A90; 
-	color: white; 
+body.mybody {
+	background-color: #F0F0F0;
+	color:#003366;
 }
 
 #wrapper {
@@ -27,11 +27,17 @@ body {
 	
 }
 
+.page_margins {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.jumbotron {
+	background-color: white;
+}
 
 #info_variables {
-	padding: 0; 
-
-
+	padding: 0;
 }
 
 
@@ -119,11 +125,3 @@ span.hover-content span {
 	padding-left: 20px;
 	padding-bottom: 10px;
 }
-
-
-
-
-  
-
-  
-
