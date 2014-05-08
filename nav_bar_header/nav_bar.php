@@ -89,8 +89,8 @@
           <li><a style= "color: #CCCCCC;"id= "about_link" href="#">About</a></li>
         </ul>
       
-		<div id= "logo" class="page-header inline homehome">
-    		<h1 style="border-bottom: none; font-size:60px;">connect<span style= "color: #99CC99;">ed</span></h1>
+		<div class="page-header inline homehome">
+    		<h1 id= "logo" style="margin-left:40%; border-bottom: none; font-size:60px;">connect<span style= "color: #99CC99;">ed</span></h1>
 		</div>    
        
 		  <form id="search_bar" class="navbar-form navbar-right inline" role="search">

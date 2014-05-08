@@ -750,9 +750,9 @@
   <body>
   	<?php include("../nav_bar_header/nav_bar.php") ?>
   </body>
-  <body style="background-color: #F0F0F0; color: #003366; margin-left:5%; margin-right:5%; margin-top:2%; margin-bottom:2%;">
-    <div id="container">
-   
+  <body class="body mybody">
+  	<div class="page_margins">
+    <div id="container">   
     <div class="row"> <!-- top row -->
       <div class="col-md-8">
         <h1 style="padding-left: 13%;" id="userheading">Welcome Back Ms. Agrawal!</h1>
@@ -763,78 +763,78 @@
 
 	<div class="row"> <!-- info row-->
       <div class="col-md-1"></div>
-      <div id= "profDiv" class="col-md-4">
-        <img id="prof_pic" src='../teacher_pics/shilpa.jpg' id='teacher_pic'>
-      </div>
-      <div class="col-md-1"></div>
-      <!-- info div -->
-      <div id="info_variables" class="col-md-5">
-		<div class="row"> <!-- row 1-->
-			<h3 id="userheading">Your Info:</h3>
-		</div>
-		<div class= "row"> <!-- row 2 -->
-			<div class="col-md-5">
-				<div class="list-group">
-				<div class="list-group-item">
-					<span style="cursor: pointer;" id="one" class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span> 
-					<h4 class="list-group-item-heading">School District:</h4>
-					<p  id="onetext" class="list-group-item-text" contenteditable="true">Boston Public Schools</p>
-					<p>&nbsp</p>
+	      <div id= "profDiv" class="col-md-4">
+	        <img id="prof_pic" src='../teacher_pics/shilpa.jpg' id='teacher_pic'>
+	      </div>
+	      <div class="col-md-1"></div>
+	      <!-- info div -->
+	      <div id="info_variables" class="col-md-5">
+			<div class="row"> <!-- row 1-->
+				<h3 id="userheading">Your Info:</h3>
+			</div> <!-- end of row 1 -->
+			<div class= "row"> <!-- row 2 -->
+				<div class="col-md-5">
+					<div class="list-group">
+					<div class="list-group-item">
+						<span style="cursor: pointer;" id="one" class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span> 
+						<h4 class="list-group-item-heading">School District:</h4>
+						<p  id="onetext" class="list-group-item-text" contenteditable="true">Boston Public Schools</p>
+						<p>&nbsp</p>
+					</div>
+					</div>
 				</div>
+				<div class="col-md-5">
+					<div class="list-group">
+					<div class="list-group-item">
+						<span style="cursor: pointer;" id="two" class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span>  
+						<h4 class="list-group-item-heading">School:</h4>
+						<p id="twotext" class="list-group-item-text" contenteditable="true">Boston Latin High School</p>
+						<p>&nbsp</p>
+					</div>
+					</div>
 				</div>
-			</div>
-			<div class="col-md-5">
-				<div class="list-group">
-				<div class="list-group-item">
-					<span style="cursor: pointer;" id="two" class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span>  
-					<h4 class="list-group-item-heading">School:</h4>
-					<p id="twotext" class="list-group-item-text" contenteditable="true">Boston Latin High School</p>
-					<p>&nbsp</p>
+			</div> <!-- end of row 2 -->
+			<div class= "row"> <!-- row 3 -->
+				<div class="col-md-5">
+					<div class="list-group">
+					<div class="list-group-item">
+						<span style="cursor: pointer;" id="three" class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span> 
+						<h4 class="list-group-item-heading">Teaching Grades:</h4>
+						<p id="threetext" class = "list-group-item-text" contenteditable="true">Grades 9-12</p>
+						<p>&nbsp</p>
+					</div>
+					</div>
 				</div>
+				<div class="col-md-5">
+					<div class="list-group">
+					<div class="list-group-item">
+						<span style="cursor: pointer;" id="four" class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span> 
+						<h4 class="list-group-item-heading">Subjects:</h4>
+						<p id="fourtext" class="list-group-item-text" contenteditable="true">English</p>
+						<p>&nbsp</p>
+					</div>
+					</div>
 				</div>
-			</div>
-		</div>
-		<div7 class= "row"> <!-- row 3 -->
-			<div style="padding-left: 0px;" class="col-md-5">
-				<div class="list-group">
-				<div class="list-group-item">
-					<span style="cursor: pointer;" id="three" class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span> 
-					<h4 class="list-group-item-heading">Teaching Grades:</h4>
-					<p id="threetext" class = "list-group-item-text" contenteditable="true">Grades 9-12</p>
-					<p>&nbsp</p>
-				</div>
-				</div>
-			</div>
-			<div style="padding-left: 15px; padding-right: 5px;"class="col-md-5">
-				<div class="list-group">
-				<div class="list-group-item">
-					<span style="cursor: pointer;" id="four" class="hover-content"><span class="glyphicon glyphicon-pencil"></span></span> 
-					<h4 class="list-group-item-heading">Subjects:</h4>
-					<p id="fourtext" class="list-group-item-text" contenteditable="true">English</p>
-					<p>&nbsp</p>
-				</div>
-				</div>
-			</div>
-		</div> <!-- end of row 3 -->
-	</div> <!-- end of column -->
+			</div> <!-- end of row 3 -->
+		</div> <!-- end of column -->
 	</div> <!-- end of top row -->
-</div> <!-- end of container -->
+	</div> <!-- end of container -->
 
     <div class="row">&nbsp</div>
     <div class="row">&nbsp</div>
     <div class="row">&nbsp</div>
-    <div class="jumbotron" style="background-color:white"> 
+    <div class="jumbotron well well-lg" style="background-color: white;"> 
     	<div class="container">
-    		<h2>Need to find an after-school program?</h2>
-    		<p>We can help you find the perfect after-school program to fit your students' needs.</p>
+    		<h2>Need to find an out-of-school program?</h2>
+    		<p>We can help you find the perfect out-of-school program to fit your students' needs.</p>
 			<button style="background-color:#99CC99;" id="search_btn" type="button" class="btn btn-default btn-lg">
-				Start New Search&nbsp<span class="glyphicon glyphicon-search"></span> 
+				Find a Program&nbsp<span class="glyphicon glyphicon-search"></span> 
 			</button>
 
 		</div>
     </div>    
     <!-- BEGINNING OF FAVORITES -->
-    <div style="margin-left:0%; margin-right:0%;">
+    <div>
 			<div class="row row-xs-height">
 				<div class="col-md-3">
 					<h1 id='favorites'>Favorites</h1>
@@ -864,6 +864,50 @@
 			</div>
 	</div>
 	<!-- END OF FAVORITES -->
+    <div class="row">
+      <div class="col-md-8">
+        <h3>Recently Reviewed Programs </h3>
+      </div>
+    </div>
+    <div class="row">&nbsp</div>
+    <div class="row">&nbsp</div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-3 recent_tile">   		
+		<div class="recent_tile thumbnail">
+			<div class="row recent_tile_image">
+			  <img class="recent_tile_image" src="../program_logos/amphibious.png" alt="...">
+			</div>
+			<div class="row recent_tile_name">
+				<a style="color: #003366;"><h4>Amphibious Achievement</h4></a>
+			</div>
+			<span class="tile-content">Amphibious Achievement is an MIT-student run mentorship program for inner-city high school students. In the program, students learn how to row, swim, and becoming academically on-track at no cost.</span>        
+		</div>
+      </div>
+      <div class="col-md-3">   		
+		<div class="recent_tile thumbnail">
+			<div class="row recent_tile_image">
+			  <img class="recent_tile_image" src="../program_logos/lti.png" alt="...">
+			 </div>
+			<div class="row recent_tile_name">
+				<a style="color: #003366;"><h4>LTI</h4></a>
+			</div>
+			<span class="tile-content">The Leadership Training Institute is a program for high school students that helps develop leadership skills. Throughout our 12-week program, students implement what they learn as they work to create a sustainable community service project.</span>        
+		</div>
+      </div>
+      <div class="col-md-3">     		
+		<div class="recent_tile thumbnail">
+			<div class="row recent_tile_image">
+				  <img class="recent_tile_image" src="../program_logos/ymca.jpg" alt="...">
+			</div>
+			<div class="row recent_tile_name">
+				<a style="color: #003366;"><h4>YMCA</h4></a>
+			</div>
+			<span class="tile-content">YMCA Cambridge offers the community a wide variety of opportunities to enrich the mind, body and spirit. We serve students of all ages.</span> 
+		</div> 
+      </div>    
+    </div><!-- row -->
+	</div>
 	<!-- BEGINNING OF MODAL -->
 	<div class="modal fade" id="udpate_search_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
@@ -1171,48 +1215,5 @@
 		</div><!-- /.modal -->
 	</div>
 	<!-- END OF MODAL -->
-    <div class="row">
-      <div class="col-md-8">
-        <h3>Recently Reviewed Programs </h3>
-      </div>
-    </div>
-    <div class="row">&nbsp</div>
-    <div class="row">&nbsp</div>
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-3 recent_tile">   		
-		<div class="recent_tile thumbnail">
-			<div class="row recent_tile_image">
-			  <img class="recent_tile_image" src="../program_logos/amphibious.png" alt="...">
-			</div>
-			<div class="row recent_tile_name">
-				<a style="color: #003366;"><h4>Amphibious Achievement</h4></a>
-			</div>
-			<span class="tile-content">Amphibious Achievement is an MIT-student run mentorship program for inner-city high school students. In the program, students learn how to row, swim, and becoming academically on-track at no cost.</span>        
-		</div>
-      </div>
-      <div class="col-md-3">   		
-		<div class="recent_tile thumbnail">
-			<div class="row recent_tile_image">
-			  <img class="recent_tile_image" src="../program_logos/lti.png" alt="...">
-			 </div>
-			<div class="row recent_tile_name">
-				<a style="color: #003366;"><h4>LTI</h4></a>
-			</div>
-			<span class="tile-content">The Leadership Training Institute is a program for high school students that helps develop leadership skills. Throughout our 12-week program, students implement what they learn as they work to create a sustainable community service project.</span>        
-		</div>
-      </div>
-      <div class="col-md-3">     		
-		<div class="recent_tile thumbnail">
-			<div class="row recent_tile_image">
-				  <img class="recent_tile_image" src="../program_logos/ymca.jpg" alt="...">
-			</div>
-			<div class="row recent_tile_name">
-				<a style="color: #003366;"><h4>YMCA</h4></a>
-			</div>
-			<span class="tile-content">YMCA Cambridge offers the community a wide variety of opportunities to enrich the mind, body and spirit. We serve students of all ages.</span> 
-		</div> 
-      </div>    
-    </div><!-- row -->
   </body>
 </html>
