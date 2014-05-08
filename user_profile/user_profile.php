@@ -258,6 +258,7 @@
     <link type='text/css' rel='stylesheet' href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
     <!-- <link type='text/css' rel='stylesheet' href="default.css" /> -->
    	<link type="text/css" href="../main_search_page/modal_search.css" rel="stylesheet" />
+   	<script src="searchResults.js"></script>
     <style>
 		div.recent_tile > span.tile-content {
 			color: #003366;
@@ -557,10 +558,12 @@
 				})
 				$('.update_btn').on('click', function(e) {
 					$('.dropdown.open .dropdown-toggle').dropdown('toggle');
-					console.log("click");
 					console.log(parameters_dict);
 					console.log("running makeSearchResultsList():");
 					console.log(makeSearchResultsList());
+					$('#results_container').html("");
+					$('#results_container').append(results_html(makeSearchResultsList()));
+					console.log("Finished updating the search results");
 				})
 				$(".race_checkbox").on("change", "input[type=checkbox]",function(e){
 						//if checked is false, remove from list
@@ -945,7 +948,7 @@
     </div><!-- row -->
 	</div>
 	<!-- BEGINNING OF MODAL -->
-	<div class="modal fade" id="udpate_search_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style:"max-height:80%;">
+	<div class="modal fade" id="udpate_search_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
@@ -1242,8 +1245,10 @@
 				<div class="row search_res">
 					<div class='col-md-1'></div>
 						<div style="background-color: white" class="well-sm search-well no_results">You have no search results </div>
+						<div id="results_container">
+						</div>
 				</div>
-			</div>
+				</div>
 		</div>		       
 		      <div class="modal-footer">   
 		        <button id="cancelBtn" type="button" class="btn btn-default" data-dismiss="modal">Exit</button>

@@ -141,6 +141,8 @@ for(var i = 0; i < program_description.length; i++)
 
 //updates the dictionary that keeps track of what programs are favorites
 function results_html(newList) {
+
+	console.log("running results_html");
 	var outer_row = $('<div></div'); 	
 	var arrayLength = newList.length;
 	for (var i = 0; i < arrayLength; i++) {
@@ -243,19 +245,17 @@ $(document).ready( function() {
 
 //deleting a favorite
 function deleteFavorite(oldFav) {
-
 	var toDelete = document.getElementById(oldFav+'_favTile');
 	toDelete.parentNode.removeChild(todDelete);
 
 }
 
-
 	//favorites and toggles the heart button
 	$('button.btnAddToFavorites.btn.btn-default.glyphicon.glyphicon-heart').on('click', function(e) {
+
+		console.log("adding heart listener");
 		var thisBtn= e.target; 
 		var title= $(thisBtn).attr('id');
-		console.log(favorites_dict);  
-		console.log(title);
 		
 		//have to be able to get title
 		if (favorites_dict[title]==false){
