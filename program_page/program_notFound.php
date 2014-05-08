@@ -14,9 +14,9 @@
 <body>
     <?php include("../nav_bar_header/nav_bar.php") ?>
 </body>
-<body>
+<body style="background-color: #F0F0F0; color: #003366;">
   <div class="mybody">
-    <div id="oops_well" style="background-color:white;">
+    <div id="oops_well" class="well well-lg">
         <h1 id="oops">Oops...</h1>
         <p>Looks like we couldn't find the program you were looking for. </p>
         <p><a href="../user_profile/user_profile.php" id="home_button" class="btn btn-primary btn-lg" role="button">Go Back To Your Page</a></p>
