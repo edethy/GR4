@@ -30,6 +30,8 @@
 
 		$(document).ready(function() {
 
+			$("[data-toggle=tooltip]").tooltip();
+
 			name_id_dict = {
 				"Amphibious Achievement":"amphibious_achievement",
 				"Leadership Training Institute":"lti",
@@ -125,7 +127,7 @@
 			  <div class="form-group">
 				<input type="text" class="form-control" id="search_by_program" placeholder="Know of a program by name?">
 			  </div>
-			  <button type="submit" id="search_button" class="btn btn-default dummy_page">
+			  <button type="submit" id="search_button" class="btn btn-default dummy_page" data-toggle="tooltip" data-placement="bottom" title="Learn More about Specific Programs!">
 				<span class="glyphicon glyphicon-search"></span>
 			  </button>
 		  </form>

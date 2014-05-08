@@ -94,3 +94,12 @@ body {
 .popover {
 	margin-left: -20%;
 }
+
+.teacher_name{
+	font-size: 1.2em;
+}
+
+.teacher_school {
+	font-size: 1em;
+}
+

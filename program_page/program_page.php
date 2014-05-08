@@ -123,11 +123,11 @@
 						<div class="col-md-2">
 							<img src="../teacher_pics/liz.jpg" style="width:75%; margin-left:15%;">
 						</div>
-						<div class="col-md-10 teacher_description" >
-							<div class="row">
+						<div class="col-md-4 teacher_description" >
+							<div class="row teacher_name" data-toggle="tooltip" data-placement="top" title="Elizabeth Dethy &#013; edethy@obryant.edu">
 								Ms. Elizabeth Dethy
 							</div>
-							<div class="row">
+							<div class="row teacher_school">
 								John D. O'Bryant High School
 							</div>
 							<div class="row" style="float:left; color:gold;">
@@ -144,11 +144,11 @@
 							<div class="col-md-2">
 								<img src="../teacher_pics/fernanda.png" style="width:75%; margin-left:15%;">
 							</div>
-							<div class="col-md-10 teacher_description">
-								<div class="row">
+							<div class="col-md-4 teacher_description">
+								<div class="row teacher_name" data-toggle="tooltip" data-placement="top" title="Fernanda Lavalle &#013; fernanda@fenway.edu">
 									Ms. Fernanda Lavalle
 								</div>
-								<div class="row">
+								<div class="row teacher_school">
 									Fenway High School
 								</div>
 								<div class="row" style="float:left; color:gold;">

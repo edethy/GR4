@@ -855,8 +855,8 @@
     <!-- BEGINNING OF FAVORITES -->
     <div>
 		<div class="row row-xs-height">
-			<div class="col-md-3">
-				<h1 id='favorites'>Favorites</h1>
+			<div class="col-md-8">
+				<h1 id='favorites'><span class="glyphicon glyphicon-heart" style="color:red;background-color:#F0F0F0;"></span>   Favorite Programs</h1>
 			</div>
 		</div>
 		<div id="favorites_wrapper">
@@ -889,7 +889,7 @@
 	<!-- END OF FAVORITES -->
     <div class="row row-xs-height">
 		<div class="col-md-8">
-			<h1 id='recently_reviewed'> Recently Reviewed Programs</h1>
+			<h1 id='recently_reviewed'><span class="glyphicon glyphicon-star" style="color:gold;background-color:#F0F0F0;"></span>  Recently Reviewed Programs</h1>
 		</div>
 	</div>
     <div class="row">&nbsp</div>
@@ -932,7 +932,7 @@
     </div><!-- row -->
 	</div>
 	<!-- BEGINNING OF MODAL -->
-	<div class="modal fade" id="udpate_search_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal fade" id="udpate_search_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style:"max-height:80%;">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
@@ -1007,9 +1007,7 @@
 								</label>
 							</div>
 						</li>
-
 						<li class="gp">
-							
 							<div class="gpa">
 								<label class="checkbox gpa_checkbox">
 									<input type="checkbox"  id="gpa_4">
