@@ -30,18 +30,43 @@
 
 		$(document).ready(function() {
 
+			name_id_dict = {
+				"Amphibious Achievement":"amphibious_achievement",
+				"Leadership Training Institute":"lti",
+				"YMCA Cambridge":"ymca",
+				"Community Rowing Inc.":"cri",
+				"SquashBusters":"squashbusters",
+				"Science & Engineering Apprenticeship Program (SEAP)":"seap",
+				"MITES: Minority Introduction to Engineering & Science":"mites",
+				"SailFuture":"sailfuture"
+			};
+
 			$("#search_by_program").on("keypress", function(e) {
 				if(e.which == 13){
-					// should call search_program_name(name)
-					window.location.href = "../program_page/program_notFound.php";
+					var program_request = $('#search_by_program').val();
+					console.log("program_request:",program_request);
+					if (name_id_dict[program_request]!=undefined) {
+						window.location.href = "../program_page/program_page.php?program=" + name_id_dict[program_request];
+					}
+					else {
+						window.location.href = "../program_page/program_notFound.php";
+					}
 					return false;
 		  		}
 		  	});
 
 			$("#search_button").on("click", function(e) {
-				// should call search_program_name(name)
-				window.location.href = "../program_page/program_notFound.php";
-				return false;
+				if(e.which == 13){
+					var program_request = $('#search_by_program').val();
+					console.log("program_request:",program_request);
+					if (name_id_dict[program_request]!=undefined) {
+						window.location.href = "../program_page/program_page.php?program=" + name_id_dict[program_request];
+					}
+					else {
+						window.location.href = "../program_page/program_notFound.php";
+					}
+					return false;
+		  		}
 			});
 
 			$(".homehome").click(function(){
@@ -76,7 +101,6 @@
 			  	else {
 			  		// load HTML page for program name not found
 			  	}
-			  	$("#search_by_program").autocomplete.close();
 			}
 
 		})

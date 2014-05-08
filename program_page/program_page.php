@@ -75,7 +75,7 @@
     	});
 		</script>
 	</head>
-	<body>
+	<body style="background-color: #F0F0F0; color: #003366;">
 		<?php include('../nav_bar_header/nav_bar.php') ?>
 		<div id="program_title"> <?php echo $rows[1]['Program_Name']; ?></div>
 		<table>
@@ -102,9 +102,9 @@
 			</tr>
 		</table>
 		<div id="comment_table">
-			<div class="thumbnail comment">
+			<div class="thumbnail comment" style="border:5;">
 				<div class="row">
-					<input type="text" id="review_text" class="form-control " placeholder="E.g. What do you think of Amphibious Achievement?" style="width:96%; margin-left:2%;height:50px;">
+					<input type="text" id="review_text" class="form-control " placeholder="E.g. What do you think of this program?" style="width:96%; margin-left:2%;height:50px;">
 				</div>
 				<div class="row">
 					<div class="col-md-10">
