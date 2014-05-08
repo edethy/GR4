@@ -32,8 +32,8 @@ var result_html = 	'<div class="row">'+
 								'<div class="description_div"></div>'+
 							'</div>'+										
 						'</div>'+
-						'<div class="col-md-1" style="padding-left:13%">'+
-							'<button type="button" class="btnAddToFavorites btn btn-default glyphicon glyphicon-heart"></button>'+
+						'<div style="padding-left:5%">'+
+							'<button type="button" style="margin-left:5%" class="btnAddToFavorites btn btn-default glyphicon glyphicon-heart"></button>'+
 						'</div>'+
 					'</div>'; 
 			
@@ -252,7 +252,6 @@ function deleteFavorite(oldFav) {
 
 	//favorites and toggles the heart button
 	$('button.btnAddToFavorites.btn.btn-default.glyphicon.glyphicon-heart').on('click', function(e) {
-
 		console.log("adding heart listener");
 		var thisBtn= e.target; 
 		var title= $(thisBtn).attr('id');
