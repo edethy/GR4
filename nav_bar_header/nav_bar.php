@@ -34,41 +34,30 @@
 			$("#search_by_program").on("keypress", function(e) {
 				if(e.which == 13){
 					// should call search_program_name(name)
-					window.location.href = "dummy_page.php";
+					window.location.href = "../program_page/program_notFound.php";
 					return false;
 		  		}
 		  	});
 
 			$("#search_button").on("click", function(e) {
 				// should call search_program_name(name)
-				window.location.href = 'dummy_page.php';
+				window.location.href = "../program_page/program_notFound.php";
 				return false;
 			});
 
 			$(".homehome").click(function(){
-				window.location.href = 'user_profile.php';
+				window.location.href = "user_profile.php";
 				return false;
 			});
   
 			$("#home_link").on("click", function(e) { 	
-				console.log("HOME"); 
 				$("#home_link").css({ color: "#99CC99" }); 
 				$("#about_link").css({ color: "#CCCCCC" });
-				$("#home_link").css({ color: "#777" }); 	
 			}); 
   
 			$("#about_link").on("click", function(e) { 
-				console.log("ABOUT"); 	
 				$("#about_link").css({ color: "#99CC99" });   
 				$("#home_link").css({ color: "#CCCCCC" });
-				$("#program_link").css({ color: "#CCCCCC" });	
-			});
-  
-			$("#program_link").on("click", function(e) { 
-				console.log("PROGRAM"); 	
-				$("#program_link").css({ color: "#99CC99" });
-				$("#about_link").css({ color: "#CCCCCC" });
-				$("#home_link").css({ color: "#CCCCCC" }); 	
 			});
 
 			$("#search_by_program").autocomplete({ 

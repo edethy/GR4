@@ -1,8 +1,18 @@
+body {
+	background-color: #F0F0F0; 	
+	color: #003366;
+}
+.mybody {
+	margin-left:5%; 
+	margin-right:5%; 
+	margin-top:2%; 
+	margin-bottom:2%;
+}
+
 #oops {
 	text-align: left; 
 	font-size: 5em;
-	color: #003366; 
-	
+	color: #003366;	
 }
 
 #oops_well {
