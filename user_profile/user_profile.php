@@ -987,7 +987,7 @@
 						</li>
 						</li>
 						<li class="dropdown-title">GPA</li>
-						<li class="gpa">
+						<li class="gp">
 							<div class="gpa">
 								<label class="checkbox gpa_checkbox">
 									<input type="checkbox"  id="gpa_1">
@@ -1000,6 +1000,8 @@
 									1.0-2.0
 								</label>
 							</div>
+						</li>
+						<li class="gp">
 							<div class="gpa">
 								<label class="checkbox gpa_checkbox">
 									<input type="checkbox"  id="gpa_3">
