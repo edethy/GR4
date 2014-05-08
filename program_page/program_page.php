@@ -75,7 +75,7 @@
     	});
 		</script>
 	</head>
-	<body>
+	<body style="background-color: #F0F0F0; color: #003366;">
 		<?php include('../nav_bar_header/nav_bar.php') ?>
 		<div id="program_title"> <?php echo $rows[1]['Program_Name']; ?></div>
 		<table>
@@ -102,9 +102,9 @@
 			</tr>
 		</table>
 		<div id="comment_table">
-			<div class="thumbnail comment">
+			<div class="thumbnail comment" style="border:5;">
 				<div class="row">
-					<input type="text" id="review_text" class="form-control " placeholder="E.g. What do you think of Amphibious Achievement?" style="width:96%; margin-left:2%;height:50px;">
+					<input type="text" id="review_text" class="form-control " placeholder="E.g. What do you think of this program?" style="width:96%; margin-left:2%;height:50px;">
 				</div>
 				<div class="row">
 					<div class="col-md-10">
@@ -123,11 +123,11 @@
 						<div class="col-md-2">
 							<img src="../teacher_pics/liz.jpg" style="width:75%; margin-left:15%;">
 						</div>
-						<div class="col-md-10 teacher_description" >
-							<div class="row">
+						<div class="col-md-4 teacher_description" >
+							<div class="row teacher_name" data-toggle="tooltip" data-placement="top" title="Elizabeth Dethy &#013; edethy@obryant.edu">
 								Ms. Elizabeth Dethy
 							</div>
-							<div class="row">
+							<div class="row teacher_school">
 								John D. O'Bryant High School
 							</div>
 							<div class="row" style="float:left; color:gold;">
@@ -144,11 +144,11 @@
 							<div class="col-md-2">
 								<img src="../teacher_pics/fernanda.png" style="width:75%; margin-left:15%;">
 							</div>
-							<div class="col-md-10 teacher_description">
-								<div class="row">
+							<div class="col-md-4 teacher_description">
+								<div class="row teacher_name" data-toggle="tooltip" data-placement="top" title="Fernanda Lavalle &#013; fernanda@fenway.edu">
 									Ms. Fernanda Lavalle
 								</div>
-								<div class="row">
+								<div class="row teacher_school">
 									Fenway High School
 								</div>
 								<div class="row" style="float:left; color:gold;">

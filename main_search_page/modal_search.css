@@ -47,6 +47,14 @@ ul.dropdown-menu-form {
 .g {
 	margin-left: 15px;
 }
+.gp {
+	margin-left: 15px;
+}
+.gpa {
+	display: inline-block;
+	margin-right: 5px;
+	width: 90px;
+}
 .gender {
 	display: inline-block;
 	margin-right: 5px;
