@@ -532,6 +532,25 @@
 
 				setModalSize();
 
+				//favorites and toggles the heart button
+				$('button.btnAddToFavorites.btn.btn-default.glyphicon.glyphicon-heart').on('click', function(e) {
+					console.log("adding heart listener");
+					var thisBtn= e.target; 
+					var title= $(thisBtn).attr('id');
+					
+					//have to be able to get title
+					if (favorites_dict[title]==false){
+						$(thisBtn).css("background-color","red"); 
+						$(thisBtn).css("color","white");
+						favorites_dict[title]= true;  
+						console.log(favorites_dict); 
+					} else {
+						$(thisBtn).css("background-color","white"); 
+						$(thisBtn).css("color","black");
+						favorites_dict[title]=false; 
+					}
+					 
+				});
 				$("#amphibious_review").on("click", function(e) {
 					// should call search_program_name(name)
 					window.location.href = '../program_page/program_page.php?program=amphibious_achievement';
@@ -561,8 +580,18 @@
 					console.log(parameters_dict);
 					console.log("running makeSearchResultsList():");
 					console.log(makeSearchResultsList());
-					$('#results_container').html("");
-					$('#results_container').append(results_html(makeSearchResultsList()));
+					var results = makeSearchResultsList();
+
+					if (results.length != 0) {
+						$('#no_results_well').hide();
+						$('#results_container').html("");
+						$('#results_container').append(results_html(results));
+					}
+					else {
+						$('#results_container').html("");
+						$('#no_results_well').show();
+					}
+					
 					console.log("Finished updating the search results");
 				})
 				$(".race_checkbox").on("change", "input[type=checkbox]",function(e){
@@ -1244,10 +1273,10 @@
 			 <div id="results_wrapper">
 				<div class="row search_res">
 					<div class='col-md-1'></div>
-						<div style="background-color: white" class="well-sm search-well no_results">You have no search results </div>
-						<div id="results_container">
-						</div>
+						<div id="no_results_container" style="background-color: white" class="well-sm search-well no_results">You have no search results </div>
+						<div id="results_container"></div>
 				</div>
+
 				</div>
 		</div>		       
 		      <div class="modal-footer">   
