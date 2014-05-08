@@ -83,7 +83,7 @@
 				<td>
 					<div id="title_logo_stars">
 						<div id="program_logo_box"><img id="program_logo" src="../<?php echo $rows[1]['Program_Logo']; ?> "></div>
-						<div style="font-size:25pt; color:yellow; margin-left:8px;">
+						<div style="font-size:25pt; color:gold; margin-left:8px;">
 							<span height="250">&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
 						</div>
 					</div>
@@ -130,7 +130,7 @@
 							<div class="row">
 								John D. O'Bryant High School
 							</div>
-							<div class="row" style="float:left; color:yellow;">
+							<div class="row" style="float:left; color:gold;">
 								<span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
 							</div>
 						</div>					
@@ -151,7 +151,7 @@
 								<div class="row">
 									Fenway High School
 								</div>
-								<div class="row" style="float:left; color:yellow;">
+								<div class="row" style="float:left; color:gold;">
 									<span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
 								</div>
 							</div>					

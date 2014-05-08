@@ -77,7 +77,6 @@ span.hover-content span {
 	
 }
 
-
 .list-group-item:hover span.hover-content{
 	opacity:1 ; 
 }
@@ -87,9 +86,9 @@ span.hover-content span {
 }
 
 
-.list-group-item:hover {
+/**.list-group-item:hover {
 	background-color: #99cc99;
-}
+}**/
 
 
 //////////////////////////// RECENTLY REVIEWED PROGRAMS ////////////////////////////////

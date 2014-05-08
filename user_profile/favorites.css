@@ -1,0 +1,34 @@
+div.favorite_tile_image.row {
+	margin-left: 5%; 
+	position: absolute; 
+
+}
+
+div.favorite_tile_name.row { 
+	cursor: pointer;
+	text-align: center;
+	position: absolute;
+	bottom: 2%;
+	left: 25%;
+	
+}
+
+
+.favorite_hover_x {
+	opacity: 0; 
+	position: absolute; 
+	left: 0px; 
+	top: 0px; 
+}
+
+div.favorite_tile.thumbnail: hover .favorite_hover_x {
+	opacity: 1; 
+}
+
+div.favorite_tile.thumbnail {
+	position: relative; 
+	min-width: inherit;
+	min-height: inherit;
+	padding-bottom: 70%;
+	padding-top: 5%;
+}	

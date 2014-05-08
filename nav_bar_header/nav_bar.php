@@ -23,13 +23,12 @@
   <link type='text/css' rel='stylesheet' href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
   <script>
-		$(document).ready(function() {
+		<?php
+	        $json_array = json_encode($programs_array);
+	        echo "var program_names = ". $json_array . ";\n";
+		?>
 
-			//var program_names = ['Amphibious Achievement', 'Leadership Training Institute', 'SailFuture']; // this needs to be  gotten from the database of programs
-			<?php
-		        $json_array = json_encode($programs_array);
-		        echo "var program_names = ". $json_array . ";\n";
-			?>
+		$(document).ready(function() {
 
 			$("#search_by_program").on("keypress", function(e) {
 				if(e.which == 13){
@@ -91,7 +90,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul id="link_list" class="nav navbar-nav inline" style= "padding-right: 90px; color: #CCCCCC;">
           <li><a style= "color: #CCCCCC;" id= "home_link" href="../user_profile/user_profile.php">Home</a></li>
-          <li><a style= "color: #CCCCCC;"id= "about_link" href="#">About</a></li>
+          <li><a style= "color: #CCCCCC;"id= "about_link" href="../about_page/about_page.php">About</a></li>
         </ul>
       
 		<div class="page-header inline homehome">

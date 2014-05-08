@@ -1,20 +1,39 @@
+
+
+//dictionary to keep track of favorites
+var favorites_dict= []; 	
+var favorites_list={}; 
+
+function add_favorite(title, isFav) {
+	favorites_dict[title]= isFav; 
+	var website_result = {};
 	
+}
+
+var favorite_html= '<div class="col-md-3">'+     		
+						'<div class="favorite_tile thumbnail">'+
+							'<div class="favorite_tile_image row"></div>'+
+							'<div class="favorite_tile_name row"></div>'+
+							'<span class="favorite-hover-x glyphicon glyphicon-trash"></span> '+
+						'</div>'+
+					'</div>'; 
+					    
 var result_html = 	'<div class="row">'+
 						'<div class="col-md-3">'+
 							'<div class="logo_div"></div>'+
-							'<div style="font-size:25pt; margin-left:15%; color:yellow">'+
+							'<div style="font-size:15pt; margin-left:5%; color:gold; margin-top: -10%;">'+
 								'<span height="250">&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>'+
 							'</div>'+
 						'</div>'+
-						'<div class="col-md-8">'+
+						'<div class="col-md-7">'+
 							'<div class="row" style="height:100%;">'+
 								'<div class="title_div"></div>'+
 								'<div class="location_div"></div>'+
 								'<div class="description_div"></div>'+
 							'</div>'+										
 						'</div>'+
-						'<div class="col-md-1">'+
-							'<button type="button" class="btn btn-default btnAddToFavorites glyphicon glyphicon-heart"></button>'+
+						'<div class="col-md-1" style="padding-left:13%">'+
+							'<button type="button" class="btnAddToFavorites btn btn-default glyphicon glyphicon-heart"></button>'+
 						'</div>'+
 					'</div>'; 
 			
@@ -121,7 +140,7 @@ for(var i = 0; i < program_description.length; i++)
 }
 
 //updates the dictionary that keeps track of what programs are favorites
-function favorites_html(newList) {
+function results_html(newList) {
 	var outer_row = $('<div></div'); 	
 	var arrayLength = newList.length;
 	for (var i = 0; i < arrayLength; i++) {
@@ -129,7 +148,7 @@ function favorites_html(newList) {
 	  	//making inner_row	
 	   var inner_row= $('<div></div'); 
 	   inner_row.attr('class', 'thumbnail program'); 
-	   inner_row.attr('id', newList[i]); 
+	   inner_row.attr('id', newList[i]+'_container'); 
 	  
 	   //getting everything from the dictionaries
 	   var logo= logo_result[ newList[i]]; 
@@ -139,10 +158,12 @@ function favorites_html(newList) {
 	   
 	   
 	   inner_row.append(result_html); 
-	   
+
 	   //set title
 	   var titleDiv= inner_row.find(".title_div"); 
 	   var newTitle = $('<h3></h3>');
+	   newTitle.css('margin-top', '2%'); 
+	   newTitle.css('margin-bottom', '1%'); 
 	   newTitle.text(newList[i]); 
 	   titleDiv.append(newTitle); 
 	   
@@ -152,6 +173,8 @@ function favorites_html(newList) {
 	   newLogo.attr('class', 'result_img logo_div'); 
 	   newLogo.attr('id', newList[i]+'_logo'); 
 	   newLogo.attr('src', logo);  
+	   newLogo.css('padding-bottom', '20%'); 
+	   newLogo.css('padding-left', '15%'); 
 	   logoDiv.append(newLogo); 
 
 	   //set website
@@ -161,7 +184,7 @@ function favorites_html(newList) {
 	   
 	   //set description
 	   var descriptionDiv= inner_row.find('.description_div'); 
-	   var newDescription= $('<div></div>');
+	   var newDescription= $('<p></p>');
 	   newDescription.attr('id', newList[i]+'_description');
 	   newDescription.text(description); 
 	   newDescription.append(newWebsite);   
@@ -172,13 +195,82 @@ function favorites_html(newList) {
 	   var newLocation= $('<div id="'+newList[i]+'_location"></div>'); 
 	   newLocation.text(location);  
 	   locationDiv.append(newLocation); 
+	   
+	   //set button name
+	   var heartBtn= inner_row.find('.btnAddToFavorites'); 
+	   heartBtn.attr('id', newList[i]); 
 		
 		outer_row.append(inner_row); 
+		add_favorite(newList[i], false); 
 	  
 	}
 	
 	return outer_row;
 }
 
-console.log(favorites_html(['YMCA Cambridge', 'Amphibious Achievement', 'Leadership Training Institute'])); 
-$("#results_container").append(favorites_html(['YMCA Cambridge', 'Amphibious Achievement', 'Leadership Training Institute']));  
+//adds a favorite to the favorites bar
+function addFavorite(newFav) {
+
+	//getting everything from the dictionaries
+	var logo= logo_result[newFav]; 
+	var website=  website_result[newFav]; 
+	
+	var container= $('<div></div>'); 
+	container.attr('id', newFav+'_favTile'); 
+	container.append(favorite_html); 
+	
+	//add image
+	var imageDiv= container.find('.favorite_tile_image'); 
+	var newImage= $('<img>'); 
+	newImage.attr('id', newFav+'favImage'); 
+	newImage.attr('src', logo); 
+	imageDiv.append(newImage); 
+	
+	
+	//add name with link to website
+	var titleDiv= container.find('.favorite_tile_name'); 
+	var newTitleLink= $('<a style="color:#003366;"></a>'); 
+	var newTitle= $('<h4></h4>'); 
+	newTitle.text(newFav); 
+	newTitleLink.append(newTitle); 
+	titleDiv.append(newTitleLink); 
+	
+	return container; 
+
+}
+
+$(document).ready( function() {
+
+//deleting a favorite
+function deleteFavorite(oldFav) {
+
+	var toDelete = document.getElementById(oldFav+'_favTile');
+	toDelete.parentNode.removeChild(todDelete);
+
+}
+
+
+	//favorites and toggles the heart button
+	$('button.btnAddToFavorites.btn.btn-default.glyphicon.glyphicon-heart').on('click', function(e) {
+		var thisBtn= e.target; 
+		var title= $(thisBtn).attr('id');
+		console.log(favorites_dict);  
+		console.log(title);
+		
+		//have to be able to get title
+		if (favorites_dict[title]==false){
+			$(thisBtn).css("background-color","red"); 
+			$(thisBtn).css("color","white");
+			favorites_dict[title]= true;  
+			console.log(favorites_dict); 
+		} else {
+			$(thisBtn).css("background-color","white"); 
+			$(thisBtn).css("color","black");
+			favorites_dict[title]=false; 
+		}
+		 
+	}); 
+}); 
+
+//console.log(_html(['YMCA Cambridge', 'Amphibious Achievement', 'Leadership Training Institute'])); 
+//$("#results_container").append(search_html(['YMCA Cambridge', 'Amphibious Achievement', 'Leadership Training Institute']));  

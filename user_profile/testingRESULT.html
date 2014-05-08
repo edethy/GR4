@@ -4,17 +4,19 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script src="TESTING.js"></script>
+    <script src="searchResults.js"></script>
     <link type='text/css' rel='stylesheet' href="../main_search_page/search_list_results.css"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Teacher Profile</title>
+    <link type='text/css' rel='stylesheet' href="favorites.css"/>
+
     <link type='text/css' rel='stylesheet' href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
   </head>
   <body>
   <div id="results_container"></div>
     <script>
-  		console.log(favorites_html(['YMCA Cambridge', 'Amphibious Achievement', 'Leadership Training Institute']).html()); 
-  		$("#results_container").append(favorites_html(['YMCA Cambridge', 'Amphibious Achievement', 'Leadership Training Institute']));  
+  		//console.log(favorites_html(['YMCA Cambridge', 'Amphibious Achievement', 'Leadership Training Institute']).html()); 
+  		$("#results_container").append(addFavorite('YMCA Cambridge'));  
   	</script>
   </body>
 
