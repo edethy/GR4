@@ -144,3 +144,15 @@ ul.dropdown-menu-form {
 .no_results {
 	font-size: 1.2em;
 }
+
+.title_div {
+		width:200px;
+
+	word-wrap:break-word;
+}
+
+.description_div {
+		width:200px;
+
+	word-wrap:break-word;
+}

@@ -27,9 +27,9 @@ var result_html = 	'<div class="row">'+
 						'</div>'+
 						'<div class="col-md-7">'+
 							'<div class="row" style="height:100%;">'+
-								'<div class="title_div"></div>'+
+								'<div class="title_div" style="word-wrap:break-word;max-width:90%;"></div>'+
 								'<div class="location_div"></div>'+
-								'<div class="description_div"></div>'+
+								'<div class="description_div" style="word-wrap:break-word;max-width:90%;"></div>'+
 							'</div>'+										
 						'</div>'+
 						'<div style="padding-left:5%">'+
