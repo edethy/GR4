@@ -51,7 +51,7 @@
 .rating > span.selected:before, .rating > span.selected ~ span:before,
 .rating > span:hover:before, .rating > span:hover ~ span:before {
    content: "\2605";
-   color:yellow;
+   color:gold;
    position: absolute;
 }
 
@@ -71,7 +71,7 @@
 
 .comment_rating > span.selected:before, .comment_rating > span.selected ~ span:before {
 	content: "\2605";
-	color:yellow;
+	color:gold;
 	position: absolute;
 }
 .comment_rating {
